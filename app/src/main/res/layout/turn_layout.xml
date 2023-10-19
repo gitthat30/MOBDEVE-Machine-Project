@@ -1,0 +1,195 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/background">
+
+    <LinearLayout
+        android:layout_width="340dp"
+        android:layout_height="82dp"
+        android:background="@drawable/round_layout"
+        android:orientation="vertical"
+        tools:layout_editor_absoluteX="35dp"
+        tools:layout_editor_absoluteY="25dp">
+
+        <ImageView
+            android:id="@+id/imageView2"
+            android:layout_width="52dp"
+            android:layout_height="52dp"
+            android:layout_gravity="center"
+            android:layout_marginTop="5dp"
+            android:layout_weight="0"
+            android:src="@drawable/player3" />
+
+        <TextView
+            android:id="@+id/textView3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_weight="0"
+            android:text="Player X's Turn" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="335dp"
+        android:layout_height="54dp"
+        android:background="@drawable/round_layout"
+        android:orientation="vertical"
+        tools:layout_editor_absoluteX="38dp"
+        tools:layout_editor_absoluteY="124dp">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center|center_vertical"
+            android:layout_marginTop="2dp"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:id="@+id/imageView3"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:layout_gravity="center"
+                    android:src="@drawable/player_not_turn" />
+
+                <TextView
+                    android:id="@+id/textView4"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:text="name 1" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginLeft="20dp"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:id="@+id/imageView3"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:layout_gravity="center"
+                    android:src="@drawable/player1" />
+
+                <TextView
+                    android:id="@+id/textView4"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:text="name 2" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginLeft="20dp"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:id="@+id/imageView3"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:layout_gravity="center"
+                    android:src="@drawable/player_not_turn" />
+
+                <TextView
+                    android:id="@+id/textView4"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:text="name 3" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginLeft="20dp"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:id="@+id/imageView3"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:layout_gravity="center"
+                    android:src="@drawable/player_not_turn" />
+
+                <TextView
+                    android:id="@+id/textView4"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:text="name 4" />
+            </LinearLayout>
+        </LinearLayout>
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/button2"
+        android:layout_width="335dp"
+        android:layout_height="127dp"
+        android:background="@drawable/round_layout"
+        android:text="End Turn"
+        tools:layout_editor_absoluteX="40dp"
+        tools:layout_editor_absoluteY="191dp" />
+
+    <Button
+        android:id="@+id/button6"
+        android:layout_width="333dp"
+        android:layout_height="44dp"
+        android:background="@drawable/action_layout"
+        android:text="General Event"
+        tools:layout_editor_absoluteX="42dp"
+        tools:layout_editor_absoluteY="561dp" />
+
+    <Button
+        android:id="@+id/button8"
+        android:layout_width="333dp"
+        android:layout_height="44dp"
+        android:background="@drawable/end_layout"
+        android:text="End Turn"
+        tools:layout_editor_absoluteX="42dp"
+        tools:layout_editor_absoluteY="644dp" />
+
+    <Button
+        android:id="@+id/button4"
+        android:layout_width="333dp"
+        android:layout_height="44dp"
+        android:background="@drawable/action_layout"
+        android:text="Enter House"
+        tools:layout_editor_absoluteX="39dp"
+        tools:layout_editor_absoluteY="444dp" />
+
+    <Button
+        android:id="@+id/button3"
+        android:layout_width="333dp"
+        android:layout_height="44dp"
+        android:background="@drawable/cure_layout"
+        android:text="Cure a Player"
+        tools:layout_editor_absoluteX="39dp"
+        tools:layout_editor_absoluteY="371dp" />
+
+    <Button
+        android:id="@+id/button5"
+        android:layout_width="333dp"
+        android:layout_height="44dp"
+        android:background="@drawable/action_layout"
+        android:text="Survivor Event"
+        tools:layout_editor_absoluteX="40dp"
+        tools:layout_editor_absoluteY="500dp" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
