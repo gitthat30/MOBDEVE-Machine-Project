@@ -7,12 +7,19 @@
     android:background="@color/background">
 
     <LinearLayout
-        android:layout_width="340dp"
-        android:layout_height="82dp"
+        android:id="@+id/linearLayout6"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="35dp"
+        android:layout_marginTop="25dp"
+        android:layout_marginEnd="35dp"
+        android:layout_marginBottom="17dp"
         android:background="@drawable/round_layout"
         android:orientation="vertical"
-        tools:layout_editor_absoluteX="35dp"
-        tools:layout_editor_absoluteY="25dp">
+        app:layout_constraintBottom_toTopOf="@+id/linearLayout7"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
 
         <ImageView
             android:id="@+id/imageView2"
@@ -34,12 +41,18 @@
     </LinearLayout>
 
     <LinearLayout
-        android:layout_width="335dp"
-        android:layout_height="54dp"
+        android:id="@+id/linearLayout7"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="38dp"
+        android:layout_marginEnd="38dp"
+        android:layout_marginBottom="13dp"
         android:background="@drawable/round_layout"
         android:orientation="vertical"
-        tools:layout_editor_absoluteX="38dp"
-        tools:layout_editor_absoluteY="124dp">
+        app:layout_constraintBottom_toTopOf="@+id/button2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout6">
 
         <LinearLayout
             android:layout_width="wrap_content"
@@ -140,56 +153,86 @@
 
     <Button
         android:id="@+id/button2"
-        android:layout_width="335dp"
-        android:layout_height="127dp"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="36dp"
+        android:layout_marginEnd="36dp"
+        android:layout_marginBottom="53dp"
         android:background="@drawable/round_layout"
         android:text="End Turn"
-        tools:layout_editor_absoluteX="40dp"
-        tools:layout_editor_absoluteY="191dp" />
+        app:layout_constraintBottom_toTopOf="@+id/button3"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout7" />
 
     <Button
         android:id="@+id/button6"
-        android:layout_width="333dp"
-        android:layout_height="44dp"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="36dp"
+        android:layout_marginEnd="36dp"
+        android:layout_marginBottom="39dp"
         android:background="@drawable/action_layout"
         android:text="General Event"
-        tools:layout_editor_absoluteX="42dp"
-        tools:layout_editor_absoluteY="561dp" />
+        app:layout_constraintBottom_toTopOf="@+id/button8"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/button5" />
 
     <Button
         android:id="@+id/button8"
-        android:layout_width="333dp"
-        android:layout_height="44dp"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="36dp"
+        android:layout_marginEnd="36dp"
+        android:layout_marginBottom="43dp"
         android:background="@drawable/end_layout"
         android:text="End Turn"
-        tools:layout_editor_absoluteX="42dp"
-        tools:layout_editor_absoluteY="644dp" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/button6" />
 
     <Button
         android:id="@+id/button4"
-        android:layout_width="333dp"
-        android:layout_height="44dp"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="39dp"
+        android:layout_marginEnd="39dp"
+        android:layout_marginBottom="12dp"
         android:background="@drawable/action_layout"
         android:text="Enter House"
-        tools:layout_editor_absoluteX="39dp"
-        tools:layout_editor_absoluteY="444dp" />
+        app:layout_constraintBottom_toTopOf="@+id/button5"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/button3" />
 
     <Button
         android:id="@+id/button3"
-        android:layout_width="333dp"
-        android:layout_height="44dp"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="39dp"
+        android:layout_marginEnd="39dp"
+        android:layout_marginBottom="29dp"
         android:background="@drawable/cure_layout"
         android:text="Cure a Player"
-        tools:layout_editor_absoluteX="39dp"
-        tools:layout_editor_absoluteY="371dp" />
+        app:layout_constraintBottom_toTopOf="@+id/button4"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/button2" />
 
     <Button
         android:id="@+id/button5"
-        android:layout_width="333dp"
-        android:layout_height="44dp"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="38dp"
+        android:layout_marginEnd="38dp"
+        android:layout_marginBottom="17dp"
         android:background="@drawable/action_layout"
         android:text="Survivor Event"
-        tools:layout_editor_absoluteX="40dp"
-        tools:layout_editor_absoluteY="500dp" />
+        app:layout_constraintBottom_toTopOf="@+id/button6"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/button4" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
