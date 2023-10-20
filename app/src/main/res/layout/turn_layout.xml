@@ -49,7 +49,7 @@
         android:layout_marginBottom="13dp"
         android:background="@drawable/round_layout"
         android:orientation="vertical"
-        app:layout_constraintBottom_toTopOf="@+id/button2"
+        app:layout_constraintBottom_toTopOf="@+id/btnRollDice"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/linearLayout6">
@@ -152,7 +152,7 @@
     </LinearLayout>
 
     <Button
-        android:id="@+id/button2"
+        android:id="@+id/btnRollDice"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_marginStart="36dp"
@@ -174,13 +174,13 @@
         android:layout_marginBottom="39dp"
         android:background="@drawable/action_layout"
         android:text="General Event"
-        app:layout_constraintBottom_toTopOf="@+id/button8"
+        app:layout_constraintBottom_toTopOf="@+id/btnEndTurn"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/button5" />
+        app:layout_constraintTop_toBottomOf="@+id/btnRandomEvent" />
 
     <Button
-        android:id="@+id/button8"
+        android:id="@+id/btnEndTurn"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_marginStart="36dp"
@@ -194,7 +194,7 @@
         app:layout_constraintTop_toBottomOf="@+id/button6" />
 
     <Button
-        android:id="@+id/button4"
+        android:id="@+id/btnEnterHouse"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_marginStart="39dp"
@@ -202,7 +202,7 @@
         android:layout_marginBottom="12dp"
         android:background="@drawable/action_layout"
         android:text="Enter House"
-        app:layout_constraintBottom_toTopOf="@+id/button5"
+        app:layout_constraintBottom_toTopOf="@+id/btnRandomEvent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/button3" />
@@ -216,13 +216,13 @@
         android:layout_marginBottom="29dp"
         android:background="@drawable/cure_layout"
         android:text="Cure a Player"
-        app:layout_constraintBottom_toTopOf="@+id/button4"
+        app:layout_constraintBottom_toTopOf="@+id/btnEnterHouse"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/button2" />
+        app:layout_constraintTop_toBottomOf="@+id/btnRollDice" />
 
     <Button
-        android:id="@+id/button5"
+        android:id="@+id/btnRandomEvent"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_marginStart="38dp"
@@ -233,6 +233,6 @@
         app:layout_constraintBottom_toTopOf="@+id/button6"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/button4" />
+        app:layout_constraintTop_toBottomOf="@+id/btnEnterHouse" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

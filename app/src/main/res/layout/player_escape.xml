@@ -41,18 +41,4 @@
 
     </LinearLayout>
 
-    <Button
-        android:id="@+id/button7"
-        android:layout_width="330dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="42dp"
-        android:background="@drawable/end_layout"
-        android:fontFamily="@font/rowdies"
-        android:text="Back to Game"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.493"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/linearLayout11"
-        app:layout_constraintVertical_bias="0.101" />
 </androidx.constraintlayout.widget.ConstraintLayout>

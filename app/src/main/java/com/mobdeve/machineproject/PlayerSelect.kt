@@ -3,9 +3,7 @@ package com.mobdeve.machineproject
 import android.content.Intent
 import android.os.Bundle
 import android.widget.Button
-import android.widget.ImageButton
 import androidx.activity.ComponentActivity
-import com.mobdeve.machineproject.R
 
 class PlayerSelect : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {

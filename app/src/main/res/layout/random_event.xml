@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/background">
+    android:background="#000">
 
     <LinearLayout
         android:id="@+id/linearLayout11"
@@ -26,7 +26,7 @@
             android:layout_gravity="center"
             android:layout_marginTop="40dp"
             android:fontFamily="@font/inter"
-            android:text="Name of Survivor Event"
+            android:text="Name of Random Event"
             android:textColor="#FFFFFF"
             android:textSize="20sp"
             android:textStyle="bold" />
@@ -45,19 +45,4 @@
             android:textColor="#FFFFFF"
             android:textSize="15sp" />
     </LinearLayout>
-
-    <Button
-        android:id="@+id/button7"
-        android:layout_width="330dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="42dp"
-        android:background="@drawable/end_layout"
-        android:fontFamily="@font/rowdies"
-        android:text="Back to Game"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.493"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/linearLayout11"
-        app:layout_constraintVertical_bias="0.101" />
 </androidx.constraintlayout.widget.ConstraintLayout>

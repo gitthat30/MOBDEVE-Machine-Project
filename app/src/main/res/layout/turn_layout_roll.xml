@@ -9,7 +9,7 @@
     <LinearLayout
         android:id="@+id/linearLayout6"
         android:layout_width="0dp"
-        android:layout_height="0dp"
+        android:layout_height="90dp"
         android:layout_marginStart="35dp"
         android:layout_marginTop="25dp"
         android:layout_marginEnd="35dp"
@@ -46,26 +46,24 @@
         android:layout_height="0dp"
         android:layout_marginStart="38dp"
         android:layout_marginEnd="38dp"
-        android:layout_marginBottom="13dp"
+        android:layout_marginBottom="23dp"
         android:background="@drawable/round_layout"
         android:orientation="vertical"
-        app:layout_constraintBottom_toTopOf="@+id/button2"
+        app:layout_constraintBottom_toTopOf="@+id/btnRollDice"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/linearLayout6">
 
         <LinearLayout
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center|center_vertical"
-            android:layout_marginTop="2dp"
-            android:gravity="center"
+            android:layout_height="match_parent"
+            android:layout_gravity="center_horizontal"
             android:orientation="horizontal">
 
             <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center"
+                android:layout_gravity="center|center_vertical"
                 android:orientation="vertical">
 
                 <ImageView
@@ -86,7 +84,7 @@
             <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center"
+                android:layout_gravity="center|center_vertical"
                 android:layout_marginLeft="20dp"
                 android:orientation="vertical">
 
@@ -108,7 +106,7 @@
             <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center"
+                android:layout_gravity="center|center_vertical"
                 android:layout_marginLeft="20dp"
                 android:orientation="vertical">
 
@@ -130,7 +128,7 @@
             <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center"
+                android:layout_gravity="center|center_vertical"
                 android:layout_marginLeft="20dp"
                 android:orientation="vertical">
 
@@ -152,36 +150,24 @@
     </LinearLayout>
 
     <Button
-        android:id="@+id/button2"
+        android:id="@+id/btnRollDice"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:layout_marginStart="36dp"
-        android:layout_marginEnd="36dp"
-        android:layout_marginBottom="53dp"
+        android:layout_marginStart="34dp"
+        android:layout_marginEnd="34dp"
+        android:layout_marginBottom="108dp"
         android:background="@drawable/round_layout"
         android:text="Roll Dice"
         android:textColor="#8B2E8F"
-        app:layout_constraintBottom_toTopOf="@+id/button3"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/btnEnterHouse"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/linearLayout7" />
 
     <Button
-        android:id="@+id/button6"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:layout_marginStart="36dp"
-        android:layout_marginEnd="36dp"
-        android:layout_marginBottom="39dp"
-        android:background="@drawable/action_layout"
-        android:text="General Event"
-        app:layout_constraintBottom_toTopOf="@+id/button8"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/button5" />
-
-    <Button
-        android:id="@+id/button8"
+        android:id="@+id/btnEndTurn"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_marginStart="36dp"
@@ -192,48 +178,34 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/button6" />
+        app:layout_constraintTop_toBottomOf="@+id/btnRandomEvent" />
 
     <Button
-        android:id="@+id/button4"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:layout_marginStart="39dp"
-        android:layout_marginEnd="39dp"
-        android:layout_marginBottom="12dp"
-        android:background="@drawable/action_layout"
-        android:text="Enter House"
-        app:layout_constraintBottom_toTopOf="@+id/button5"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/button3" />
-
-    <Button
-        android:id="@+id/button3"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:layout_marginStart="39dp"
-        android:layout_marginEnd="39dp"
-        android:layout_marginBottom="29dp"
-        android:background="@drawable/cure_layout"
-        android:text="Cure a Player"
-        app:layout_constraintBottom_toTopOf="@+id/button4"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/button2" />
-
-    <Button
-        android:id="@+id/button5"
+        android:id="@+id/btnEnterHouse"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_marginStart="38dp"
         android:layout_marginEnd="38dp"
-        android:layout_marginBottom="17dp"
+        android:layout_marginBottom="12dp"
         android:background="@drawable/action_layout"
-        android:text="Survivor Event"
-        app:layout_constraintBottom_toTopOf="@+id/button6"
+        android:text="Enter House"
+        app:layout_constraintBottom_toTopOf="@+id/btnRandomEvent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/button4" />
+        app:layout_constraintTop_toBottomOf="@+id/btnRollDice" />
+
+    <Button
+        android:id="@+id/btnRandomEvent"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="38dp"
+        android:layout_marginEnd="38dp"
+        android:layout_marginBottom="113dp"
+        android:background="@drawable/action_layout"
+        android:text="Random Event"
+        app:layout_constraintBottom_toTopOf="@+id/btnEndTurn"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnEnterHouse" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

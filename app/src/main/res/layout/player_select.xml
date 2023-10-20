@@ -39,7 +39,7 @@
             android:layout_gravity="center_vertical"
             android:layout_marginLeft="10dp"
             android:layout_weight="0"
-            android:text="Player 1"
+            android:text="Viral"
             android:textColor="#000000" />
     </LinearLayout>
 
@@ -75,7 +75,7 @@
             android:layout_gravity="center_vertical"
             android:layout_marginLeft="10dp"
             android:layout_weight="0"
-            android:text="Player 4"
+            android:text="Survivor 3"
             android:textColor="#000000" />
     </LinearLayout>
 
@@ -110,7 +110,7 @@
             android:layout_gravity="center_vertical"
             android:layout_marginLeft="10dp"
             android:layout_weight="0"
-            android:text="Player 3"
+            android:text="Survivor 2"
             android:textColor="#000000" />
     </LinearLayout>
 
@@ -146,7 +146,7 @@
             android:layout_gravity="center_vertical"
             android:layout_marginLeft="10dp"
             android:layout_weight="0"
-            android:text="Player 2"
+            android:text="Survivor 1"
             android:textColor="#000000" />
     </LinearLayout>
 
