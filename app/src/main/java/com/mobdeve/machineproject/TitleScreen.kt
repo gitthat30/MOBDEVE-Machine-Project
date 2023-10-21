@@ -11,13 +11,21 @@ class TitleScreen : ComponentActivity() {
             setContentView(R.layout.title_screen)
             val newGameButton = findViewById<ImageButton>(R.id.btnNewGame)
             newGameButton.setOnClickListener {
+                newGameButton.isClickable = false
                 val intent = Intent(this, PlayerSelect::class.java)
                 startActivity(intent)
+                newGameButton.postDelayed({
+                    newGameButton.isClickable = true
+                }, 1000)
             }
             val continueButton = findViewById<ImageButton>(R.id.btnContinue)
             continueButton.setOnClickListener {
+                continueButton.isClickable = false
                 val intent = Intent(this, MainGame::class.java)
                 startActivity(intent)
+                continueButton.postDelayed({
+                    continueButton.isClickable = true
+                }, 1000)
             }
         }
     }
