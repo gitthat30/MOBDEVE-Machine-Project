@@ -210,14 +210,14 @@
 
     </LinearLayout>
 
-    <Button
+    <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/btn_house_confirm"
         android:layout_width="225dp"
         android:layout_height="48dp"
         android:layout_gravity="center"
         android:layout_marginTop="60dp"
         android:layout_weight="0"
-        android:background="@drawable/cure_layout"
+        android:background="@drawable/action_layout_unclickable"
         android:fontFamily="@font/rowdies"
         android:text="Confirm"
         android:textColor="@color/purple"
