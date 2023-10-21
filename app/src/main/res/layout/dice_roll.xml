@@ -2,29 +2,18 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/dice_num_txt"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/background"
     android:padding="10dp">
 
 
-    <TextView
-        android:id="@+id/textView6"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="236dp"
-        android:text="Shake your device or tap above to roll the dice."
-        android:textColor="@color/grey"
-        android:textStyle="italic"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
-
     <Button
         android:id="@+id/back_to_turn_layout"
         android:layout_width="225dp"
         android:layout_height="48dp"
-        android:layout_marginBottom="113dp"
+        android:layout_marginBottom="152dp"
         android:background="@drawable/end_layout"
         android:fontFamily="@font/rowdies"
         android:paddingLeft="10dp"
@@ -37,15 +26,54 @@
         app:layout_constraintStart_toStartOf="parent" />
 
     <pl.droidsonroids.gif.GifImageView
+        android:id="@+id/dice_gif"
         android:layout_width="350dp"
-        android:layout_height="400dp"
 
-        android:layout_marginBottom="56dp"
-        android:background="@drawable/dice"
-        app:layout_constraintBottom_toTopOf="@+id/textView6"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="116dp"
+        android:background="@drawable/dice1"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.495"
+        app:layout_constraintHorizontal_bias="0.491"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="1.0" />
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="37dp"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toTopOf="@+id/back_to_turn_layout"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/dice_gif">
+
+        <ImageButton
+            android:id="@+id/minus_btn"
+            android:layout_width="64dp"
+            android:layout_height="64dp"
+            android:layout_weight="0"
+            android:background="#00FFFFFF"
+            android:scaleType="fitXY"
+            android:src="@drawable/minus" />
+
+        <TextView
+            android:id="@+id/dice_count_txt"
+            android:layout_width="35dp"
+            android:layout_height="64dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:text="1"
+            android:textColor="#FFFFFF"
+            android:textSize="50sp" />
+
+        <ImageButton
+            android:id="@+id/plus_btn"
+            android:layout_width="64dp"
+            android:layout_height="64dp"
+            android:layout_weight="0"
+            android:background="#00FFFFFF"
+            android:scaleType="fitXY"
+            android:src="@drawable/add" />
+
+    </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -13,10 +13,10 @@
         android:orientation="vertical"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintHorizontal_bias="0.496"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.347">
+        app:layout_constraintVertical_bias="0.204">
 
         <LinearLayout
             android:layout_width="wrap_content"
@@ -26,16 +26,16 @@
 
             <ImageButton
                 android:id="@+id/btn_house_1"
-                android:layout_width="64dp"
-                android:layout_height="64dp"
+                android:layout_width="80dp"
+                android:layout_height="80dp"
                 android:layout_weight="0"
                 android:scaleType="fitXY"
                 android:src="@drawable/house1" />
 
             <ImageButton
                 android:id="@+id/btn_house_2"
-                android:layout_width="64dp"
-                android:layout_height="64dp"
+                android:layout_width="80dp"
+                android:layout_height="80dp"
                 android:layout_marginLeft="16dp"
                 android:layout_weight="0"
                 android:scaleType="fitXY"
@@ -43,8 +43,8 @@
 
             <ImageButton
                 android:id="@+id/btn_house_3"
-                android:layout_width="64dp"
-                android:layout_height="64dp"
+                android:layout_width="80dp"
+                android:layout_height="80dp"
                 android:layout_marginLeft="16dp"
                 android:layout_weight="0"
                 android:scaleType="fitXY"
@@ -59,16 +59,16 @@
 
             <ImageButton
                 android:id="@+id/btn_house_4"
-                android:layout_width="64dp"
-                android:layout_height="64dp"
+                android:layout_width="80dp"
+                android:layout_height="80dp"
                 android:layout_weight="0"
                 android:scaleType="fitXY"
                 android:src="@drawable/house4" />
 
             <ImageButton
                 android:id="@+id/btn_house_5"
-                android:layout_width="64dp"
-                android:layout_height="64dp"
+                android:layout_width="80dp"
+                android:layout_height="80dp"
                 android:layout_marginLeft="16dp"
                 android:layout_weight="0"
                 android:scaleType="fitXY"
@@ -76,8 +76,8 @@
 
             <ImageButton
                 android:id="@+id/btn_house_6"
-                android:layout_width="64dp"
-                android:layout_height="64dp"
+                android:layout_width="80dp"
+                android:layout_height="80dp"
                 android:layout_marginLeft="16dp"
                 android:layout_weight="0"
                 android:scaleType="fitXY"
@@ -92,16 +92,16 @@
 
             <ImageButton
                 android:id="@+id/btn_house_7"
-                android:layout_width="64dp"
-                android:layout_height="64dp"
+                android:layout_width="80dp"
+                android:layout_height="80dp"
                 android:layout_weight="0"
                 android:scaleType="fitXY"
                 android:src="@drawable/house7" />
 
             <ImageButton
                 android:id="@+id/btn_house_8"
-                android:layout_width="64dp"
-                android:layout_height="64dp"
+                android:layout_width="80dp"
+                android:layout_height="80dp"
                 android:layout_marginLeft="16dp"
                 android:layout_weight="0"
                 android:scaleType="fitXY"
@@ -109,8 +109,8 @@
 
             <ImageButton
                 android:id="@+id/btn_house_9"
-                android:layout_width="64dp"
-                android:layout_height="64dp"
+                android:layout_width="80dp"
+                android:layout_height="80dp"
                 android:layout_marginLeft="16dp"
                 android:layout_weight="0"
                 android:scaleType="fitXY"
@@ -125,16 +125,16 @@
 
             <ImageButton
                 android:id="@+id/btn_house_10"
-                android:layout_width="64dp"
-                android:layout_height="64dp"
+                android:layout_width="80dp"
+                android:layout_height="80dp"
                 android:layout_weight="0"
                 android:scaleType="fitXY"
                 android:src="@drawable/house10" />
 
             <ImageButton
                 android:id="@+id/btn_house_11"
-                android:layout_width="64dp"
-                android:layout_height="64dp"
+                android:layout_width="80dp"
+                android:layout_height="80dp"
                 android:layout_marginLeft="16dp"
                 android:layout_weight="0"
                 android:scaleType="fitXY"
@@ -142,8 +142,8 @@
 
             <ImageButton
                 android:id="@+id/btn_house_12"
-                android:layout_width="64dp"
-                android:layout_height="64dp"
+                android:layout_width="80dp"
+                android:layout_height="80dp"
                 android:layout_marginLeft="16dp"
                 android:layout_weight="0"
                 android:scaleType="fitXY"
@@ -158,16 +158,16 @@
 
             <ImageButton
                 android:id="@+id/btn_house_13"
-                android:layout_width="64dp"
-                android:layout_height="64dp"
+                android:layout_width="80dp"
+                android:layout_height="80dp"
                 android:layout_weight="0"
                 android:scaleType="fitXY"
                 android:src="@drawable/house13" />
 
             <ImageButton
                 android:id="@+id/btn_house_14"
-                android:layout_width="64dp"
-                android:layout_height="64dp"
+                android:layout_width="80dp"
+                android:layout_height="80dp"
                 android:layout_marginLeft="16dp"
                 android:layout_weight="0"
                 android:scaleType="fitXY"
@@ -175,8 +175,8 @@
 
             <ImageButton
                 android:id="@+id/btn_house_15"
-                android:layout_width="64dp"
-                android:layout_height="64dp"
+                android:layout_width="80dp"
+                android:layout_height="80dp"
                 android:layout_marginLeft="16dp"
                 android:layout_weight="0"
                 android:scaleType="fitXY"
@@ -191,16 +191,16 @@
 
             <ImageButton
                 android:id="@+id/btn_house_16"
-                android:layout_width="64dp"
-                android:layout_height="64dp"
+                android:layout_width="80dp"
+                android:layout_height="80dp"
                 android:layout_weight="0"
                 android:scaleType="fitXY"
                 android:src="@drawable/house16" />
 
             <ImageButton
                 android:id="@+id/btn_house_17"
-                android:layout_width="64dp"
-                android:layout_height="64dp"
+                android:layout_width="80dp"
+                android:layout_height="80dp"
                 android:layout_marginLeft="16dp"
                 android:layout_weight="0"
                 android:scaleType="fitXY"
