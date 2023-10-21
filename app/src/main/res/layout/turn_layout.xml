@@ -151,7 +151,7 @@
         </LinearLayout>
     </LinearLayout>
 
-    <Button
+    <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/btnRollDice"
         android:layout_width="0dp"
         android:layout_height="126.24dp"
@@ -168,63 +168,47 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/linearLayout7" />
 
-    <Button
-        android:id="@+id/btnEscape"
-        android:layout_width="339dp"
-        android:layout_height="48dp"
-        android:layout_marginBottom="68dp"
-        android:background="@drawable/end_layout"
-        android:fontFamily="@font/rowdies"
-        android:text="ESCAPE"
-        android:textColor="@color/purple"
-        android:textSize="22sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.472"
-        app:layout_constraintStart_toStartOf="parent" />
-
-    <Button
+    <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/btnEnterHouse"
         android:layout_width="335dp"
         android:layout_height="48dp"
+        android:layout_marginTop="80dp"
         android:background="@drawable/action_layout"
         android:fontFamily="@font/rowdies"
         android:text="Enter House"
         android:textColor="#FFFFFF"
         android:textSize="16sp"
-        app:layout_constraintBottom_toTopOf="@+id/btnRandomEvent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btnRollDice"
-        app:layout_constraintVertical_bias="0.851" />
+        app:layout_constraintTop_toBottomOf="@+id/btnRollDice" />
 
-    <Button
+    <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/btnRandomEvent"
         android:layout_width="335dp"
         android:layout_height="48dp"
-        android:layout_marginBottom="13dp"
+        android:layout_marginTop="21dp"
         android:background="@drawable/action_layout"
         android:fontFamily="@font/rowdies"
         android:text="Random Event"
         android:textColor="#FFFFFF"
         android:textSize="16sp"
-        app:layout_constraintBottom_toTopOf="@+id/btnEndTurn"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnEnterHouse" />
 
-    <Button
+    <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/btnEndTurn"
         android:layout_width="335dp"
         android:layout_height="48dp"
-        android:layout_marginBottom="48dp"
+        android:layout_marginTop="20dp"
         android:background="@drawable/action_layout"
         android:fontFamily="@font/rowdies"
         android:text="End Turn"
         android:textColor="#FFFFFF"
         android:textSize="16sp"
-        app:layout_constraintBottom_toTopOf="@+id/btnEscape"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnRandomEvent" />
 
     <ImageView
         android:id="@+id/imgDice1"
@@ -232,20 +216,34 @@
         android:layout_height="50dp"
         android:layout_marginStart="20dp"
         android:elevation="5dp"
+        android:src="@drawable/dicestatic"
         app:layout_constraintBottom_toBottomOf="@+id/btnRollDice"
         app:layout_constraintStart_toStartOf="@+id/btnRollDice"
-        app:layout_constraintTop_toTopOf="@+id/btnRollDice"
-        android:src="@drawable/dicestatic" />
+        app:layout_constraintTop_toTopOf="@+id/btnRollDice" />
 
-    <ImageView
+    <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/imgDice2"
         android:layout_width="50dp"
         android:layout_height="50dp"
         android:layout_marginEnd="20dp"
         android:elevation="5dp"
+        android:src="@drawable/dicestatic"
         app:layout_constraintBottom_toBottomOf="@+id/btnRollDice"
         app:layout_constraintEnd_toEndOf="@+id/btnRollDice"
-        app:layout_constraintTop_toTopOf="@+id/btnRollDice"
-        android:src="@drawable/dicestatic" />
+        app:layout_constraintTop_toTopOf="@+id/btnRollDice" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btnEscape"
+        android:layout_width="wrap_content"
+        android:layout_height="40dp"
+        android:background="@drawable/escape_layout"
+        android:fontFamily="@font/rowdies"
+        android:text="ESCAPE"
+        android:textColor="#FFFFFF"
+        android:textSize="12sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnEndTurn" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
