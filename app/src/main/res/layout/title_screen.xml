@@ -54,6 +54,7 @@
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:gravity="clip_horizontal|center"
         android:orientation="vertical"
         app:layout_constraintBottom_toTopOf="@+id/title_blob_bottom"
         app:layout_constraintEnd_toEndOf="parent"
@@ -64,33 +65,36 @@
 
         <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/btnNewGame"
-            android:layout_width="140dp"
-            android:layout_height="30dp"
+            android:layout_width="220dp"
+            android:layout_height="42dp"
             android:background="@drawable/start_layout"
             android:fontFamily="@font/rowdies"
             android:text="New Game"
             android:textColor="@color/purple"
+            android:textSize="22sp"
             tools:ignore="SpeakableTextPresentCheck" />
 
         <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/btnContinue"
-            android:layout_width="140dp"
-            android:layout_height="30dp"
-            android:layout_marginTop="10dp"
+            android:layout_width="220dp"
+            android:layout_height="42dp"
+            android:layout_marginTop="15dp"
             android:background="@drawable/start_layout"
             android:fontFamily="@font/rowdies"
             android:text="CONTINUE"
-            android:textColor="@color/purple" />
+            android:textColor="@color/purple"
+            android:textSize="22sp" />
 
         <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/btnPlayerStats"
-            android:layout_width="140dp"
-            android:layout_height="30dp"
-            android:layout_marginTop="8dp"
+            android:layout_width="220dp"
+            android:layout_height="42dp"
+            android:layout_marginTop="15dp"
             android:background="@drawable/start_layout"
             android:fontFamily="@font/rowdies"
             android:text="PLAYER STATS"
-            android:textColor="@color/purple" />
+            android:textColor="@color/purple"
+            android:textSize="22sp" />
     </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
