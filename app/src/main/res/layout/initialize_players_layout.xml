@@ -30,7 +30,7 @@
             android:layout_marginLeft="15dp"
             android:layout_weight="0"
             android:background="#007A1818"
-            android:src="@drawable/player1" />
+            android:src="@drawable/viral2" />
 
         <TextView
             android:id="@+id/txtPlayer1"
@@ -66,7 +66,7 @@
             android:layout_marginLeft="15dp"
             android:layout_weight="0"
             android:background="#007A1818"
-            android:src="@drawable/player4" />
+            android:src="@drawable/survivor3" />
 
         <TextView
             android:id="@+id/txtPlayer4"
@@ -101,7 +101,7 @@
             android:layout_marginLeft="15dp"
             android:layout_weight="0"
             android:background="#007A1818"
-            android:src="@drawable/player3" />
+            android:src="@drawable/survivor2" />
 
         <TextView
             android:id="@+id/txtPlayer3"
@@ -137,7 +137,7 @@
             android:layout_marginLeft="15dp"
             android:layout_weight="0"
             android:background="#007A1818"
-            android:src="@drawable/player2" />
+            android:src="@drawable/survivor1" />
 
         <TextView
             android:id="@+id/txtPlayer2"

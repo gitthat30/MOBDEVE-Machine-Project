@@ -20,7 +20,7 @@
         app:layout_constraintTop_toTopOf="parent">
 
         <ImageView
-            android:id="@+id/imageView2"
+            android:id="@+id/imgCurrentPlayerIcon"
             android:layout_width="52dp"
             android:layout_height="52dp"
             android:layout_gravity="center"
@@ -29,7 +29,7 @@
             android:src="@drawable/player3" />
 
         <TextView
-            android:id="@+id/textView3"
+            android:id="@+id/txtCurrentPlayer"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
@@ -66,14 +66,14 @@
                 android:orientation="vertical">
 
                 <ImageView
-                    android:id="@+id/turnsPlayer1_img"
+                    android:id="@+id/imgPlayer1"
                     android:layout_width="30dp"
                     android:layout_height="30dp"
                     android:layout_gravity="center"
                     android:src="@drawable/player_not_turn" />
 
                 <TextView
-                    android:id="@+id/textView4"
+                    android:id="@+id/txtPlayer1"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
@@ -88,14 +88,14 @@
                 android:orientation="vertical">
 
                 <ImageView
-                    android:id="@+id/turnsPlayer1_img"
+                    android:id="@+id/imgPlayer2"
                     android:layout_width="30dp"
                     android:layout_height="30dp"
                     android:layout_gravity="center"
                     android:src="@drawable/player1" />
 
                 <TextView
-                    android:id="@+id/textView4"
+                    android:id="@+id/txtPlayer2"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
@@ -110,14 +110,14 @@
                 android:orientation="vertical">
 
                 <ImageView
-                    android:id="@+id/turnsPlayer1_img"
+                    android:id="@+id/imgPlayer3"
                     android:layout_width="30dp"
                     android:layout_height="30dp"
                     android:layout_gravity="center"
                     android:src="@drawable/player_not_turn" />
 
                 <TextView
-                    android:id="@+id/textView4"
+                    android:id="@+id/txtPlayer3"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"

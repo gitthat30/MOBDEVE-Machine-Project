@@ -26,7 +26,7 @@
             android:layout_gravity="center"
             android:layout_marginTop="5dp"
             android:layout_weight="0"
-            android:src="@drawable/player3" />
+            android:src="@drawable/survivor1" />
 
         <TextView
             android:id="@+id/textView3"
@@ -72,7 +72,7 @@
                     android:layout_width="30dp"
                     android:layout_height="30dp"
                     android:layout_gravity="center"
-                    android:src="@drawable/player_not_turn"
+                    android:src="@drawable/survivor1"
                     tools:ignore="DuplicateIds" />
 
                 <TextView
@@ -95,7 +95,7 @@
                     android:layout_width="30dp"
                     android:layout_height="30dp"
                     android:layout_gravity="center"
-                    android:src="@drawable/player1" />
+                    android:src="@drawable/survivor2" />
 
                 <TextView
                     android:id="@+id/textView4"
@@ -117,7 +117,7 @@
                     android:layout_width="30dp"
                     android:layout_height="30dp"
                     android:layout_gravity="center"
-                    android:src="@drawable/player_not_turn" />
+                    android:src="@drawable/survivor3" />
 
                 <TextView
                     android:id="@+id/textView4"
@@ -139,7 +139,7 @@
                     android:layout_width="30dp"
                     android:layout_height="30dp"
                     android:layout_gravity="center"
-                    android:src="@drawable/player_not_turn" />
+                    android:src="@drawable/viral2" />
 
                 <TextView
                     android:id="@+id/textView4"
