@@ -9,7 +9,7 @@
     android:padding="10dp">
 
 
-    <Button
+    <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/back_to_turn_layout"
         android:layout_width="225dp"
         android:layout_height="48dp"
@@ -30,22 +30,25 @@
         android:layout_width="350dp"
 
         android:layout_height="wrap_content"
-        android:layout_marginTop="116dp"
         android:background="@drawable/dice1"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.491"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.281" />
 
     <LinearLayout
+        android:id="@+id/linearLayout2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="37dp"
+        android:layout_marginBottom="61dp"
         android:orientation="horizontal"
         app:layout_constraintBottom_toTopOf="@+id/back_to_turn_layout"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/dice_gif">
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0">
 
         <ImageButton
             android:id="@+id/minus_btn"
