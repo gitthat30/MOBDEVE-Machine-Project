@@ -196,23 +196,23 @@
         android:text="Random Event"
         android:textColor="#FFFFFF"
         android:textSize="16sp"
-        app:layout_constraintBottom_toTopOf="@+id/btnEscape"
+        app:layout_constraintBottom_toTopOf="@+id/btnEndTurn"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 
     <Button
-        android:id="@+id/btnEscape"
+        android:id="@+id/btnEndTurn"
         android:layout_width="0dp"
         android:layout_height="48dp"
         android:layout_marginStart="36dp"
         android:layout_marginEnd="36dp"
-        android:layout_marginBottom="100dp"
+        android:layout_marginBottom="40dp"
         android:background="@drawable/end_layout"
         android:fontFamily="@font/rowdies"
-        android:text="ESCAPE"
+        android:text="END TURN"
         android:textColor="@color/purple"
         android:textSize="22sp"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/btnEscape"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent" />
@@ -238,5 +238,19 @@
         app:layout_constraintEnd_toEndOf="@+id/btnRollDice"
         app:layout_constraintTop_toTopOf="@+id/btnRollDice"
         android:src="@drawable/dicestatic" />
+
+    <Button
+        android:id="@+id/btnEscape"
+        android:layout_width="wrap_content"
+        android:layout_height="40dp"
+        android:layout_marginBottom="40dp"
+        android:background="@drawable/escape_layout"
+        android:fontFamily="@font/rowdies"
+        android:text="ESCAPE"
+        android:textColor="#FFFFFF"
+        android:textSize="12sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
