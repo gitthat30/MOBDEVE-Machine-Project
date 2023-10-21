@@ -70,12 +70,12 @@
                 android:layout_marginTop="8dp"
                 android:layout_marginEnd="8dp"
                 android:layout_weight="1"
-                android:background="#00FFFFFF"
+                android:background="#0026CDD3"
                 android:elevation="10dp"
                 android:scaleType="fitXY"
                 app:layout_constraintEnd_toEndOf="@+id/playerStat1_bubble"
                 app:layout_constraintTop_toTopOf="@+id/playerStat1_bubble"
-                app:srcCompat="@drawable/delete" />
+                android:src="@drawable/delete" />
 
             <LinearLayout
                 android:id="@+id/playerStat1_bubble_info"
@@ -149,9 +149,9 @@
                 android:background="#00FFFFFF"
                 android:elevation="10dp"
                 android:scaleType="fitXY"
-                app:layout_constraintEnd_toEndOf="@+id/playerBubble1"
-                app:layout_constraintTop_toTopOf="@+id/playerBubble1"
-                app:srcCompat="@drawable/delete" />
+                app:layout_constraintEnd_toEndOf="@+id/playerBubble2"
+                app:layout_constraintTop_toTopOf="@+id/playerBubble2"
+                android:src="@drawable/delete" />
 
             <LinearLayout
                 android:id="@+id/indivPlayerStats2"
@@ -161,7 +161,7 @@
                 android:layout_marginEnd="50dp"
                 android:orientation="vertical"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toTopOf="@+id/playerBubble1">
+                app:layout_constraintTop_toTopOf="@+id/playerBubble2">
 
                 <TextView
                     android:id="@+id/timesplayed2"
@@ -252,7 +252,8 @@
                 android:scaleType="fitXY"
                 app:layout_constraintEnd_toEndOf="@+id/playerBubble3"
                 app:layout_constraintTop_toTopOf="@+id/playerBubble3"
-                app:srcCompat="@drawable/delete" />
+                android:src="@drawable/delete"
+                tools:ignore="TouchTargetSizeCheck" />
         </androidx.constraintlayout.widget.ConstraintLayout>
 
         <androidx.constraintlayout.widget.ConstraintLayout
@@ -303,7 +304,7 @@
                 android:scaleType="fitXY"
                 app:layout_constraintEnd_toEndOf="@+id/playerBubble4"
                 app:layout_constraintTop_toTopOf="@+id/playerBubble4"
-                app:srcCompat="@drawable/delete" />
+                android:src="@drawable/delete" />
 
             <LinearLayout
                 android:id="@+id/indivPlayerStats4"
@@ -313,7 +314,7 @@
                 android:layout_marginEnd="50dp"
                 android:orientation="vertical"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toTopOf="@+id/playerBubble3">
+                app:layout_constraintTop_toTopOf="@+id/playerBubble4">
 
                 <TextView
                     android:id="@+id/timesplayed4"
@@ -377,9 +378,9 @@
                 android:background="#00FFFFFF"
                 android:elevation="10dp"
                 android:scaleType="fitXY"
-                app:layout_constraintEnd_toEndOf="@+id/playerBubble1"
-                app:layout_constraintTop_toTopOf="@+id/playerBubble1"
-                app:srcCompat="@drawable/delete" />
+                app:layout_constraintEnd_toEndOf="@+id/playerBubble5"
+                app:layout_constraintTop_toTopOf="@+id/playerBubble5"
+                android:src="@drawable/delete" />
 
             <LinearLayout
                 android:id="@+id/indivPlayerStats5"
@@ -389,7 +390,7 @@
                 android:layout_marginEnd="50dp"
                 android:orientation="vertical"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toTopOf="@+id/playerBubble1">
+                app:layout_constraintTop_toTopOf="@+id/playerBubble5">
 
                 <TextView
                     android:id="@+id/timesplayed5"
