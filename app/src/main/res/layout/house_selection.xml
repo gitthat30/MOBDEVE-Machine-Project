@@ -10,13 +10,14 @@
         android:id="@+id/linearLayout13"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:background="#00FFFFFF"
         android:orientation="vertical"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.496"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.204">
+        app:layout_constraintVertical_bias="0.21">
 
         <LinearLayout
             android:layout_width="wrap_content"
@@ -29,6 +30,7 @@
                 android:layout_width="80dp"
                 android:layout_height="80dp"
                 android:layout_weight="0"
+                android:background="#00FFFFFF"
                 android:scaleType="fitXY"
                 android:src="@drawable/house1" />
 
@@ -38,6 +40,7 @@
                 android:layout_height="80dp"
                 android:layout_marginLeft="16dp"
                 android:layout_weight="0"
+                android:background="#00FFFFFF"
                 android:scaleType="fitXY"
                 android:src="@drawable/house2" />
 
@@ -47,6 +50,7 @@
                 android:layout_height="80dp"
                 android:layout_marginLeft="16dp"
                 android:layout_weight="0"
+                android:background="#00FFFFFF"
                 android:scaleType="fitXY"
                 android:src="@drawable/house3" />
         </LinearLayout>
@@ -62,6 +66,7 @@
                 android:layout_width="80dp"
                 android:layout_height="80dp"
                 android:layout_weight="0"
+                android:background="#00FFFFFF"
                 android:scaleType="fitXY"
                 android:src="@drawable/house4" />
 
@@ -71,6 +76,7 @@
                 android:layout_height="80dp"
                 android:layout_marginLeft="16dp"
                 android:layout_weight="0"
+                android:background="#00FFFFFF"
                 android:scaleType="fitXY"
                 android:src="@drawable/house5" />
 
@@ -80,6 +86,7 @@
                 android:layout_height="80dp"
                 android:layout_marginLeft="16dp"
                 android:layout_weight="0"
+                android:background="#00FFFFFF"
                 android:scaleType="fitXY"
                 android:src="@drawable/house6" />
         </LinearLayout>
@@ -95,6 +102,7 @@
                 android:layout_width="80dp"
                 android:layout_height="80dp"
                 android:layout_weight="0"
+                android:background="#00FFFFFF"
                 android:scaleType="fitXY"
                 android:src="@drawable/house7" />
 
@@ -104,6 +112,7 @@
                 android:layout_height="80dp"
                 android:layout_marginLeft="16dp"
                 android:layout_weight="0"
+                android:background="#00FFFFFF"
                 android:scaleType="fitXY"
                 android:src="@drawable/house8" />
 
@@ -113,6 +122,7 @@
                 android:layout_height="80dp"
                 android:layout_marginLeft="16dp"
                 android:layout_weight="0"
+                android:background="#00FFFFFF"
                 android:scaleType="fitXY"
                 android:src="@drawable/house9" />
         </LinearLayout>
@@ -128,6 +138,7 @@
                 android:layout_width="80dp"
                 android:layout_height="80dp"
                 android:layout_weight="0"
+                android:background="#00FFFFFF"
                 android:scaleType="fitXY"
                 android:src="@drawable/house10" />
 
@@ -137,6 +148,7 @@
                 android:layout_height="80dp"
                 android:layout_marginLeft="16dp"
                 android:layout_weight="0"
+                android:background="#00FFFFFF"
                 android:scaleType="fitXY"
                 android:src="@drawable/house11" />
 
@@ -146,6 +158,7 @@
                 android:layout_height="80dp"
                 android:layout_marginLeft="16dp"
                 android:layout_weight="0"
+                android:background="#00FFFFFF"
                 android:scaleType="fitXY"
                 android:src="@drawable/house12" />
         </LinearLayout>
@@ -154,6 +167,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginBottom="16dp"
+            android:background="#00FFFFFF"
             android:orientation="horizontal">
 
             <ImageButton
@@ -161,6 +175,7 @@
                 android:layout_width="80dp"
                 android:layout_height="80dp"
                 android:layout_weight="0"
+                android:background="#00FFFFFF"
                 android:scaleType="fitXY"
                 android:src="@drawable/house13" />
 
@@ -194,6 +209,7 @@
                 android:layout_width="80dp"
                 android:layout_height="80dp"
                 android:layout_weight="0"
+                android:background="#00FFFFFF"
                 android:scaleType="fitXY"
                 android:src="@drawable/house16" />
 
@@ -203,6 +219,7 @@
                 android:layout_height="80dp"
                 android:layout_marginLeft="16dp"
                 android:layout_weight="0"
+                android:background="#00FFFFFF"
                 android:scaleType="fitXY"
                 android:src="@drawable/house17" />
 
