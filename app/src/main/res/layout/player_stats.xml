@@ -110,7 +110,7 @@
             android:layout_marginBottom="10dp">
 
             <LinearLayout
-                android:id="@+id/playerBubble1"
+                android:id="@+id/playerBubble2"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="@drawable/round_layout"
@@ -121,14 +121,14 @@
                 app:layout_constraintTop_toTopOf="parent">
 
                 <ImageView
-                    android:id="@+id/playerBubble1_img"
+                    android:id="@+id/playerBubble2_img"
                     android:layout_width="64dp"
                     android:layout_height="64dp"
                     android:layout_marginRight="10dp"
                     android:src="@drawable/player3" />
 
                 <TextView
-                    android:id="@+id/playerBubble1_name"
+                    android:id="@+id/playerBubble2_name"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_vertical"
@@ -140,7 +140,7 @@
             </LinearLayout>
 
             <ImageButton
-                android:id="@+id/btnDeletePlayer"
+                android:id="@+id/btnDeletePlayer2"
                 android:layout_width="20dp"
                 android:layout_height="20dp"
                 android:layout_marginTop="8dp"
@@ -154,7 +154,7 @@
                 app:srcCompat="@drawable/delete" />
 
             <LinearLayout
-                android:id="@+id/indivPlayerStats"
+                android:id="@+id/indivPlayerStats2"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_marginTop="40dp"
@@ -164,14 +164,14 @@
                 app:layout_constraintTop_toTopOf="@+id/playerBubble1">
 
                 <TextView
-                    android:id="@+id/textView8"
+                    android:id="@+id/timesplayed2"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="Times Played: N"
                     android:textSize="10sp" />
 
                 <TextView
-                    android:id="@+id/textView9"
+                    android:id="@+id/timeswon2"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="Times Won: N"
@@ -186,7 +186,7 @@
             android:layout_marginBottom="10dp">
 
             <LinearLayout
-                android:id="@+id/playerBubble1"
+                android:id="@+id/playerBubble3"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="@drawable/round_layout"
@@ -197,14 +197,14 @@
                 app:layout_constraintTop_toTopOf="parent">
 
                 <ImageView
-                    android:id="@+id/playerBubble1_img"
+                    android:id="@+id/playerBubble3_img"
                     android:layout_width="64dp"
                     android:layout_height="64dp"
                     android:layout_marginRight="10dp"
                     android:src="@drawable/player1" />
 
                 <TextView
-                    android:id="@+id/playerBubble1_name"
+                    android:id="@+id/playerBubble3_name"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_vertical"
@@ -216,24 +216,24 @@
             </LinearLayout>
 
             <LinearLayout
-                android:id="@+id/indivPlayerStats"
+                android:id="@+id/indivPlayerStats3"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_marginTop="40dp"
                 android:layout_marginEnd="50dp"
                 android:orientation="vertical"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toTopOf="@+id/playerBubble1">
+                app:layout_constraintTop_toTopOf="@+id/playerBubble3">
 
                 <TextView
-                    android:id="@+id/textView8"
+                    android:id="@+id/timesplayed3"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="Times Played: N"
                     android:textSize="10sp" />
 
                 <TextView
-                    android:id="@+id/textView9"
+                    android:id="@+id/timeswon3"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="Times Won: N"
@@ -241,7 +241,7 @@
             </LinearLayout>
 
             <ImageButton
-                android:id="@+id/btnDeletePlayer"
+                android:id="@+id/btnDeletePlayer3"
                 android:layout_width="20dp"
                 android:layout_height="20dp"
                 android:layout_marginTop="8dp"
@@ -250,8 +250,8 @@
                 android:background="#00FFFFFF"
                 android:elevation="10dp"
                 android:scaleType="fitXY"
-                app:layout_constraintEnd_toEndOf="@+id/playerBubble1"
-                app:layout_constraintTop_toTopOf="@+id/playerBubble1"
+                app:layout_constraintEnd_toEndOf="@+id/playerBubble3"
+                app:layout_constraintTop_toTopOf="@+id/playerBubble3"
                 app:srcCompat="@drawable/delete" />
         </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -262,7 +262,7 @@
             android:layout_marginBottom="10dp">
 
             <LinearLayout
-                android:id="@+id/playerBubble1"
+                android:id="@+id/playerBubble4"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="@drawable/round_layout"
@@ -273,14 +273,14 @@
                 app:layout_constraintTop_toTopOf="parent">
 
                 <ImageView
-                    android:id="@+id/playerBubble1_img"
+                    android:id="@+id/playerBubble4_img"
                     android:layout_width="64dp"
                     android:layout_height="64dp"
                     android:layout_marginRight="10dp"
                     android:src="@drawable/player4" />
 
                 <TextView
-                    android:id="@+id/playerBubble1_name"
+                    android:id="@+id/playerBubble4_name"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_vertical"
@@ -292,7 +292,7 @@
             </LinearLayout>
 
             <ImageButton
-                android:id="@+id/btnDeletePlayer"
+                android:id="@+id/btnDeletePlayer4"
                 android:layout_width="20dp"
                 android:layout_height="20dp"
                 android:layout_marginTop="8dp"
@@ -301,29 +301,29 @@
                 android:background="#00FFFFFF"
                 android:elevation="10dp"
                 android:scaleType="fitXY"
-                app:layout_constraintEnd_toEndOf="@+id/playerBubble1"
-                app:layout_constraintTop_toTopOf="@+id/playerBubble1"
+                app:layout_constraintEnd_toEndOf="@+id/playerBubble4"
+                app:layout_constraintTop_toTopOf="@+id/playerBubble4"
                 app:srcCompat="@drawable/delete" />
 
             <LinearLayout
-                android:id="@+id/indivPlayerStats"
+                android:id="@+id/indivPlayerStats4"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_marginTop="40dp"
                 android:layout_marginEnd="50dp"
                 android:orientation="vertical"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toTopOf="@+id/playerBubble1">
+                app:layout_constraintTop_toTopOf="@+id/playerBubble3">
 
                 <TextView
-                    android:id="@+id/textView8"
+                    android:id="@+id/timesplayed4"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="Times Played: N"
                     android:textSize="10sp" />
 
                 <TextView
-                    android:id="@+id/textView9"
+                    android:id="@+id/timeswon4"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="Times Won: N"
@@ -338,7 +338,7 @@
             android:layout_marginBottom="10dp">
 
             <LinearLayout
-                android:id="@+id/playerBubble1"
+                android:id="@+id/playerBubble5"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="@drawable/round_layout"
@@ -349,14 +349,14 @@
                 app:layout_constraintTop_toTopOf="parent">
 
                 <ImageView
-                    android:id="@+id/playerBubble1_img"
+                    android:id="@+id/playerBubble5_img"
                     android:layout_width="64dp"
                     android:layout_height="64dp"
                     android:layout_marginRight="10dp"
                     android:src="@drawable/player3" />
 
                 <TextView
-                    android:id="@+id/playerBubble1_name"
+                    android:id="@+id/playerBubble5_name"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_vertical"
@@ -368,7 +368,7 @@
             </LinearLayout>
 
             <ImageButton
-                android:id="@+id/btnDeletePlayer"
+                android:id="@+id/btnDeletePlayer5"
                 android:layout_width="20dp"
                 android:layout_height="20dp"
                 android:layout_marginTop="8dp"
@@ -382,7 +382,7 @@
                 app:srcCompat="@drawable/delete" />
 
             <LinearLayout
-                android:id="@+id/indivPlayerStats"
+                android:id="@+id/indivPlayerStats5"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_marginTop="40dp"
@@ -392,14 +392,14 @@
                 app:layout_constraintTop_toTopOf="@+id/playerBubble1">
 
                 <TextView
-                    android:id="@+id/textView8"
+                    android:id="@+id/timesplayed5"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="Times Played: N"
                     android:textSize="10sp" />
 
                 <TextView
-                    android:id="@+id/textView9"
+                    android:id="@+id/timeswon5"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="Times Won: N"
