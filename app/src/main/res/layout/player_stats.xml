@@ -92,6 +92,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="Times Played: N"
+                    android:textColor="@color/background"
                     android:textSize="10sp" />
 
                 <TextView
@@ -99,7 +100,8 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="Times Won: N"
-                    android:textSize="10sp" />
+                    android:textSize="10sp"
+                    android:textColor="@color/background"/>
             </LinearLayout>
         </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -168,12 +170,14 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="Times Played: N"
-                    android:textSize="10sp" />
+                    android:textSize="10sp"
+                    android:textColor="@color/background" />
 
                 <TextView
                     android:id="@+id/timeswon2"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:textColor="@color/background"
                     android:text="Times Won: N"
                     android:textSize="10sp" />
             </LinearLayout>
@@ -228,6 +232,7 @@
                 <TextView
                     android:id="@+id/timesplayed3"
                     android:layout_width="match_parent"
+                    android:textColor="@color/background"
                     android:layout_height="wrap_content"
                     android:text="Times Played: N"
                     android:textSize="10sp" />
@@ -236,6 +241,7 @@
                     android:id="@+id/timeswon3"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:textColor="@color/background"
                     android:text="Times Won: N"
                     android:textSize="10sp" />
             </LinearLayout>
@@ -319,6 +325,7 @@
                 <TextView
                     android:id="@+id/timesplayed4"
                     android:layout_width="match_parent"
+                    android:textColor="@color/background"
                     android:layout_height="wrap_content"
                     android:text="Times Played: N"
                     android:textSize="10sp" />
@@ -327,6 +334,7 @@
                     android:id="@+id/timeswon4"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:textColor="@color/background"
                     android:text="Times Won: N"
                     android:textSize="10sp" />
             </LinearLayout>
@@ -397,12 +405,14 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="Times Played: N"
+                    android:textColor="@color/background"
                     android:textSize="10sp" />
 
                 <TextView
                     android:id="@+id/timeswon5"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:textColor="@color/background"
                     android:text="Times Won: N"
                     android:textSize="10sp" />
             </LinearLayout>
