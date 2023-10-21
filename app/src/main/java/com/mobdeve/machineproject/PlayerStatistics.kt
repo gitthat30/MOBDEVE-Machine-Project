@@ -2,8 +2,9 @@ package com.mobdeve.machineproject
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.activity.ComponentActivity
 
-class PlayerStatistics : AppCompatActivity() {
+class PlayerStatistics : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.player_stats)
