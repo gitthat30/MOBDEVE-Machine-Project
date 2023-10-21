@@ -15,6 +15,7 @@ class InitializePlayers : ComponentActivity() {
             startButton.isClickable = false
             val intent = Intent(this, MainGame::class.java)
             startActivity(intent)
+            finish()
             startButton.postDelayed({
                 startButton.isClickable = true
             }, 1000)
