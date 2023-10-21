@@ -7,33 +7,29 @@
     android:background="@color/background">
 
     <LinearLayout
-        android:id="@+id/linearLayout2"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:layout_marginStart="56dp"
-        android:layout_marginTop="62dp"
-        android:layout_marginEnd="56dp"
-        android:layout_marginBottom="15dp"
+        android:id="@+id/llViral"
+        android:layout_width="299dp"
+        android:layout_height="94dp"
+        android:layout_marginTop="40dp"
         android:layout_weight="0"
         android:background="@drawable/round_layout"
         android:orientation="horizontal"
-        app:layout_constraintBottom_toTopOf="@+id/linearLayout5"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
         <ImageView
-            android:id="@+id/imgPlayer1"
+            android:id="@+id/imgViral"
             android:layout_width="64dp"
             android:layout_height="64dp"
             android:layout_gravity="center_vertical"
             android:layout_marginLeft="15dp"
             android:layout_weight="0"
             android:background="#007A1818"
-            android:src="@drawable/player1" />
+            android:src="@drawable/viral2" />
 
         <TextView
-            android:id="@+id/txtPlayer1"
+            android:id="@+id/txtViral"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_vertical"
@@ -44,67 +40,61 @@
     </LinearLayout>
 
     <LinearLayout
-        android:id="@+id/linearLayout3"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:layout_marginStart="56dp"
-        android:layout_marginEnd="56dp"
-        android:layout_marginBottom="18dp"
+        android:id="@+id/llSurvivor1"
+        android:layout_width="299dp"
+        android:layout_height="94dp"
+        android:layout_marginTop="20dp"
         android:layout_weight="0"
         android:background="@drawable/round_layout"
         android:orientation="horizontal"
-        app:layout_constraintBottom_toTopOf="@+id/btnAddNewPlayer"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/linearLayout4">
+        app:layout_constraintTop_toBottomOf="@+id/llViral">
 
         <ImageView
-            android:id="@+id/imgPlayer4"
+            android:id="@+id/imgSurvivor1"
             android:layout_width="64dp"
             android:layout_height="64dp"
             android:layout_gravity="center_vertical"
             android:layout_marginLeft="15dp"
             android:layout_weight="0"
             android:background="#007A1818"
-            android:src="@drawable/player4" />
+            android:src="@drawable/survivor1" />
 
         <TextView
-            android:id="@+id/txtPlayer4"
+            android:id="@+id/txtSurvivor1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_vertical"
             android:layout_marginLeft="10dp"
             android:layout_weight="0"
-            android:text="Survivor 3"
+            android:text="Survivor 1"
             android:textColor="#000000" />
     </LinearLayout>
 
     <LinearLayout
-        android:id="@+id/linearLayout4"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:layout_marginStart="56dp"
-        android:layout_marginEnd="56dp"
-        android:layout_marginBottom="15dp"
+        android:id="@+id/llSurvivor2"
+        android:layout_width="299dp"
+        android:layout_height="94dp"
+        android:layout_marginTop="20dp"
         android:background="@drawable/round_layout"
         android:orientation="horizontal"
-        app:layout_constraintBottom_toTopOf="@+id/linearLayout3"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/linearLayout5">
+        app:layout_constraintTop_toBottomOf="@+id/llSurvivor1">
 
         <ImageView
-            android:id="@+id/imgPlayer3"
+            android:id="@+id/imgSurvivor2"
             android:layout_width="64dp"
             android:layout_height="64dp"
             android:layout_gravity="center_vertical"
             android:layout_marginLeft="15dp"
             android:layout_weight="0"
             android:background="#007A1818"
-            android:src="@drawable/player3" />
+            android:src="@drawable/survivor2" />
 
         <TextView
-            android:id="@+id/txtPlayer3"
+            android:id="@+id/txtSurvivor2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_vertical"
@@ -115,58 +105,76 @@
     </LinearLayout>
 
     <LinearLayout
-        android:id="@+id/linearLayout5"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:layout_marginStart="56dp"
-        android:layout_marginEnd="56dp"
-        android:layout_marginBottom="17dp"
+        android:id="@+id/llSurvivor3"
+        android:layout_width="299dp"
+        android:layout_height="94dp"
+        android:layout_marginTop="20dp"
         android:layout_weight="0"
         android:background="@drawable/round_layout"
         android:orientation="horizontal"
-        app:layout_constraintBottom_toTopOf="@+id/linearLayout4"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/linearLayout2">
+        app:layout_constraintTop_toBottomOf="@+id/llSurvivor2">
 
         <ImageView
-            android:id="@+id/imgPlayer2"
+            android:id="@+id/imgSurvivor3"
             android:layout_width="64dp"
             android:layout_height="64dp"
             android:layout_gravity="center_vertical"
             android:layout_marginLeft="15dp"
             android:layout_weight="0"
             android:background="#007A1818"
-            android:src="@drawable/player2" />
+            android:src="@drawable/survivor3" />
 
         <TextView
-            android:id="@+id/txtPlayer2"
+            android:id="@+id/txtSurvivor3"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_vertical"
             android:layout_marginLeft="10dp"
             android:layout_weight="0"
-            android:text="Survivor 1"
+            android:text="Survivor 3"
             android:textColor="#000000" />
     </LinearLayout>
 
-    <ImageButton
-        android:id="@+id/btnAddNewPlayer"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="38dp"
-        android:layout_marginBottom="30dp"
-        android:background="#00FFFFFF"
-        android:src="@drawable/new_player"
-        app:layout_constraintBottom_toTopOf="@+id/btnStart"
-        app:layout_constraintStart_toStartOf="@+id/btnStart"
-        app:layout_constraintTop_toBottomOf="@+id/linearLayout3" />
+    <LinearLayout
+        android:id="@+id/llSurvivor4"
+        android:layout_width="299dp"
+        android:layout_height="94dp"
+        android:layout_marginTop="20dp"
+        android:layout_weight="0"
+        android:background="@drawable/round_layout"
+        android:orientation="horizontal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/llSurvivor3">
+
+        <ImageView
+            android:id="@+id/imgSurvivor4"
+            android:layout_width="64dp"
+            android:layout_height="64dp"
+            android:layout_gravity="center_vertical"
+            android:layout_marginLeft="15dp"
+            android:layout_weight="0"
+            android:background="#007A1818"
+            android:src="@drawable/survivor4" />
+
+        <TextView
+            android:id="@+id/txtSurvivor4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_marginLeft="10dp"
+            android:layout_weight="0"
+            android:text="Survivor 4"
+            android:textColor="#000000" />
+    </LinearLayout>
 
     <Button
         android:id="@+id/btnStart"
         android:layout_width="225dp"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="113dp"
+        android:layout_marginBottom="40dp"
         android:background="@drawable/start_layout"
         android:fontFamily="@font/rowdies"
         android:text="Start"
@@ -174,7 +182,6 @@
         android:textSize="22.82dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btnAddNewPlayer" />
+        app:layout_constraintStart_toStartOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

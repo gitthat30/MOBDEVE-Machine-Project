@@ -14,10 +14,10 @@
         android:layout_width="601dp"
         android:layout_height="195dp"
         android:layout_marginStart="-100dp"
-        android:layout_marginTop="-175dp"
-        android:layout_marginBottom="502dp"
+        android:layout_marginTop="-174dp"
+        android:layout_marginBottom="61dp"
         android:src="@drawable/blob"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/title_image"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
