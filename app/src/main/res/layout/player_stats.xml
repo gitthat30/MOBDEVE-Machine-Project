@@ -75,7 +75,7 @@
                 android:scaleType="fitXY"
                 app:layout_constraintEnd_toEndOf="@+id/playerStat1_bubble"
                 app:layout_constraintTop_toTopOf="@+id/playerStat1_bubble"
-                app:srcCompat="@drawable/delete" />
+                android:src="@drawable/delete" />
 
             <LinearLayout
                 android:id="@+id/playerStat1_bubble_info"
@@ -151,7 +151,7 @@
                 android:scaleType="fitXY"
                 app:layout_constraintEnd_toEndOf="@+id/playerBubble2"
                 app:layout_constraintTop_toTopOf="@+id/playerBubble2"
-                app:srcCompat="@drawable/delete" />
+                android:src="@drawable/delete" />
 
             <LinearLayout
                 android:id="@+id/indivPlayerStats2"
@@ -252,7 +252,7 @@
                 android:scaleType="fitXY"
                 app:layout_constraintEnd_toEndOf="@+id/playerBubble3"
                 app:layout_constraintTop_toTopOf="@+id/playerBubble3"
-                app:srcCompat="@drawable/delete"
+                android:src="@drawable/delete"
                 tools:ignore="TouchTargetSizeCheck" />
         </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -304,7 +304,7 @@
                 android:scaleType="fitXY"
                 app:layout_constraintEnd_toEndOf="@+id/playerBubble4"
                 app:layout_constraintTop_toTopOf="@+id/playerBubble4"
-                app:srcCompat="@drawable/delete" />
+                android:src="@drawable/delete" />
 
             <LinearLayout
                 android:id="@+id/indivPlayerStats4"
@@ -380,7 +380,7 @@
                 android:scaleType="fitXY"
                 app:layout_constraintEnd_toEndOf="@+id/playerBubble5"
                 app:layout_constraintTop_toTopOf="@+id/playerBubble5"
-                app:srcCompat="@drawable/delete" />
+                android:src="@drawable/delete" />
 
             <LinearLayout
                 android:id="@+id/indivPlayerStats5"
