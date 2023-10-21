@@ -13,10 +13,8 @@
         android:layout_marginStart="35dp"
         android:layout_marginTop="25dp"
         android:layout_marginEnd="35dp"
-        android:layout_marginBottom="17dp"
         android:background="@drawable/round_layout"
         android:orientation="vertical"
-        app:layout_constraintBottom_toTopOf="@+id/linearLayout7"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
@@ -43,13 +41,14 @@
     <LinearLayout
         android:id="@+id/linearLayout7"
         android:layout_width="0dp"
-        android:layout_height="0dp"
+        android:layout_height="wrap_content"
         android:layout_marginStart="38dp"
+        android:layout_marginTop="17dp"
         android:layout_marginEnd="38dp"
-        android:layout_marginBottom="23dp"
         android:background="@drawable/round_layout"
         android:orientation="vertical"
-        app:layout_constraintBottom_toTopOf="@+id/btnRollDice"
+        android:paddingTop="10dp"
+        android:paddingBottom="10dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/linearLayout6">
@@ -67,7 +66,7 @@
                 android:orientation="vertical">
 
                 <ImageView
-                    android:id="@+id/imageView3"
+                    android:id="@+id/turnsPlayer1_img"
                     android:layout_width="30dp"
                     android:layout_height="30dp"
                     android:layout_gravity="center"
@@ -89,7 +88,7 @@
                 android:orientation="vertical">
 
                 <ImageView
-                    android:id="@+id/imageView3"
+                    android:id="@+id/turnsPlayer1_img"
                     android:layout_width="30dp"
                     android:layout_height="30dp"
                     android:layout_gravity="center"
@@ -111,7 +110,7 @@
                 android:orientation="vertical">
 
                 <ImageView
-                    android:id="@+id/imageView3"
+                    android:id="@+id/turnsPlayer1_img"
                     android:layout_width="30dp"
                     android:layout_height="30dp"
                     android:layout_gravity="center"
@@ -133,7 +132,7 @@
                 android:orientation="vertical">
 
                 <ImageView
-                    android:id="@+id/imageView3"
+                    android:id="@+id/turnsPlayer1_img"
                     android:layout_width="30dp"
                     android:layout_height="30dp"
                     android:layout_gravity="center"
@@ -152,60 +151,53 @@
     <Button
         android:id="@+id/btnRollDice"
         android:layout_width="0dp"
-        android:layout_height="0dp"
+        android:layout_height="126.24dp"
         android:layout_marginStart="34dp"
+        android:layout_marginTop="17dp"
         android:layout_marginEnd="34dp"
-        android:layout_marginBottom="108dp"
         android:background="@drawable/round_layout"
+        android:fontFamily="@font/rowdies"
         android:text="Roll Dice"
         android:textColor="#8B2E8F"
         android:textSize="24sp"
         android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/btnEnterHouse"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/linearLayout7" />
 
     <Button
-        android:id="@+id/btnEndTurn"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:layout_marginStart="36dp"
-        android:layout_marginEnd="36dp"
-        android:layout_marginBottom="43dp"
-        android:background="@drawable/end_layout"
-        android:text="End Turn"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btnRandomEvent" />
-
-    <Button
         android:id="@+id/btnEnterHouse"
         android:layout_width="0dp"
-        android:layout_height="0dp"
+        android:layout_height="45dp"
         android:layout_marginStart="38dp"
         android:layout_marginEnd="38dp"
-        android:layout_marginBottom="12dp"
+        android:layout_marginBottom="10dp"
         android:background="@drawable/action_layout"
-        android:text="Enter House"
-        app:layout_constraintBottom_toTopOf="@+id/btnRandomEvent"
+        android:fontFamily="@font/rowdies"
+        android:text="RANDOM EVENT"
+        android:textColor="#FFFFFF"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toTopOf="@+id/btnEndTurn2"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btnRollDice" />
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent" />
 
     <Button
-        android:id="@+id/btnRandomEvent"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:layout_marginStart="38dp"
-        android:layout_marginEnd="38dp"
-        android:layout_marginBottom="113dp"
-        android:background="@drawable/action_layout"
-        android:text="Random Event"
-        app:layout_constraintBottom_toTopOf="@+id/btnEndTurn"
+        android:id="@+id/btnEndTurn2"
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        android:layout_marginStart="36dp"
+        android:layout_marginEnd="36dp"
+        android:layout_marginBottom="160dp"
+        android:layout_weight="0"
+        android:background="@drawable/end_layout"
+        android:fontFamily="@font/rowdies"
+        android:text="END GAME"
+        android:textColor="@color/purple"
+        android:textSize="22sp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btnEnterHouse" />
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

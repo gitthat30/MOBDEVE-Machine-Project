@@ -5,7 +5,7 @@ import android.os.Bundle
 import android.widget.Button
 import androidx.activity.ComponentActivity
 
-class MainGame : ComponentActivity() {
+class MainAfterRoll : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.survivor_layout)
@@ -25,5 +25,6 @@ class MainGame : ComponentActivity() {
             dialog.setCanceledOnTouchOutside(true)
             dialog.show()
         }
+
     }
 }

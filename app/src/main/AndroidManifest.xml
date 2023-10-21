@@ -16,7 +16,7 @@
             android:name=".MainGame"
             android:exported="false" />
         <activity
-            android:name=".PlayerSelect"
+            android:name=".InitializePlayers"
             android:exported="false" />
         <activity
             android:name=".TitleScreen"

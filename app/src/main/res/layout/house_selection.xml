@@ -7,6 +7,7 @@
     android:background="@color/background">
 
     <LinearLayout
+        android:id="@+id/linearLayout13"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
@@ -168,6 +169,7 @@
         </LinearLayout>
 
         <LinearLayout
+            android:id="@+id/linearLayout12"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="horizontal">
@@ -189,15 +191,22 @@
 
         </LinearLayout>
 
-        <Button
-            android:id="@+id/btn_house_confirm"
-            android:layout_width="224dp"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_marginTop="32dp"
-            android:layout_weight="0"
-            android:background="@drawable/end_layout"
-            android:text="Confirm" />
-
     </LinearLayout>
+
+    <Button
+        android:id="@+id/btn_house_confirm"
+        android:layout_width="225dp"
+        android:layout_height="48dp"
+        android:layout_gravity="center"
+        android:layout_marginTop="60dp"
+        android:layout_weight="0"
+        android:background="@drawable/end_layout"
+        android:fontFamily="@font/rowdies"
+        android:text="Confirm"
+        android:textColor="@color/purple"
+        android:textSize="22sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout13" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

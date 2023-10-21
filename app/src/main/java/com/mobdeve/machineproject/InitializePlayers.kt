@@ -5,10 +5,11 @@ import android.os.Bundle
 import android.widget.Button
 import androidx.activity.ComponentActivity
 
-class PlayerSelect : ComponentActivity() {
+class InitializePlayers : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.player_select)
+        setContentView(R.layout.initialize_players_layout)
+
         val startButton = findViewById<Button>(R.id.btnStart)
         startButton.setOnClickListener {
             val intent = Intent(this, MainGame::class.java)
