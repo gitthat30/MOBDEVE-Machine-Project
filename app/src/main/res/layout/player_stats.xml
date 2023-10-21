@@ -1,0 +1,412 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/background"
+    android:padding="30dp">
+
+    <LinearLayout
+        android:id="@+id/linearLayout14"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        tools:layout_editor_absoluteX="30dp"
+        tools:layout_editor_absoluteY="30dp">
+
+        <TextView
+            android:id="@+id/textView7"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="20dp"
+            android:fontFamily="@font/inter"
+            android:text="Player Statistics"
+            android:textAlignment="center"
+            android:textColor="@color/white"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/playerStat1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp">
+
+            <LinearLayout
+                android:id="@+id/playerStat1_bubble"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/round_layout"
+                android:orientation="horizontal"
+                android:outlineProvider="none"
+                android:padding="20dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <ImageView
+                    android:id="@+id/playerStat1_img"
+                    android:layout_width="64dp"
+                    android:layout_height="64dp"
+                    android:layout_marginRight="10dp"
+                    android:src="@drawable/player2" />
+
+                <TextView
+                    android:id="@+id/playerStat1_name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginRight="10dp"
+                    android:layout_weight="0"
+                    android:text="Gr8Player"
+                    android:textColor="@color/background" />
+
+            </LinearLayout>
+
+            <ImageButton
+                android:id="@+id/btnDeletePlayer1"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="8dp"
+                android:layout_weight="1"
+                android:background="#00FFFFFF"
+                android:elevation="10dp"
+                android:scaleType="fitXY"
+                app:layout_constraintEnd_toEndOf="@+id/playerStat1_bubble"
+                app:layout_constraintTop_toTopOf="@+id/playerStat1_bubble"
+                app:srcCompat="@drawable/delete" />
+
+            <LinearLayout
+                android:id="@+id/playerStat1_bubble_info"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_marginTop="40dp"
+                android:layout_marginEnd="50dp"
+                android:orientation="vertical"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/playerStat1_bubble">
+
+                <TextView
+                    android:id="@+id/timesPlayed1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Times Played: N"
+                    android:textSize="10sp" />
+
+                <TextView
+                    android:id="@+id/timesWon1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Times Won: N"
+                    android:textSize="10sp" />
+            </LinearLayout>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/playerStat2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp">
+
+            <LinearLayout
+                android:id="@+id/playerBubble1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/round_layout"
+                android:orientation="horizontal"
+                android:outlineProvider="none"
+                android:padding="20dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <ImageView
+                    android:id="@+id/playerBubble1_img"
+                    android:layout_width="64dp"
+                    android:layout_height="64dp"
+                    android:layout_marginRight="10dp"
+                    android:src="@drawable/player3" />
+
+                <TextView
+                    android:id="@+id/playerBubble1_name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginRight="10dp"
+                    android:layout_weight="0"
+                    android:text="radtastic456"
+                    android:textColor="@color/background" />
+
+            </LinearLayout>
+
+            <ImageButton
+                android:id="@+id/btnDeletePlayer"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="8dp"
+                android:layout_weight="1"
+                android:background="#00FFFFFF"
+                android:elevation="10dp"
+                android:scaleType="fitXY"
+                app:layout_constraintEnd_toEndOf="@+id/playerBubble1"
+                app:layout_constraintTop_toTopOf="@+id/playerBubble1"
+                app:srcCompat="@drawable/delete" />
+
+            <LinearLayout
+                android:id="@+id/indivPlayerStats"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_marginTop="40dp"
+                android:layout_marginEnd="50dp"
+                android:orientation="vertical"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/playerBubble1">
+
+                <TextView
+                    android:id="@+id/textView8"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Times Played: N"
+                    android:textSize="10sp" />
+
+                <TextView
+                    android:id="@+id/textView9"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Times Won: N"
+                    android:textSize="10sp" />
+            </LinearLayout>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/playerStat3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp">
+
+            <LinearLayout
+                android:id="@+id/playerBubble1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/round_layout"
+                android:orientation="horizontal"
+                android:outlineProvider="none"
+                android:padding="20dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <ImageView
+                    android:id="@+id/playerBubble1_img"
+                    android:layout_width="64dp"
+                    android:layout_height="64dp"
+                    android:layout_marginRight="10dp"
+                    android:src="@drawable/player1" />
+
+                <TextView
+                    android:id="@+id/playerBubble1_name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginRight="10dp"
+                    android:layout_weight="0"
+                    android:text="AmazingXD"
+                    android:textColor="@color/background" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/indivPlayerStats"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_marginTop="40dp"
+                android:layout_marginEnd="50dp"
+                android:orientation="vertical"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/playerBubble1">
+
+                <TextView
+                    android:id="@+id/textView8"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Times Played: N"
+                    android:textSize="10sp" />
+
+                <TextView
+                    android:id="@+id/textView9"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Times Won: N"
+                    android:textSize="10sp" />
+            </LinearLayout>
+
+            <ImageButton
+                android:id="@+id/btnDeletePlayer"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="8dp"
+                android:layout_weight="1"
+                android:background="#00FFFFFF"
+                android:elevation="10dp"
+                android:scaleType="fitXY"
+                app:layout_constraintEnd_toEndOf="@+id/playerBubble1"
+                app:layout_constraintTop_toTopOf="@+id/playerBubble1"
+                app:srcCompat="@drawable/delete" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/playerStat4"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp">
+
+            <LinearLayout
+                android:id="@+id/playerBubble1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/round_layout"
+                android:orientation="horizontal"
+                android:outlineProvider="none"
+                android:padding="20dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <ImageView
+                    android:id="@+id/playerBubble1_img"
+                    android:layout_width="64dp"
+                    android:layout_height="64dp"
+                    android:layout_marginRight="10dp"
+                    android:src="@drawable/player4" />
+
+                <TextView
+                    android:id="@+id/playerBubble1_name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginRight="10dp"
+                    android:layout_weight="0"
+                    android:text="Kool B)"
+                    android:textColor="@color/background" />
+
+            </LinearLayout>
+
+            <ImageButton
+                android:id="@+id/btnDeletePlayer"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="8dp"
+                android:layout_weight="1"
+                android:background="#00FFFFFF"
+                android:elevation="10dp"
+                android:scaleType="fitXY"
+                app:layout_constraintEnd_toEndOf="@+id/playerBubble1"
+                app:layout_constraintTop_toTopOf="@+id/playerBubble1"
+                app:srcCompat="@drawable/delete" />
+
+            <LinearLayout
+                android:id="@+id/indivPlayerStats"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_marginTop="40dp"
+                android:layout_marginEnd="50dp"
+                android:orientation="vertical"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/playerBubble1">
+
+                <TextView
+                    android:id="@+id/textView8"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Times Played: N"
+                    android:textSize="10sp" />
+
+                <TextView
+                    android:id="@+id/textView9"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Times Won: N"
+                    android:textSize="10sp" />
+            </LinearLayout>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/playerStat5"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp">
+
+            <LinearLayout
+                android:id="@+id/playerBubble1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/round_layout"
+                android:orientation="horizontal"
+                android:outlineProvider="none"
+                android:padding="20dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <ImageView
+                    android:id="@+id/playerBubble1_img"
+                    android:layout_width="64dp"
+                    android:layout_height="64dp"
+                    android:layout_marginRight="10dp"
+                    android:src="@drawable/player3" />
+
+                <TextView
+                    android:id="@+id/playerBubble1_name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginRight="10dp"
+                    android:layout_weight="0"
+                    android:text="Expert123"
+                    android:textColor="@color/background" />
+
+            </LinearLayout>
+
+            <ImageButton
+                android:id="@+id/btnDeletePlayer"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="8dp"
+                android:layout_weight="1"
+                android:background="#00FFFFFF"
+                android:elevation="10dp"
+                android:scaleType="fitXY"
+                app:layout_constraintEnd_toEndOf="@+id/playerBubble1"
+                app:layout_constraintTop_toTopOf="@+id/playerBubble1"
+                app:srcCompat="@drawable/delete" />
+
+            <LinearLayout
+                android:id="@+id/indivPlayerStats"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_marginTop="40dp"
+                android:layout_marginEnd="50dp"
+                android:orientation="vertical"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/playerBubble1">
+
+                <TextView
+                    android:id="@+id/textView8"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Times Played: N"
+                    android:textSize="10sp" />
+
+                <TextView
+                    android:id="@+id/textView9"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Times Won: N"
+                    android:textSize="10sp" />
+            </LinearLayout>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
