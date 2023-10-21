@@ -10,7 +10,7 @@ class TitleScreen : ComponentActivity() {
         override fun onCreate(savedInstanceState: Bundle?) {
             super.onCreate(savedInstanceState)
             setContentView(R.layout.title_screen)
-            val newGameButton = findViewById<ImageButton>(R.id.btnNewGame)
+            val newGameButton = findViewById<Button>(R.id.btnNewGame)
             newGameButton.setOnClickListener {
                 val intent = Intent(this, InitializePlayers::class.java)
                 startActivity(intent)

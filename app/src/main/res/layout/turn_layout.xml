@@ -201,7 +201,7 @@
         android:layout_width="335dp"
         android:layout_height="48dp"
         android:layout_marginTop="20dp"
-        android:background="@drawable/action_layout"
+        android:background="@drawable/end_layout"
         android:fontFamily="@font/rowdies"
         android:text="End Turn"
         android:textColor="#FFFFFF"
@@ -221,7 +221,7 @@
         app:layout_constraintStart_toStartOf="@+id/btnRollDice"
         app:layout_constraintTop_toTopOf="@+id/btnRollDice" />
 
-    <androidx.appcompat.widget.AppCompatButton
+    <ImageView
         android:id="@+id/imgDice2"
         android:layout_width="50dp"
         android:layout_height="50dp"
