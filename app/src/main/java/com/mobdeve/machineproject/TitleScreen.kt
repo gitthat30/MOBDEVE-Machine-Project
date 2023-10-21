@@ -11,28 +11,47 @@ class TitleScreen : ComponentActivity() {
             super.onCreate(savedInstanceState)
             setContentView(R.layout.title_screen)
             val newGameButton = findViewById<Button>(R.id.btnNewGame)
+            val continueButton = findViewById<Button>(R.id.btnContinue)
+            val playerStatsButton = findViewById<Button>(R.id.btnPlayerStats)
+
+            val tsButtons = listOf(newGameButton, continueButton, playerStatsButton)
+
             newGameButton.setOnClickListener {
                 val intent = Intent(this, InitializePlayers::class.java)
+                for (button in tsButtons) {
+                    button.isClickable = false
+                }
                 startActivity(intent)
                 newGameButton.postDelayed({
-                    newGameButton.isClickable = true
+                    for (button in tsButtons) {
+                        button.isClickable = true
+                    }
                 }, 1000)
             }
-            val continueButton = findViewById<Button>(R.id.btnContinue)
+
             continueButton.setOnClickListener {
-                continueButton.isClickable = false
+                for (button in tsButtons) {
+                    button.isClickable = false
+                }
                 val intent = Intent(this, MainGame::class.java)
                 startActivity(intent)
                 continueButton.postDelayed({
-                    continueButton.isClickable = true
+                    for (button in tsButtons) {
+                        button.isClickable = true
+                    }
                 }, 1000)
             }
-            val playerStatsButton = findViewById<Button>(R.id.btnPlayerStats)
+
             playerStatsButton.setOnClickListener {
                 val intent = Intent(this, PlayerStatistics::class.java)
                 startActivity(intent)
-                newGameButton.postDelayed({
-                    newGameButton.isClickable = true
+                for (button in tsButtons) {
+                    button.isClickable = false
+                }
+                playerStatsButton.postDelayed({
+                    for (button in tsButtons) {
+                        button.isClickable = true
+                    }
                 }, 1000)
             }
         }
