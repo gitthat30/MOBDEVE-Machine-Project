@@ -12,10 +12,12 @@ class InitializePlayers : ComponentActivity() {
 
         val startButton = findViewById<Button>(R.id.btnStart)
         startButton.setOnClickListener {
+            startButton.isClickable = false
             val intent = Intent(this, MainGame::class.java)
             startActivity(intent)
+            startButton.postDelayed({
+                startButton.isClickable = true
+            }, 1000)
         }
     }
-
-
 }
