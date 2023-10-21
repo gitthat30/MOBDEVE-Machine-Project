@@ -8,7 +8,7 @@ import androidx.activity.ComponentActivity
 class MainAfterRoll : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.survivor_layout)
+        setContentView(R.layout.turn_layout)
 
         val randomEventButton = findViewById<Button>(R.id.btnRandomEvent)
         randomEventButton.setOnClickListener {

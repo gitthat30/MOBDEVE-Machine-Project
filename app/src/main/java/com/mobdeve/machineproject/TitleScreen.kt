@@ -27,5 +27,13 @@ class TitleScreen : ComponentActivity() {
                     continueButton.isClickable = true
                 }, 1000)
             }
+            val playerStatsButton = findViewById<Button>(R.id.btnPlayerStats)
+            playerStatsButton.setOnClickListener {
+                val intent = Intent(this, PlayerStatistics::class.java)
+                startActivity(intent)
+                newGameButton.postDelayed({
+                    newGameButton.isClickable = true
+                }, 1000)
+            }
         }
     }
