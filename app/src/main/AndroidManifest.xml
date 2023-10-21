@@ -16,6 +16,16 @@
             android:name=".PlayerStatistics"
             android:exported="false" />
         <activity
+            android:name=".EnterHouse"
+            android:exported="false"
+            android:label="@string/title_activity_enter_house"
+            android:theme="@style/Theme.MachineProject" />
+        <activity
+            android:name=".RollDice"
+            android:exported="false"
+            android:label="@string/title_activity_roll_dice"
+            android:theme="@style/Theme.MachineProject" />
+        <activity
             android:name=".MainGame"
             android:exported="false" />
         <activity

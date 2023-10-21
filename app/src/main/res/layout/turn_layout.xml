@@ -76,7 +76,7 @@
                     tools:ignore="DuplicateIds" />
 
                 <TextView
-                    android:id="@+id/textView4"
+                    android:id="@+id/turnsPlayer1_txt"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
@@ -91,14 +91,14 @@
                 android:orientation="vertical">
 
                 <ImageView
-                    android:id="@+id/turnsPlayer1_img"
+                    android:id="@+id/turnsPlayer2_img"
                     android:layout_width="30dp"
                     android:layout_height="30dp"
                     android:layout_gravity="center"
                     android:src="@drawable/survivor2" />
 
                 <TextView
-                    android:id="@+id/textView4"
+                    android:id="@+id/turnsPlayer2_txt"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
@@ -113,14 +113,14 @@
                 android:orientation="vertical">
 
                 <ImageView
-                    android:id="@+id/turnsPlayer1_img"
+                    android:id="@+id/turnsPlayer3_img"
                     android:layout_width="30dp"
                     android:layout_height="30dp"
                     android:layout_gravity="center"
                     android:src="@drawable/survivor3" />
 
                 <TextView
-                    android:id="@+id/textView4"
+                    android:id="@+id/turnsPlayer3_txt"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
@@ -135,14 +135,14 @@
                 android:orientation="vertical">
 
                 <ImageView
-                    android:id="@+id/turnsPlayer1_img"
+                    android:id="@+id/turnsPlayer4_img"
                     android:layout_width="30dp"
                     android:layout_height="30dp"
                     android:layout_gravity="center"
                     android:src="@drawable/viral2" />
 
                 <TextView
-                    android:id="@+id/textView4"
+                    android:id="@+id/turnsPlayer4_txt"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
@@ -169,44 +169,10 @@
         app:layout_constraintTop_toBottomOf="@+id/linearLayout7" />
 
     <Button
-        android:id="@+id/btnEnterHouse"
-        android:layout_width="0dp"
-        android:layout_height="48dp"
-        android:layout_marginStart="38dp"
-        android:layout_marginEnd="38dp"
-        android:layout_marginBottom="10dp"
-        android:background="@drawable/action_layout"
-        android:fontFamily="@font/rowdies"
-        android:text="Enter House"
-        android:textColor="#FFFFFF"
-        android:textSize="16sp"
-        app:layout_constraintBottom_toTopOf="@+id/btnRandomEvent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
-
-    <Button
-        android:id="@+id/btnRandomEvent"
-        android:layout_width="0dp"
-        android:layout_height="48dp"
-        android:layout_marginStart="38dp"
-        android:layout_marginEnd="38dp"
-        android:layout_marginBottom="10dp"
-        android:background="@drawable/action_layout"
-        android:fontFamily="@font/rowdies"
-        android:text="Random Event"
-        android:textColor="#FFFFFF"
-        android:textSize="16sp"
-        app:layout_constraintBottom_toTopOf="@+id/btnEscape"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
-
-    <Button
         android:id="@+id/btnEscape"
-        android:layout_width="0dp"
+        android:layout_width="339dp"
         android:layout_height="48dp"
-        android:layout_marginStart="36dp"
-        android:layout_marginEnd="36dp"
-        android:layout_marginBottom="100dp"
+        android:layout_marginBottom="68dp"
         android:background="@drawable/end_layout"
         android:fontFamily="@font/rowdies"
         android:text="ESCAPE"
@@ -214,7 +180,50 @@
         android:textSize="22sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintHorizontal_bias="0.472"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <Button
+        android:id="@+id/btnEnterHouse"
+        android:layout_width="335dp"
+        android:layout_height="48dp"
+        android:background="@drawable/action_layout"
+        android:fontFamily="@font/rowdies"
+        android:text="Enter House"
+        android:textColor="#FFFFFF"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toTopOf="@+id/btnRandomEvent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnRollDice"
+        app:layout_constraintVertical_bias="0.851" />
+
+    <Button
+        android:id="@+id/btnRandomEvent"
+        android:layout_width="335dp"
+        android:layout_height="48dp"
+        android:layout_marginBottom="13dp"
+        android:background="@drawable/action_layout"
+        android:fontFamily="@font/rowdies"
+        android:text="Random Event"
+        android:textColor="#FFFFFF"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toTopOf="@+id/btnEndTurn"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <Button
+        android:id="@+id/btnEndTurn"
+        android:layout_width="335dp"
+        android:layout_height="48dp"
+        android:layout_marginBottom="48dp"
+        android:background="@drawable/action_layout"
+        android:fontFamily="@font/rowdies"
+        android:text="End Turn"
+        android:textColor="#FFFFFF"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toTopOf="@+id/btnEscape"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 
     <ImageView
