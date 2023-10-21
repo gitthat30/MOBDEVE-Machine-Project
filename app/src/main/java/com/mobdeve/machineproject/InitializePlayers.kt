@@ -33,14 +33,12 @@ class InitializePlayers : ComponentActivity() {
         for (linearLayoutId in linearLayoutIds) {
             val llPlayers = findViewById<LinearLayout>(linearLayoutId)
             llPlayers.setOnClickListener {
-                when (linearLayoutId) {
-                    R.id.llViral -> {
-                        val dialog = Dialog(this)
-                        dialog.setContentView(R.layout.random_event)
-                        dialog.setCanceledOnTouchOutside(true)
-                        dialog.show()
-                    }
-                }
+                llPlayers.isClickable = false
+                val intent = Intent(this, SelectPlayer::class.java)
+                startActivity(intent)
+                startButton.postDelayed({
+                    llPlayers.isClickable = true
+                }, 1000)
             }
         }
     }
