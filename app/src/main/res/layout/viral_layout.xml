@@ -73,7 +73,7 @@
                     android:src="@drawable/player_not_turn" />
 
                 <TextView
-                    android:id="@+id/textView4"
+                    android:id="@+id/turnsPlayer1_txt"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
@@ -88,14 +88,14 @@
                 android:orientation="vertical">
 
                 <ImageView
-                    android:id="@+id/turnsPlayer1_img"
+                    android:id="@+id/turnsPlayer2_img"
                     android:layout_width="30dp"
                     android:layout_height="30dp"
                     android:layout_gravity="center"
                     android:src="@drawable/player1" />
 
                 <TextView
-                    android:id="@+id/textView4"
+                    android:id="@+id/turnsPlayer2_txt"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
@@ -110,14 +110,14 @@
                 android:orientation="vertical">
 
                 <ImageView
-                    android:id="@+id/turnsPlayer1_img"
+                    android:id="@+id/turnsPlayer3_img"
                     android:layout_width="30dp"
                     android:layout_height="30dp"
                     android:layout_gravity="center"
                     android:src="@drawable/player_not_turn" />
 
                 <TextView
-                    android:id="@+id/textView4"
+                    android:id="@+id/turnsPlayer3_txt"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
@@ -132,14 +132,14 @@
                 android:orientation="vertical">
 
                 <ImageView
-                    android:id="@+id/turnsPlayer1_img"
+                    android:id="@+id/turnsPlayer4_img"
                     android:layout_width="30dp"
                     android:layout_height="30dp"
                     android:layout_gravity="center"
                     android:src="@drawable/player_not_turn" />
 
                 <TextView
-                    android:id="@+id/textView4"
+                    android:id="@+id/turnsPlayer4_txt"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"

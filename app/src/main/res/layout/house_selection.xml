@@ -24,27 +24,30 @@
             android:layout_marginBottom="16dp"
             android:orientation="horizontal">
 
-            <ImageView
+            <ImageButton
                 android:id="@+id/btn_house_1"
                 android:layout_width="64dp"
                 android:layout_height="64dp"
                 android:layout_weight="0"
+                android:scaleType="fitXY"
                 android:src="@drawable/house1" />
 
-            <ImageView
+            <ImageButton
                 android:id="@+id/btn_house_2"
                 android:layout_width="64dp"
                 android:layout_height="64dp"
                 android:layout_marginLeft="16dp"
                 android:layout_weight="0"
+                android:scaleType="fitXY"
                 android:src="@drawable/house2" />
 
-            <ImageView
+            <ImageButton
                 android:id="@+id/btn_house_3"
                 android:layout_width="64dp"
                 android:layout_height="64dp"
                 android:layout_marginLeft="16dp"
                 android:layout_weight="0"
+                android:scaleType="fitXY"
                 android:src="@drawable/house3" />
         </LinearLayout>
 
@@ -54,27 +57,30 @@
             android:layout_marginBottom="16dp"
             android:orientation="horizontal">
 
-            <ImageView
+            <ImageButton
                 android:id="@+id/btn_house_4"
                 android:layout_width="64dp"
                 android:layout_height="64dp"
                 android:layout_weight="0"
+                android:scaleType="fitXY"
                 android:src="@drawable/house4" />
 
-            <ImageView
+            <ImageButton
                 android:id="@+id/btn_house_5"
                 android:layout_width="64dp"
                 android:layout_height="64dp"
                 android:layout_marginLeft="16dp"
                 android:layout_weight="0"
+                android:scaleType="fitXY"
                 android:src="@drawable/house5" />
 
-            <ImageView
+            <ImageButton
                 android:id="@+id/btn_house_6"
                 android:layout_width="64dp"
                 android:layout_height="64dp"
                 android:layout_marginLeft="16dp"
                 android:layout_weight="0"
+                android:scaleType="fitXY"
                 android:src="@drawable/house6" />
         </LinearLayout>
 
@@ -84,27 +90,30 @@
             android:layout_marginBottom="16dp"
             android:orientation="horizontal">
 
-            <ImageView
+            <ImageButton
                 android:id="@+id/btn_house_7"
                 android:layout_width="64dp"
                 android:layout_height="64dp"
                 android:layout_weight="0"
+                android:scaleType="fitXY"
                 android:src="@drawable/house7" />
 
-            <ImageView
+            <ImageButton
                 android:id="@+id/btn_house_8"
                 android:layout_width="64dp"
                 android:layout_height="64dp"
                 android:layout_marginLeft="16dp"
                 android:layout_weight="0"
+                android:scaleType="fitXY"
                 android:src="@drawable/house8" />
 
-            <ImageView
+            <ImageButton
                 android:id="@+id/btn_house_9"
                 android:layout_width="64dp"
                 android:layout_height="64dp"
                 android:layout_marginLeft="16dp"
                 android:layout_weight="0"
+                android:scaleType="fitXY"
                 android:src="@drawable/house9" />
         </LinearLayout>
 
@@ -114,27 +123,30 @@
             android:layout_marginBottom="16dp"
             android:orientation="horizontal">
 
-            <ImageView
+            <ImageButton
                 android:id="@+id/btn_house_10"
                 android:layout_width="64dp"
                 android:layout_height="64dp"
                 android:layout_weight="0"
+                android:scaleType="fitXY"
                 android:src="@drawable/house10" />
 
-            <ImageView
+            <ImageButton
                 android:id="@+id/btn_house_11"
                 android:layout_width="64dp"
                 android:layout_height="64dp"
                 android:layout_marginLeft="16dp"
                 android:layout_weight="0"
+                android:scaleType="fitXY"
                 android:src="@drawable/house11" />
 
-            <ImageView
+            <ImageButton
                 android:id="@+id/btn_house_12"
                 android:layout_width="64dp"
                 android:layout_height="64dp"
                 android:layout_marginLeft="16dp"
                 android:layout_weight="0"
+                android:scaleType="fitXY"
                 android:src="@drawable/house12" />
         </LinearLayout>
 
@@ -144,27 +156,30 @@
             android:layout_marginBottom="16dp"
             android:orientation="horizontal">
 
-            <ImageView
+            <ImageButton
                 android:id="@+id/btn_house_13"
                 android:layout_width="64dp"
                 android:layout_height="64dp"
                 android:layout_weight="0"
+                android:scaleType="fitXY"
                 android:src="@drawable/house13" />
 
-            <ImageView
+            <ImageButton
                 android:id="@+id/btn_house_14"
                 android:layout_width="64dp"
                 android:layout_height="64dp"
                 android:layout_marginLeft="16dp"
                 android:layout_weight="0"
+                android:scaleType="fitXY"
                 android:src="@drawable/house14" />
 
-            <ImageView
+            <ImageButton
                 android:id="@+id/btn_house_15"
                 android:layout_width="64dp"
                 android:layout_height="64dp"
                 android:layout_marginLeft="16dp"
                 android:layout_weight="0"
+                android:scaleType="fitXY"
                 android:src="@drawable/house15" />
         </LinearLayout>
 
@@ -174,19 +189,21 @@
             android:layout_height="wrap_content"
             android:orientation="horizontal">
 
-            <ImageView
+            <ImageButton
                 android:id="@+id/btn_house_16"
                 android:layout_width="64dp"
                 android:layout_height="64dp"
                 android:layout_weight="0"
+                android:scaleType="fitXY"
                 android:src="@drawable/house16" />
 
-            <ImageView
+            <ImageButton
                 android:id="@+id/btn_house_17"
                 android:layout_width="64dp"
                 android:layout_height="64dp"
                 android:layout_marginLeft="16dp"
                 android:layout_weight="0"
+                android:scaleType="fitXY"
                 android:src="@drawable/house17" />
 
         </LinearLayout>
@@ -200,13 +217,16 @@
         android:layout_gravity="center"
         android:layout_marginTop="60dp"
         android:layout_weight="0"
-        android:background="@drawable/end_layout"
+        android:background="@drawable/cure_layout"
         android:fontFamily="@font/rowdies"
         android:text="Confirm"
         android:textColor="@color/purple"
+        android:textColorHighlight="#00FFFFFF"
+        android:textColorLink="#00FFFFFF"
         android:textSize="22sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/linearLayout13" />
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout13"
+        app:rippleColor="#FFFFFF" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

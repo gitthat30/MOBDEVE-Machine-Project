@@ -7,21 +7,12 @@
     android:background="@color/background"
     android:padding="10dp">
 
-    <ImageView
-        android:id="@+id/imageView5"
-        android:layout_width="309dp"
-        android:layout_height="609dp"
-        android:rotation="90"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/dice" />
 
     <TextView
         android:id="@+id/textView6"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="250dp"
+        android:layout_marginBottom="236dp"
         android:text="Shake your device or tap above to roll the dice."
         android:textColor="@color/grey"
         android:textStyle="italic"
@@ -40,7 +31,21 @@
         android:text="BACK TO GAME"
         android:textColor="@color/purple"
         android:textSize="18sp"
+        android:visibility="visible"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
+
+    <pl.droidsonroids.gif.GifImageView
+        android:layout_width="350dp"
+        android:layout_height="400dp"
+
+        android:layout_marginBottom="56dp"
+        android:background="@drawable/dice"
+        app:layout_constraintBottom_toTopOf="@+id/textView6"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.495"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0" />
 </androidx.constraintlayout.widget.ConstraintLayout>
