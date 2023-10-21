@@ -38,59 +38,59 @@
 
     <ImageView
         android:id="@+id/title_image"
-        android:layout_width="406dp"
-        android:layout_height="264dp"
+        android:layout_width="360dp"
+        android:layout_height="240dp"
         android:layout_marginBottom="200dp"
         android:rotation="-10"
         android:scaleType="fitXY"
         android:src="@drawable/title"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <ImageButton
-        android:id="@+id/btnNewGame"
-        android:layout_width="278dp"
-        android:layout_height="92dp"
-        android:layout_marginTop="180dp"
-        android:background="#00FFFFFF"
-        android:scaleType="fitXY"
-        android:src="@drawable/new_game"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.496"
+        app:layout_constraintHorizontal_bias="0.494"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.501"
-        tools:ignore="SpeakableTextPresentCheck" />
+        app:layout_constraintVertical_bias="0.507" />
 
-    <Button
-        android:id="@+id/btnContinue"
-        android:layout_width="140dp"
-        android:layout_height="30dp"
-        android:layout_marginTop="10dp"
-        android:background="@drawable/start_layout"
-        android:fontFamily="@font/rowdies"
-        android:text="CONTINUE"
-        android:textColor="@color/purple"
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toTopOf="@+id/title_blob_bottom"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btnNewGame" />
+        app:layout_constraintTop_toBottomOf="@+id/title_image"
+        app:layout_constraintVertical_bias="0.425">
 
-    <Button
-        android:id="@+id/btnPlayerStats"
-        android:layout_width="140dp"
-        android:layout_height="30dp"
-        android:layout_marginTop="8dp"
-        android:background="@drawable/start_layout"
-        android:fontFamily="@font/rowdies"
-        android:text="PLAYER STATS"
-        android:textColor="@color/purple"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btnContinue" />
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btnNewGame"
+            android:layout_width="140dp"
+            android:layout_height="30dp"
+            android:background="@drawable/start_layout"
+            android:fontFamily="@font/rowdies"
+            android:text="New Game"
+            android:textColor="@color/purple"
+            tools:ignore="SpeakableTextPresentCheck" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btnContinue"
+            android:layout_width="140dp"
+            android:layout_height="30dp"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/start_layout"
+            android:fontFamily="@font/rowdies"
+            android:text="CONTINUE"
+            android:textColor="@color/purple" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btnPlayerStats"
+            android:layout_width="140dp"
+            android:layout_height="30dp"
+            android:layout_marginTop="8dp"
+            android:background="@drawable/start_layout"
+            android:fontFamily="@font/rowdies"
+            android:text="PLAYER STATS"
+            android:textColor="@color/purple" />
+    </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
