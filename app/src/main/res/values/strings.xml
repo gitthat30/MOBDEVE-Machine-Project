@@ -44,4 +44,11 @@
         libero vel nunc consequat, quis tincidunt nisl eleifend. Cras bibendum enim a justo luctus
         vestibulum. Fusce dictum libero quis erat maximus, vitae volutpat diam dignissim.
     </string>
+
+    <string-array name="player_avatars">
+        <item>Avatar 1</item>
+        <item>Avatar 2</item>
+        <item>Avatar 3</item>
+        <item>Avatar 4</item>
+    </string-array>
 </resources>
