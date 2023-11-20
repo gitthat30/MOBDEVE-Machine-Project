@@ -16,22 +16,22 @@ class EventHelper {
             ))
             events.add(Event(
                 "Fallen Boulder",
-                "A boulder has fallen behind you! A boulder piece is placed behind the player",
+                "A boulder has fallen behind you! A boulder piece is placed behind the player.",
                 0.25
             ))
             events.add(Event(
                 "Fallen Tree",
-                "A tree has fallen in front of you! A tree piece is placed in front of the player",
+                "A tree has fallen in front of you! A tree piece is placed in front of the player.",
                 0.25
             ))
             events.add(Event(
                 "Rainy Day",
-                "Things just aren't going your way huh? -1 dice roll to all player (this lasts until the end of your next turn)",
+                "Things just aren't going your way huh? -1 dice roll to all player (this lasts until the end of your next turn).",
                 0.2
             ))
             events.add(Event(
                 "Earthquake",
-                "Did you feel a tremor? It's an earthquake, evacuate! All players inside houses are forced to exit",
+                "Did you feel a tremor? It's an earthquake! We need to evacuate! All players inside houses are forced to exit.",
                 .2
             ))
 
