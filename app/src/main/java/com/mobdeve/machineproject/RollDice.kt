@@ -1,8 +1,12 @@
 package com.mobdeve.machineproject
 
+import android.media.Image
 import android.opengl.Visibility
 import android.os.Bundle
 import android.util.Log
+import android.view.GestureDetector
+import android.view.MotionEvent
+import androidx.core.view.GestureDetectorCompat
 import android.view.View
 import android.widget.Button
 import android.widget.ImageButton
@@ -21,7 +25,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import com.mobdeve.machineproject.ui.ui.theme.MachineProjectTheme
 import pl.droidsonroids.gif.GifImageView
 
-class RollDice : ComponentActivity() {
+class RollDice : ComponentActivity(), GestureDetector.OnGestureListener, GestureDetector.OnDoubleTapListener  {
     private lateinit var column1: LinearLayout
     private lateinit var column2: LinearLayout
     private lateinit var dice1: ImageView
@@ -42,18 +46,23 @@ class RollDice : ComponentActivity() {
         R.drawable.xml_dice4,
         R.drawable.xml_dice5,
         R.drawable.xml_dice6)
+    private var diceTapped: Int = -1
+
+    private lateinit var gestureDetect: GestureDetectorCompat
+    private val gestureListener = GestureListener()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.dice_roll)
 
         initViews()
-        initLisenters()
-        updateClickable()
+        initListeners()
         initDiceValues()
+        initDoubleTapListeners()
+
+        updateClickable()
         updateDiceImages()
         updateDiceCount()
-
     }
 
     fun initViews() {
@@ -65,16 +74,12 @@ class RollDice : ComponentActivity() {
         dice3 = column2.findViewById(R.id.dice3_img)
         dice4 = column2.findViewById(R.id.dice4_img)
 
-        dice2.visibility = View.GONE
-        dice3.visibility = View.GONE
-        dice4.visibility = View.GONE
-
         backButton = findViewById(R.id.back_to_turn_layout)
         minusButton = findViewById(R.id.minus_btn)
         plusButton = findViewById(R.id.plus_btn)
     }
 
-    fun initLisenters() {
+    fun initListeners() {
         minusButton.setOnClickListener {
             diceNum--
             updateClickable()
@@ -85,6 +90,30 @@ class RollDice : ComponentActivity() {
             diceNum++
             updateClickable()
             updateDiceCount()
+        }
+    }
+
+    fun initDoubleTapListeners() {
+        gestureDetect = GestureDetectorCompat(this, this)
+
+        dice1.setOnTouchListener() {_, event ->
+            diceTapped = 1
+            gestureDetect.onTouchEvent(event)
+        }
+
+        dice2.setOnTouchListener() {_, event ->
+            diceTapped = 2
+            gestureDetect.onTouchEvent(event)
+        }
+
+        dice3.setOnTouchListener() {_, event ->
+            diceTapped = 3
+            gestureDetect.onTouchEvent(event)
+        }
+
+        dice4.setOnTouchListener() {_, event ->
+            diceTapped = 4
+            gestureDetect.onTouchEvent(event)
         }
     }
 
@@ -133,6 +162,34 @@ class RollDice : ComponentActivity() {
             }
         }
     }
+    override fun onDoubleTap(e: MotionEvent): Boolean {
+        var selectedDice: ImageView
+
+        when(diceTapped) {
+            1 -> {
+                selectedDice = dice1
+                Log.d("Testing Double Tap", "Dice Value: ${diceValues[diceTapped-1]}")
+            }
+            2 -> {
+                selectedDice = dice2
+                Log.d("Testing Double Tap", "Dice Value: ${diceValues[diceTapped-1]}")
+            }
+            3 -> {
+                selectedDice = dice3
+                Log.d("Testing Double Tap", "Dice Value: ${diceValues[diceTapped-1]}")
+            }
+            4 -> {
+                selectedDice = dice4
+                Log.d("Testing Double Tap", "Dice Value: ${diceValues[diceTapped-1]}")
+            }
+        }
+
+        return true
+    }
+
+    override fun onDoubleTapEvent(e: MotionEvent): Boolean {
+        return true
+    }
 
     fun initDiceValues() {
         diceValues = arrayOf(
@@ -141,5 +198,43 @@ class RollDice : ComponentActivity() {
             (1..6).random(),
             (1..6).random()
         )
+    }
+
+    override fun onDown(e: MotionEvent): Boolean {
+        return true
+    }
+
+    override fun onShowPress(e: MotionEvent) {
+        ;
+    }
+
+    override fun onSingleTapUp(e: MotionEvent): Boolean {
+        return true
+    }
+
+    override fun onScroll(
+        e1: MotionEvent?,
+        e2: MotionEvent,
+        distanceX: Float,
+        distanceY: Float
+    ): Boolean {
+        return true
+    }
+
+    override fun onLongPress(e: MotionEvent) {
+        ;
+    }
+
+    override fun onFling(
+        e1: MotionEvent?,
+        e2: MotionEvent,
+        velocityX: Float,
+        velocityY: Float
+    ): Boolean {
+        return true
+    }
+
+    override fun onSingleTapConfirmed(e: MotionEvent): Boolean {
+        return true
     }
 }

@@ -104,7 +104,7 @@ class InitializePlayers : ComponentActivity() {
 
         initRecycler()
         initViews()
-        initLisenters()
+        initListeners()
 
         val swipeCallback = SwipeCallback(0, ItemTouchHelper.LEFT or ItemTouchHelper.RIGHT)
         swipeCallback.InitializeAdapter = initializeRecyclerAdapter
@@ -127,9 +127,10 @@ class InitializePlayers : ComponentActivity() {
 
     }
 
-    fun initLisenters() {
+    fun initListeners() {
         startButton.setOnClickListener {
             startButton.isClickable = false
+            playerList.add(viral_Player)
             val intent = Intent(this, MainGame::class.java)
             startActivity(intent)
             finish()
