@@ -50,4 +50,10 @@ class PlayerDatabase(context: Context) {
         db.close()
         return players
     }
+
+    fun deletePlayer(player: Player) {
+        val db = dbHandler.writableDatabase
+        // TODO: Change to ID when available
+       db.delete(DBHandler.TABLE_NAME, "${DBHandler.PLAYER_NAME} = ?", arrayOf(player.name))
+    }
 }
