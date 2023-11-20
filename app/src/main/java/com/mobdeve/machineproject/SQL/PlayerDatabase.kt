@@ -63,6 +63,22 @@ class PlayerDatabase(context: Context) {
         return players
     }
 
+    fun getPlayer(id: Long): HashMap<String, Any> {
+        val db = dbHandler.readableDatabase
+        //query for player using id
+        val c: Cursor = db.query(DBHandler.TABLE_NAME, null, "${DBHandler._ID} = ?", arrayOf(id.toString()), null, null, null, null)
+
+        c.moveToFirst()
+        //log.d all values of the cursor as msg with tag as testing
+
+        val returnMap = hashMapOf<String,Any>()
+
+        returnMap[DBHandler.PLAYER_NAME] = c.getString(c.getColumnIndexOrThrow(DBHandler.PLAYER_NAME))
+        returnMap[DBHandler._ID] = c.getLong(c.getColumnIndexOrThrow(DBHandler._ID))
+
+        return returnMap
+    }
+
     fun deletePlayer(player: Player) {
         Log.v("TEST", "Deleting Player with ID: ${player.playerID}")
         val db = dbHandler.writableDatabase

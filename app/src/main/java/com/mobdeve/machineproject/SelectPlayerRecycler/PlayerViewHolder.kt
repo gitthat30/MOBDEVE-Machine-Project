@@ -15,4 +15,8 @@ class PlayerViewHolder(itemView: View): ViewHolder(itemView) {
         playerName.text = player.name
         playerImg.setImageResource(player.playerImg)
     }
+
+    fun setOnClickListener(listener: View.OnClickListener) {
+        itemView.setOnClickListener(listener)
+    }
 }

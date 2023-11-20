@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
+import android.view.MotionEvent
 import android.view.View
 import android.widget.AdapterView
 import android.widget.Button
@@ -35,17 +36,22 @@ class SelectPlayer : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.select_add_player_popup)
 
+        val clickedHash = hashMapOf<String, Any>()
+
+        if(this.intent.getStringExtra(InitializePlayers.CLICKED_KEY) == InitializePlayers.VIRAL_CLICKED) {
+            clickedHash[InitializePlayers.CLICKED_KEY] = InitializePlayers.VIRAL_CLICKED
+        }
+
         PlayerDBHandler = DBHandler(this)
         Log.d("test", "onCreate: Created DBHandler in SelectPlayer")
         playerDatabase = PlayerDatabase(applicationContext)
         val players = playerDatabase.getAllPlayers()
 
         this.recyclerView = findViewById(R.id.select_recycler)
-        RecyclerAdapter = SelectPlayerAdapter(players)
+        RecyclerAdapter = SelectPlayerAdapter(clickedHash, players)
         this.recyclerView.adapter = RecyclerAdapter
 
         this.recyclerView.layoutManager = LinearLayoutManager(this)
-
 
         this.addPlayerBtn = findViewById(R.id.add_btn)
         this.addPlayerBtn.setOnClickListener {
