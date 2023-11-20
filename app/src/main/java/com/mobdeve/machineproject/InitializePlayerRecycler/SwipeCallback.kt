@@ -1,4 +1,3 @@
-/* Samuel Derrick I. Nieva S14 */
 
 package com.mobdeve.machineproject.InitializePlayerRecycler
 
@@ -8,11 +7,8 @@ import android.graphics.drawable.ColorDrawable
 import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.RecyclerView
 
-/*  Do not modify any declared variables and methods included in this class.
- *
- *  The SwipeCallback handles the logic needed to perform the swiping action used in the
- *  RecyclerView of the application.
- */
+// Credits to: BERRIS, OLIVER LESTER L.
+// Thank you so much for this, sir!
 class SwipeCallback (dragDirs: Int, swipeDirs: Int) :
     ItemTouchHelper.SimpleCallback(dragDirs, swipeDirs) {
     var InitializeAdapter: InitializePlayerAdapter? = null
