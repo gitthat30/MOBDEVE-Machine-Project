@@ -7,9 +7,14 @@ import android.util.Log
 import android.widget.Button
 import android.widget.LinearLayout
 import android.widget.TextView
+import android.widget.Toast
 import androidx.activity.result.ActivityResult
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.activity.ComponentActivity
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
+import com.mobdeve.machineproject.InitializePlayerRecycler.InitializePlayerAdapter
+import com.mobdeve.machineproject.Model.Player
 import com.mobdeve.machineproject.SQL.DBHandler
 import com.mobdeve.machineproject.SQL.PlayerDatabase
 
@@ -23,12 +28,20 @@ class InitializePlayers : ComponentActivity() {
         val PLAYER_NUMBER = "PLAYER_NUMBER"
     }
 
-    private var viral_ID: Long = -1
+
+    //Dummmy Player
+    private var viral_Player: Player = Player(-1, "default", 0, 0, 0)
 
 
     private lateinit var viral_LL: LinearLayout
+    private lateinit var initialize_add_player_btn: Button
 
     private lateinit var playerDatabase: PlayerDatabase
+    private lateinit var initializeRecycler: RecyclerView
+    private lateinit var initializeRecyclerAdapter: InitializePlayerAdapter
+    private lateinit var InitializeToastManager: ToastManager
+
+    private val playerList: ArrayList<Player> = ArrayList()
 
     private val getPlayerIDActivityLauncher = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result: ActivityResult ->
         if (result.resultCode == RESULT_OK) {
@@ -40,13 +53,35 @@ class InitializePlayers : ComponentActivity() {
                 Log.d("Testing Result", "onActivityResult: VIRAL CLICKED")
                 val viral_txt: TextView = viral_LL.findViewById(R.id.txtViral)
 
-                val data: HashMap<String, Any> = playerDatabase.getPlayer(playerID)
+                val data: Player = playerDatabase.getPlayer(playerID)
 
-                viral_txt.text = data[DBHandler.PLAYER_NAME].toString()
-                viral_ID = data[DBHandler._ID] as Long
+                if(playerList.any({it.playerID == data.playerID})) {
+                    InitializeToastManager.sendMsg("This player is already in the game")
+                }
+                else {
+                    viral_Player = data
+                    viral_Player.isViral = 1
+                    viral_txt.text = viral_Player.name
+                }
+            }
+            else if(result.data!!.getStringExtra(CLICKED_KEY) == PLAYER_CLICKED) {
+                Log.d("Testing Result", "onActivityResult: PLAYER CLICKED")
+
+                val data: Player = playerDatabase.getPlayer(playerID)
+
+                if(data.playerID == viral_Player.playerID || playerList.any{it.playerID == data.playerID}) {
+                    InitializeToastManager.sendMsg("This player is already in the game")
+                }
+                else {
+                    playerList.add(data)
+                    initializeRecyclerAdapter.notifyDataSetChanged()
+                    initializeRecyclerAdapter.printKeys()
+                }
             }
 
-
+            if(playerList.size == 8) {
+                initialize_add_player_btn.isClickable = false
+            }
         }
         else if (result.resultCode == RESULT_CANCELED) {
             Log.d("Testing Result", "Nothing")
@@ -61,6 +96,14 @@ class InitializePlayers : ComponentActivity() {
 
         playerDatabase = PlayerDatabase(applicationContext)
 
+        InitializeToastManager = ToastManager(this)
+
+        //Recycler View
+        initializeRecycler = findViewById(R.id.initialize_recycler)
+        initializeRecyclerAdapter = InitializePlayerAdapter(playerList)
+        initializeRecycler.adapter = initializeRecyclerAdapter
+        this.initializeRecycler.layoutManager = LinearLayoutManager(this)
+
         val startButton = findViewById<Button>(R.id.btnStart)
         startButton.setOnClickListener {
             startButton.isClickable = false
@@ -71,12 +114,22 @@ class InitializePlayers : ComponentActivity() {
                 startButton.isClickable = true
             }, 1000)
         }
+        val selectIntent = Intent(this, SelectPlayer::class.java)
+
         viral_LL = findViewById<LinearLayout>(R.id.llViral)
 
         viral_LL.setOnClickListener {
-            val intent = Intent(this, SelectPlayer::class.java)
-            intent.putExtra(CLICKED_KEY, VIRAL_CLICKED)
-            getPlayerIDActivityLauncher.launch(intent)
+
+            selectIntent.putExtra(CLICKED_KEY, VIRAL_CLICKED)
+            getPlayerIDActivityLauncher.launch(selectIntent)
+        }
+
+        initialize_add_player_btn = findViewById<Button>(R.id.initialize_add_player_btn)
+
+        initialize_add_player_btn.setOnClickListener {
+
+            selectIntent.putExtra(CLICKED_KEY, PLAYER_CLICKED)
+            getPlayerIDActivityLauncher.launch(selectIntent)
         }
     }
 }

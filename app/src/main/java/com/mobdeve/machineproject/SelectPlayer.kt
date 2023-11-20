@@ -11,6 +11,7 @@ import android.widget.Button
 import android.widget.EditText
 import android.widget.ImageView
 import android.widget.Spinner
+import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -23,29 +24,30 @@ import java.util.concurrent.Executors
 class SelectPlayer : AppCompatActivity() {
     private lateinit var PlayerDBHandler: DBHandler
     private lateinit var RecyclerAdapter: SelectPlayerAdapter
+    private lateinit var SelectToastManager: ToastManager
 
     private lateinit var recyclerView: RecyclerView
     private lateinit var editPlayerName: EditText
     private lateinit var addPlayerBtn: Button
 
     private lateinit var playerDatabase: PlayerDatabase
+    private var players: ArrayList<Player> = ArrayList()
 
 
     private var AvatarID: Int = R.drawable.player1
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.select_add_player_popup)
+        SelectToastManager = ToastManager(this)
 
         val clickedHash = hashMapOf<String, Any>()
 
-        if(this.intent.getStringExtra(InitializePlayers.CLICKED_KEY) == InitializePlayers.VIRAL_CLICKED) {
-            clickedHash[InitializePlayers.CLICKED_KEY] = InitializePlayers.VIRAL_CLICKED
-        }
+        clickedHash[InitializePlayers.CLICKED_KEY] = intent.getStringExtra(InitializePlayers.CLICKED_KEY).toString()
 
         PlayerDBHandler = DBHandler(this)
         Log.d("test", "onCreate: Created DBHandler in SelectPlayer")
         playerDatabase = PlayerDatabase(applicationContext)
-        val players = playerDatabase.getAllPlayers()
+        players = playerDatabase.getAllPlayers()
 
         this.recyclerView = findViewById(R.id.select_recycler)
         RecyclerAdapter = SelectPlayerAdapter(clickedHash, players)
@@ -95,10 +97,17 @@ class SelectPlayer : AppCompatActivity() {
             .setTitle("Add Player")
             .setPositiveButton("Add") { dialog, _ ->
                 val playerToAdd = Player(-1, editPlayerName.getText().toString(), AvatarID, 0, 0)
-                val key = playerDatabase.insertPlayer(playerToAdd)
-                playerToAdd.playerID = key
-                RecyclerAdapter.addPlayer(playerToAdd)
-                RecyclerAdapter.printKeys()
+
+                if(players.any{it.name == playerToAdd.name}) {
+                    SelectToastManager.sendMsg("Player name already taken")
+                }
+                else {
+                    val key = playerDatabase.insertPlayer(playerToAdd)
+                    playerToAdd.playerID = key
+                    RecyclerAdapter.addPlayer(playerToAdd)
+                    RecyclerAdapter.printKeys()
+                }
+
             }
             .setNegativeButton("Cancel") { dialog, _ ->
                 dialog.dismiss()

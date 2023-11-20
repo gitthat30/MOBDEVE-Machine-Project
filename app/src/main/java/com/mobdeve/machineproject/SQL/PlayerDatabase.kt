@@ -59,7 +59,7 @@ class PlayerDatabase(context: Context) {
         return players
     }
 
-    fun getPlayer(id: Long): HashMap<String, Any> {
+    fun getPlayer(id: Long): Player {
         val db = dbHandler.readableDatabase
         //query for player using id
         val c: Cursor = db.query(DBHandler.TABLE_NAME, null, "${DBHandler._ID} = ?", arrayOf(id.toString()), null, null, null, null)
@@ -67,12 +67,16 @@ class PlayerDatabase(context: Context) {
         c.moveToFirst()
         //log.d all values of the cursor as msg with tag as testing
 
-        val returnMap = hashMapOf<String,Any>()
+        val returnPlayer = Player(
+            c.getLong(c.getColumnIndexOrThrow(DBHandler._ID)),
+            c.getString(c.getColumnIndexOrThrow(DBHandler.PLAYER_NAME)),
+            c.getInt(c.getColumnIndexOrThrow(DBHandler.PLAYER_IMG)),
+            c.getInt(c.getColumnIndexOrThrow(DBHandler.NUM_WINS)),
+            c.getInt(c.getColumnIndexOrThrow(DBHandler.NUM_PLAYED)))
 
-        returnMap[DBHandler.PLAYER_NAME] = c.getString(c.getColumnIndexOrThrow(DBHandler.PLAYER_NAME))
-        returnMap[DBHandler._ID] = c.getLong(c.getColumnIndexOrThrow(DBHandler._ID))
 
-        return returnMap
+
+        return returnPlayer
     }
 
     fun deletePlayer(player: Player) {

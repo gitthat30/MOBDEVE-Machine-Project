@@ -39,137 +39,6 @@
             android:textColor="#000000" />
     </LinearLayout>
 
-    <LinearLayout
-        android:id="@+id/llSurvivor1"
-        android:layout_width="299dp"
-        android:layout_height="94dp"
-        android:layout_marginTop="20dp"
-        android:layout_weight="0"
-        android:background="@drawable/round_layout"
-        android:orientation="horizontal"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/llViral">
-
-        <ImageView
-            android:id="@+id/imgSurvivor1"
-            android:layout_width="64dp"
-            android:layout_height="64dp"
-            android:layout_gravity="center_vertical"
-            android:layout_marginLeft="15dp"
-            android:layout_weight="0"
-            android:background="#007A1818"
-            android:src="@drawable/survivor1" />
-
-        <TextView
-            android:id="@+id/txtSurvivor1"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_vertical"
-            android:layout_marginLeft="10dp"
-            android:layout_weight="0"
-            android:text="Survivor 1"
-            android:textColor="#000000" />
-    </LinearLayout>
-
-    <LinearLayout
-        android:id="@+id/llSurvivor2"
-        android:layout_width="299dp"
-        android:layout_height="94dp"
-        android:layout_marginTop="20dp"
-        android:background="@drawable/round_layout"
-        android:orientation="horizontal"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/llSurvivor1">
-
-        <ImageView
-            android:id="@+id/imgSurvivor2"
-            android:layout_width="64dp"
-            android:layout_height="64dp"
-            android:layout_gravity="center_vertical"
-            android:layout_marginLeft="15dp"
-            android:layout_weight="0"
-            android:background="#007A1818"
-            android:src="@drawable/survivor2" />
-
-        <TextView
-            android:id="@+id/txtSurvivor2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_vertical"
-            android:layout_marginLeft="10dp"
-            android:layout_weight="0"
-            android:text="Survivor 2"
-            android:textColor="#000000" />
-    </LinearLayout>
-
-    <LinearLayout
-        android:id="@+id/llSurvivor3"
-        android:layout_width="299dp"
-        android:layout_height="94dp"
-        android:layout_marginTop="20dp"
-        android:layout_weight="0"
-        android:background="@drawable/round_layout"
-        android:orientation="horizontal"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/llSurvivor2">
-
-        <ImageView
-            android:id="@+id/imgSurvivor3"
-            android:layout_width="64dp"
-            android:layout_height="64dp"
-            android:layout_gravity="center_vertical"
-            android:layout_marginLeft="15dp"
-            android:layout_weight="0"
-            android:background="#007A1818"
-            android:src="@drawable/survivor3" />
-
-        <TextView
-            android:id="@+id/txtSurvivor3"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_vertical"
-            android:layout_marginLeft="10dp"
-            android:layout_weight="0"
-            android:text="Survivor 3"
-            android:textColor="#000000" />
-    </LinearLayout>
-
-    <LinearLayout
-        android:id="@+id/llSurvivor4"
-        android:layout_width="299dp"
-        android:layout_height="94dp"
-        android:layout_marginTop="20dp"
-        android:layout_weight="0"
-        android:background="@drawable/round_layout"
-        android:orientation="horizontal"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/llSurvivor3">
-
-        <ImageView
-            android:id="@+id/imgSurvivor4"
-            android:layout_width="64dp"
-            android:layout_height="64dp"
-            android:layout_gravity="center_vertical"
-            android:layout_marginLeft="15dp"
-            android:layout_weight="0"
-            android:background="#007A1818"
-            android:src="@drawable/survivor4" />
-
-        <TextView
-            android:id="@+id/txtSurvivor4"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_vertical"
-            android:layout_marginLeft="10dp"
-            android:layout_weight="0"
-            android:text="Survivor 4"
-            android:textColor="#000000" />
-    </LinearLayout>
-
     <Button
         android:id="@+id/btnStart"
         android:layout_width="225dp"
@@ -181,6 +50,28 @@
         android:textColor="#8B2E8F"
         android:textSize="22.82dp"
         app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/initialize_recycler"
+        android:layout_width="298dp"
+        android:layout_height="400dp"
+        android:layout_marginTop="10dp"
+        app:layout_constraintBottom_toTopOf="@+id/initialize_add_player_btn"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.504"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/llViral"
+        app:layout_constraintVertical_bias="0.515" />
+
+    <Button
+        android:id="@+id/initialize_add_player_btn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="13dp"
+        android:text="Add Player"
+        app:layout_constraintBottom_toTopOf="@+id/btnStart"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 

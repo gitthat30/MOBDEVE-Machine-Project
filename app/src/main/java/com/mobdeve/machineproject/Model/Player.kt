@@ -6,6 +6,7 @@ class Player {
     var playerImg: Int
     var numWins: Int
     var numPlayed: Int
+    var isViral: Int = -1
 
     constructor(playerID: Long, name: String, playerImg: Int, numWins: Int, numPlayed: Int) {
         this.playerID = playerID

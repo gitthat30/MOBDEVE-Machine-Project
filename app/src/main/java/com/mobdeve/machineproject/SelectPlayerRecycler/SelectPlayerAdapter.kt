@@ -36,6 +36,9 @@ class SelectPlayerAdapter(private val clicked: HashMap<String, Any>, private val
             if(clicked[InitializePlayers.CLICKED_KEY] == InitializePlayers.VIRAL_CLICKED) {
                 returnIDIntent.putExtra(InitializePlayers.CLICKED_KEY, InitializePlayers.VIRAL_CLICKED)
             }
+            else if(clicked[InitializePlayers.CLICKED_KEY] == InitializePlayers.PLAYER_CLICKED) {
+                returnIDIntent.putExtra(InitializePlayers.CLICKED_KEY, InitializePlayers.PLAYER_CLICKED)
+            }
 
             (holder.itemView.context as? Activity)?.setResult(Activity.RESULT_OK, returnIDIntent)
             (holder.itemView.context as? Activity)?.finish()

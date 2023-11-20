@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="10dp">
+
+    <LinearLayout
+        android:id="@+id/llSurvivor1"
+        android:layout_width="match_parent"
+        android:layout_height="94dp"
+        android:background="@drawable/round_layout"
+        android:orientation="horizontal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/llViral">
+
+        <ImageView
+            android:id="@+id/initialize_survivor_img"
+            android:layout_width="64dp"
+            android:layout_height="64dp"
+            android:layout_gravity="center_vertical"
+            android:layout_marginLeft="15dp"
+            android:layout_weight="0"
+            android:background="#007A1818"
+            android:src="@drawable/survivor1" />
+
+        <TextView
+            android:id="@+id/initialize_survivor_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_marginLeft="10dp"
+            android:layout_weight="0"
+            android:text="Survivor 1"
+            android:textColor="#000000" />
+    </LinearLayout>
+</LinearLayout>
