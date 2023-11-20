@@ -94,7 +94,7 @@ class SelectPlayer : AppCompatActivity() {
         builder.setView(addPlayerDialog)
             .setTitle("Add Player")
             .setPositiveButton("Add") { dialog, _ ->
-                val playerToAdd = Player(-1, editPlayerName.getText().toString(), AvatarID, 0, 0, 0, 0)
+                val playerToAdd = Player(-1, editPlayerName.getText().toString(), AvatarID, 0, 0)
                 val key = playerDatabase.insertPlayer(playerToAdd)
                 playerToAdd.playerID = key
                 RecyclerAdapter.addPlayer(playerToAdd)

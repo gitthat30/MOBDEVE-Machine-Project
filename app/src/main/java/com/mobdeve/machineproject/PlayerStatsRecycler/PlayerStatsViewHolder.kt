@@ -23,7 +23,7 @@ class PlayerStatsViewHolder(itemView: View): ViewHolder(itemView) {
 //        playerStatTimesWon.text = playerStat.timesWon.toString()
 
         // temporary -- might change depending on what stats we want to show
-        playerStatTimesPlayed.text = playerStat.numSurvivor.toString()
-        playerStatTimesWon.text = playerStat.numSurvivorWins.toString()
+        playerStatTimesPlayed.text = playerStat.numPlayed.toString()
+        playerStatTimesWon.text = playerStat.numWins.toString()
     }
 }

@@ -21,10 +21,8 @@ class PlayerDatabase(context: Context) {
         val content = ContentValues()
         content.put(DBHandler.PLAYER_NAME, player.name)
         content.put(DBHandler.PLAYER_IMG, player.playerImg)
-        content.put(DBHandler.NUM_VIRAL, player.numViral)
-        content.put(DBHandler.NUM_SURVIVOR, player.numSurvivor)
-        content.put(DBHandler.NUM_SURVIVOR_WINS, player.numSurvivorWins)
-        content.put(DBHandler.NUM_INFECTED, player.numInfected)
+        content.put(DBHandler.NUM_WINS, player.numWins)
+        content.put(DBHandler.NUM_PLAYED, player.numPlayed)
 
         val key = db.insert(DBHandler.TABLE_NAME, null, content)
         Log.v("TEST", "Inserted Player with ID: $key")
@@ -52,10 +50,8 @@ class PlayerDatabase(context: Context) {
                 c.getLong(c.getColumnIndexOrThrow(DBHandler._ID)),
                 c.getString(c.getColumnIndexOrThrow(DBHandler.PLAYER_NAME)),
                 c.getInt(c.getColumnIndexOrThrow(DBHandler.PLAYER_IMG)),
-                c.getInt(c.getColumnIndexOrThrow(DBHandler.NUM_VIRAL)),
-                c.getInt(c.getColumnIndexOrThrow(DBHandler.NUM_SURVIVOR)),
-                c.getInt(c.getColumnIndexOrThrow(DBHandler.NUM_SURVIVOR_WINS)),
-                c.getInt(c.getColumnIndexOrThrow(DBHandler.NUM_INFECTED))))
+                c.getInt(c.getColumnIndexOrThrow(DBHandler.NUM_WINS)),
+                c.getInt(c.getColumnIndexOrThrow(DBHandler.NUM_PLAYED))))
         }
 
         c.close()
