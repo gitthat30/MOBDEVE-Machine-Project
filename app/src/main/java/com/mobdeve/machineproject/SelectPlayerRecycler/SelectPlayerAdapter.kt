@@ -1,4 +1,5 @@
 package com.mobdeve.machineproject.SelectPlayerRecycler
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
@@ -25,5 +26,12 @@ class SelectPlayerAdapter(private val players: ArrayList<Player>) : RecyclerView
     fun addPlayer(player: Player) {
         this.players.add(player)
         notifyItemInserted(players.size - 1)
+    }
+
+    fun printKeys() {
+        for ((index, player) in players.withIndex()) {
+            //Log player names and playerid
+            Log.d("Testing PlayerIDS", "printKeys: ${player.name}, ${player.playerID}")
+        }
     }
 }
