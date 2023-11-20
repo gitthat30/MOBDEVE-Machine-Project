@@ -5,10 +5,27 @@ import android.content.Intent
 import android.os.Bundle
 import android.widget.Button
 import android.widget.LinearLayout
+import androidx.activity.result.ActivityResult
+import androidx.activity.result.contract.ActivityResultContracts
 import androidx.activity.ComponentActivity
 
 class InitializePlayers : ComponentActivity() {
+    companion object {
+        val PLAYER_ID_KEY = "PLAYER_ID_KEY"
+    }
+
+    private val selectPlayerActivityLauncher = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result: ActivityResult ->
+        if (result.resultCode == RESULT_OK) {
+            ;
+        }
+        else if (result.resultCode == RESULT_CANCELED) {
+            ;
+        }
+    }
+
+
     override fun onCreate(savedInstanceState: Bundle?) {
+
         super.onCreate(savedInstanceState)
         setContentView(R.layout.initialize_players_layout)
 

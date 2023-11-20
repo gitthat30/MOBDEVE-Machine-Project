@@ -20,7 +20,6 @@ import com.mobdeve.machineproject.SelectPlayerRecycler.SelectPlayerAdapter
 import java.util.concurrent.Executors
 
 class SelectPlayer : AppCompatActivity() {
-    private val executorService = Executors.newSingleThreadExecutor()
     private lateinit var PlayerDBHandler: DBHandler
     private lateinit var RecyclerAdapter: SelectPlayerAdapter
 
@@ -89,9 +88,11 @@ class SelectPlayer : AppCompatActivity() {
         builder.setView(addPlayerDialog)
             .setTitle("Add Player")
             .setPositiveButton("Add") { dialog, _ ->
-                val playerToAdd = Player(editPlayerName.getText().toString(), AvatarID, 0, 0, 0, 0)
-                playerDatabase.insertPlayer(playerToAdd)
+                val playerToAdd = Player(-1, editPlayerName.getText().toString(), AvatarID, 0, 0, 0, 0)
+                val key = playerDatabase.insertPlayer(playerToAdd)
+                playerToAdd.playerID = key
                 RecyclerAdapter.addPlayer(playerToAdd)
+                RecyclerAdapter.printKeys()
             }
             .setNegativeButton("Cancel") { dialog, _ ->
                 dialog.dismiss()
