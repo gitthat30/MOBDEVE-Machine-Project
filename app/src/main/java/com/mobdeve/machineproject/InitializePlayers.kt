@@ -84,7 +84,7 @@ class InitializePlayers : ComponentActivity() {
                 }
             }
 
-            if(playerList.size == 8) {
+            if(playerList.size == 5) {
                 initialize_add_player_btn.isClickable = false
             }
         }
