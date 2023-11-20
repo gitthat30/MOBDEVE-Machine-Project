@@ -45,7 +45,6 @@ class SelectPlayer : AppCompatActivity() {
         clickedHash[InitializePlayers.CLICKED_KEY] = intent.getStringExtra(InitializePlayers.CLICKED_KEY).toString()
 
         PlayerDBHandler = DBHandler(this)
-        Log.d("test", "onCreate: Created DBHandler in SelectPlayer")
         playerDatabase = PlayerDatabase(applicationContext)
         players = playerDatabase.getAllPlayers()
 
