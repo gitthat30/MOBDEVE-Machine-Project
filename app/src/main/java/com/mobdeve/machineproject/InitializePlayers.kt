@@ -37,6 +37,7 @@ class InitializePlayers : ComponentActivity() {
 
     private lateinit var viral_LL: LinearLayout
     private lateinit var initialize_add_player_btn: Button
+    private lateinit var startButton: Button
 
     private lateinit var playerDatabase: PlayerDatabase
     private lateinit var initializeRecycler: RecyclerView
@@ -101,13 +102,32 @@ class InitializePlayers : ComponentActivity() {
 
         InitializeToastManager = ToastManager(this)
 
+        initRecycler()
+        initViews()
+        initLisenters()
+
+        val swipeCallback = SwipeCallback(0, ItemTouchHelper.LEFT or ItemTouchHelper.RIGHT)
+        swipeCallback.InitializeAdapter = initializeRecyclerAdapter
+        itemTouchHelper = ItemTouchHelper(swipeCallback)
+        itemTouchHelper.attachToRecyclerView(initializeRecycler)
+    }
+
+    fun initRecycler() {
         //Recycler View
         initializeRecycler = findViewById(R.id.initialize_recycler)
         initializeRecyclerAdapter = InitializePlayerAdapter(playerList)
         initializeRecycler.adapter = initializeRecyclerAdapter
         this.initializeRecycler.layoutManager = LinearLayoutManager(this)
+    }
 
-        val startButton = findViewById<Button>(R.id.btnStart)
+    fun initViews() {
+        startButton = findViewById<Button>(R.id.btnStart)
+        viral_LL = findViewById<LinearLayout>(R.id.llViral)
+        initialize_add_player_btn = findViewById<Button>(R.id.initialize_add_player_btn)
+
+    }
+
+    fun initLisenters() {
         startButton.setOnClickListener {
             startButton.isClickable = false
             val intent = Intent(this, MainGame::class.java)
@@ -117,26 +137,17 @@ class InitializePlayers : ComponentActivity() {
                 startButton.isClickable = true
             }, 1000)
         }
+
         val selectIntent = Intent(this, SelectPlayer::class.java)
 
-        viral_LL = findViewById<LinearLayout>(R.id.llViral)
-
         viral_LL.setOnClickListener {
-
             selectIntent.putExtra(CLICKED_KEY, VIRAL_CLICKED)
             getPlayerIDActivityLauncher.launch(selectIntent)
         }
-
-        initialize_add_player_btn = findViewById<Button>(R.id.initialize_add_player_btn)
 
         initialize_add_player_btn.setOnClickListener {
             selectIntent.putExtra(CLICKED_KEY, PLAYER_CLICKED)
             getPlayerIDActivityLauncher.launch(selectIntent)
         }
-
-        val swipeCallback = SwipeCallback(0, ItemTouchHelper.LEFT or ItemTouchHelper.RIGHT)
-        swipeCallback.InitializeAdapter = initializeRecyclerAdapter
-        itemTouchHelper = ItemTouchHelper(swipeCallback)
-        itemTouchHelper.attachToRecyclerView(initializeRecycler)
     }
 }
