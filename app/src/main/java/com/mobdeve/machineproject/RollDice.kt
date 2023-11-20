@@ -1,8 +1,10 @@
 package com.mobdeve.machineproject
 
+import android.graphics.drawable.AnimationDrawable
 import android.media.Image
 import android.opengl.Visibility
 import android.os.Bundle
+import android.os.Handler
 import android.util.Log
 import android.view.GestureDetector
 import android.view.MotionEvent
@@ -28,6 +30,7 @@ import pl.droidsonroids.gif.GifImageView
 class RollDice : ComponentActivity(), GestureDetector.OnGestureListener, GestureDetector.OnDoubleTapListener  {
     private lateinit var column1: LinearLayout
     private lateinit var column2: LinearLayout
+
     private lateinit var dice1: ImageView
     private lateinit var dice2: ImageView
     private lateinit var dice3: ImageView
@@ -49,7 +52,7 @@ class RollDice : ComponentActivity(), GestureDetector.OnGestureListener, Gesture
     private var diceTapped: Int = -1
 
     private lateinit var gestureDetect: GestureDetectorCompat
-    private val gestureListener = GestureListener()
+    private val handler = Handler()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -162,8 +165,10 @@ class RollDice : ComponentActivity(), GestureDetector.OnGestureListener, Gesture
             }
         }
     }
+
     override fun onDoubleTap(e: MotionEvent): Boolean {
-        var selectedDice: ImageView
+        var selectedDice: ImageView = dice1
+        var selectedDiceAnim: AnimationDrawable = createDiceAnimation()
 
         when(diceTapped) {
             1 -> {
@@ -184,7 +189,74 @@ class RollDice : ComponentActivity(), GestureDetector.OnGestureListener, Gesture
             }
         }
 
+        selectedDice.setImageDrawable(selectedDiceAnim)
+
+        selectedDiceAnim = selectedDice.drawable as AnimationDrawable
+
+
+        selectedDiceAnim.start()
+
+        selectedDice.postDelayed({
+            selectedDiceAnim.stop()
+            selectedDice.setImageResource(diceImages[(0..5).random()])
+        }, getTotalAnimationDuration(selectedDiceAnim))
+
         return true
+    }
+
+    override fun onLongPress(e: MotionEvent) {
+        var diceAnim1: AnimationDrawable = createDiceAnimation()
+        var diceAnim2: AnimationDrawable = createDiceAnimation()
+        var diceAnim3: AnimationDrawable = createDiceAnimation()
+        var diceAnim4: AnimationDrawable = createDiceAnimation()
+
+        dice1.setImageDrawable(diceAnim1)
+        dice2.setImageDrawable(diceAnim2)
+        dice3.setImageDrawable(diceAnim3)
+        dice4.setImageDrawable(diceAnim4)
+
+        diceAnim1.start()
+        diceAnim2.start()
+        diceAnim3.start()
+        diceAnim4.start()
+
+        handler.postDelayed({
+            diceAnim1.stop()
+            diceAnim2.stop()
+            diceAnim3.stop()
+            diceAnim4.stop()
+
+            dice1.setImageResource(diceImages[(0..5).random()])
+            dice2.setImageResource(diceImages[(0..5).random()])
+            dice3.setImageResource(diceImages[(0..5).random()])
+            dice4.setImageResource(diceImages[(0..5).random()])
+        }, getTotalAnimationDuration(diceAnim1))
+    }
+
+    private fun createDiceAnimation(): AnimationDrawable {
+        val diceShuffle = AnimationDrawable()
+        val randomDrawables = arrayOf(
+            diceImages[(0..5).random()],
+            diceImages[(0..5).random()],
+            diceImages[(0..5).random()],
+            diceImages[(0..5).random()],
+            diceImages[(0..5).random()],
+            diceImages[(0..5).random()]
+        )
+
+        randomDrawables.forEach {
+            diceShuffle.addFrame(this.resources.getDrawable(it, null), 100)
+        }
+
+        return diceShuffle
+    }
+
+    private fun getTotalAnimationDuration(animationDrawable: AnimationDrawable): Long {
+        var duration: Long = 0
+        for (i in 0 until animationDrawable.numberOfFrames) {
+            duration += animationDrawable.getDuration(i)
+        }
+        return duration
     }
 
     override fun onDoubleTapEvent(e: MotionEvent): Boolean {
@@ -221,9 +293,7 @@ class RollDice : ComponentActivity(), GestureDetector.OnGestureListener, Gesture
         return true
     }
 
-    override fun onLongPress(e: MotionEvent) {
-        ;
-    }
+
 
     override fun onFling(
         e1: MotionEvent?,
