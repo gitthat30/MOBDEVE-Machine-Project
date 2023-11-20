@@ -4,6 +4,7 @@ import android.content.ContentValues
 import android.content.Context
 import android.database.Cursor
 import android.database.sqlite.SQLiteDatabase
+import android.util.Log
 import com.mobdeve.machineproject.Model.Player
 
 // Handles PlayerDatabase operations
@@ -26,6 +27,7 @@ class PlayerDatabase(context: Context) {
         content.put(DBHandler.NUM_INFECTED, player.numInfected)
 
         val key = db.insert(DBHandler.TABLE_NAME, null, content)
+        Log.v("TEST", "Inserted Player with ID: $key")
         db.close()
         return key
     }
@@ -62,8 +64,9 @@ class PlayerDatabase(context: Context) {
     }
 
     fun deletePlayer(player: Player) {
+        Log.v("TEST", "Deleting Player with ID: ${player.playerID}")
         val db = dbHandler.writableDatabase
-        // TODO: Change to ID when available
-       db.delete(DBHandler.TABLE_NAME, "${DBHandler.PLAYER_NAME} = ?", arrayOf(player.name))
+        db.delete(DBHandler.TABLE_NAME, "${DBHandler._ID} = ?", arrayOf(player.playerID.toString()))
+        db.close()
     }
 }

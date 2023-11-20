@@ -2,6 +2,7 @@ package com.mobdeve.machineproject.PlayerStatsRecycler
 
 import android.app.Activity
 import android.content.Intent
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.activity.result.ActivityResultLauncher
@@ -30,15 +31,13 @@ class PlayerStatsAdapter(private val players: ArrayList<Player>, private var act
         val deleteButton = holder.deleteButton
         deleteButton.setOnClickListener {
             displayConfirmPopup(position)
-//            deleteButton.postDelayed({
-//                deleteButton.isClickable = true
-//            }, 1000)
         }
     }
 
     fun deletePlayerStat(position: Int) {
         val playerDatabase = PlayerDatabase(activity.applicationContext)
         val toDelete = players[position]
+        Log.v("TEST", "DELETING PLAYER: " +toDelete.playerID.toString())
         playerDatabase.deletePlayer(toDelete)
 
         players.removeAt(position)
