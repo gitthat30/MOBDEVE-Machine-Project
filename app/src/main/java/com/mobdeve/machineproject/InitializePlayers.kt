@@ -77,6 +77,7 @@ class InitializePlayers : ComponentActivity() {
                     InitializeToastManager.sendMsg("This player is already in the game")
                 }
                 else {
+                    data.isViral = 0
                     playerList.add(data)
                     initializeRecyclerAdapter.notifyDataSetChanged()
                     initializeRecyclerAdapter.printKeys()
