@@ -19,10 +19,6 @@ class PlayerStatsViewHolder(itemView: View): ViewHolder(itemView) {
     fun bind(playerStat: Player) {
         playerStatName.text = playerStat.name
         playerStatImg.setImageResource(playerStat.playerImg)
-//        playerStatTimesPlayed.text = playerStat.timesPlayed.toString()
-//        playerStatTimesWon.text = playerStat.timesWon.toString()
-
-        // temporary -- might change depending on what stats we want to show
         playerStatTimesPlayed.text = playerStat.numPlayed.toString()
         playerStatTimesWon.text = playerStat.numWins.toString()
     }

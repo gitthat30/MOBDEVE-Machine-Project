@@ -9,9 +9,11 @@
     <LinearLayout
         android:id="@+id/linearLayout11"
         android:layout_width="330dp"
-        android:layout_height="271dp"
+        android:layout_height="wrap_content"
         android:background="@drawable/action_layout"
         android:orientation="vertical"
+        android:paddingTop="35dp"
+        android:paddingBottom="35dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.493"
@@ -20,11 +22,10 @@
         app:layout_constraintVertical_bias="0.332">
 
         <TextView
-            android:id="@+id/textView2"
+            android:id="@+id/randomEvent_name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:layout_marginTop="40dp"
             android:fontFamily="@font/inter"
             android:text="Name of Random Event"
             android:textColor="#FFFFFF"
@@ -32,7 +33,7 @@
             android:textStyle="bold" />
 
         <TextView
-            android:id="@+id/textView5"
+            android:id="@+id/randomEvent_description"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"

@@ -20,7 +20,7 @@
         app:layout_constraintTop_toTopOf="parent">
 
         <ImageView
-            android:id="@+id/imageView2"
+            android:id="@+id/currentTurn_img"
             android:layout_width="52dp"
             android:layout_height="52dp"
             android:layout_gravity="center"
@@ -29,12 +29,12 @@
             android:src="@drawable/survivor1" />
 
         <TextView
-            android:id="@+id/textView3"
+            android:id="@+id/currentTurn_name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:layout_weight="0"
-            android:text="Survivor 1's Turn"
+            android:text="current player name"
             android:textColor="@color/black" />
 
     </LinearLayout>
@@ -48,7 +48,6 @@
         android:layout_marginEnd="38dp"
         android:layout_marginBottom="17dp"
         android:background="@drawable/round_layout"
-        android:orientation="vertical"
         android:paddingTop="10dp"
         android:paddingBottom="10dp"
         app:layout_constraintBottom_toTopOf="@+id/btnRollDice"
@@ -56,112 +55,11 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/linearLayout6">
 
-        <LinearLayout
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/playerTurnRecycler"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_gravity="center_horizontal"
-            android:orientation="horizontal">
+            android:layout_height="56dp" />
 
-            <LinearLayout
-                android:id="@+id/llNextTurn1"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center|center_vertical"
-                android:layout_weight="1"
-                android:orientation="vertical">
-
-                <ImageView
-                    android:id="@+id/turnsPlayer1_img"
-                    android:layout_width="30dp"
-                    android:layout_height="30dp"
-                    android:layout_gravity="center"
-                    android:src="@drawable/survivor1"
-                    tools:ignore="DuplicateIds" />
-
-                <TextView
-                    android:id="@+id/turnsPlayer1_txt"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:text="Survivor 2"
-                    android:textColor="@color/black" />
-            </LinearLayout>
-
-            <LinearLayout
-                android:id="@+id/llNextTurn2"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center|center_vertical"
-                android:layout_marginLeft="20dp"
-                android:layout_weight="1"
-                android:orientation="vertical">
-
-                <ImageView
-                    android:id="@+id/turnsPlayer2_img"
-                    android:layout_width="30dp"
-                    android:layout_height="30dp"
-                    android:layout_gravity="center"
-                    android:src="@drawable/survivor2" />
-
-                <TextView
-                    android:id="@+id/turnsPlayer2_txt"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:text="Survivor 3"
-                    android:textColor="@color/black" />
-            </LinearLayout>
-
-            <LinearLayout
-                android:id="@+id/llNextTurn3"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center|center_vertical"
-                android:layout_marginLeft="20dp"
-                android:layout_weight="1"
-                android:orientation="vertical">
-
-                <ImageView
-                    android:id="@+id/turnsPlayer3_img"
-                    android:layout_width="30dp"
-                    android:layout_height="30dp"
-                    android:layout_gravity="center"
-                    android:src="@drawable/survivor3" />
-
-                <TextView
-                    android:id="@+id/turnsPlayer3_txt"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:text="Survivor 4"
-                    android:textColor="@color/black" />
-            </LinearLayout>
-
-            <LinearLayout
-                android:id="@+id/llNextTurn4"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center|center_vertical"
-                android:layout_marginLeft="20dp"
-                android:layout_weight="1"
-                android:orientation="vertical">
-
-                <ImageView
-                    android:id="@+id/turnsPlayer4_img"
-                    android:layout_width="30dp"
-                    android:layout_height="30dp"
-                    android:layout_gravity="center"
-                    android:src="@drawable/viral2" />
-
-                <TextView
-                    android:id="@+id/turnsPlayer4_txt"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:text="Viral"
-                    android:textColor="@color/black" />
-            </LinearLayout>
-        </LinearLayout>
     </LinearLayout>
 
     <androidx.appcompat.widget.AppCompatButton
