@@ -25,6 +25,11 @@ class InitializePlayerAdapter(private val players: ArrayList<Player>) : Recycler
         holder.bind(player, position + 1)
     }
 
+    fun removePlayer(position: Int) {
+        this.players.removeAt(position)
+        notifyDataSetChanged()
+    }
+
     fun printKeys() {
         for ((index, player) in players.withIndex()) {
             //Log player names and playerid

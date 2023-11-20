@@ -11,9 +11,11 @@ import android.widget.Toast
 import androidx.activity.result.ActivityResult
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.activity.ComponentActivity
+import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.mobdeve.machineproject.InitializePlayerRecycler.InitializePlayerAdapter
+import com.mobdeve.machineproject.InitializePlayerRecycler.SwipeCallback
 import com.mobdeve.machineproject.Model.Player
 import com.mobdeve.machineproject.SQL.DBHandler
 import com.mobdeve.machineproject.SQL.PlayerDatabase
@@ -40,6 +42,7 @@ class InitializePlayers : ComponentActivity() {
     private lateinit var initializeRecycler: RecyclerView
     private lateinit var initializeRecyclerAdapter: InitializePlayerAdapter
     private lateinit var InitializeToastManager: ToastManager
+    private lateinit var itemTouchHelper: ItemTouchHelper
 
     private val playerList: ArrayList<Player> = ArrayList()
 
@@ -127,9 +130,13 @@ class InitializePlayers : ComponentActivity() {
         initialize_add_player_btn = findViewById<Button>(R.id.initialize_add_player_btn)
 
         initialize_add_player_btn.setOnClickListener {
-
             selectIntent.putExtra(CLICKED_KEY, PLAYER_CLICKED)
             getPlayerIDActivityLauncher.launch(selectIntent)
         }
+
+        val swipeCallback = SwipeCallback(0, ItemTouchHelper.LEFT or ItemTouchHelper.RIGHT)
+        swipeCallback.InitializeAdapter = initializeRecyclerAdapter
+        itemTouchHelper = ItemTouchHelper(swipeCallback)
+        itemTouchHelper.attachToRecyclerView(initializeRecycler)
     }
 }
