@@ -151,7 +151,7 @@ class MainGame : ComponentActivity() {
                     turnEndImg.setImageResource(GameSession.getNextPlayer().playerImg)
                 }
                 dialog.setOnDismissListener {
-                    GameSession.startNextTurn()
+                    GameSession.startNextTurn(this)
                     finish()
                     startActivity(Intent(this, javaClass))
                 }
@@ -173,6 +173,7 @@ class MainGame : ComponentActivity() {
                     GameSession.escapeCurrentPlayer()
 
                     if (GameSession.allPlayersEscaped()) {
+                        GameSession.endGame(this)
                         val intent = Intent(this, FinalResultsActivity::class.java)
                         startActivity(intent)
                         finish()
@@ -190,7 +191,7 @@ class MainGame : ComponentActivity() {
                         }, 1000)
 
                         dialog.setOnDismissListener {
-                            GameSession.startNextTurn()
+                            GameSession.startNextTurn(this)
                             finish()
                             startActivity(Intent(this, javaClass))
                         }
@@ -207,6 +208,7 @@ class MainGame : ComponentActivity() {
                 .setTitle("Confirm End Game")
                 .setMessage("Are you sure you want to end the game?")
                 .setPositiveButton("Yes") { _, _ ->
+                    GameSession.endGame(this)
                     val intent = Intent(this, FinalResultsActivity::class.java)
                     startActivity(intent)
                     finish()

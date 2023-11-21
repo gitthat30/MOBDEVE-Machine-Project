@@ -1,17 +1,43 @@
 package com.mobdeve.machineproject.Model
+import android.content.Context
+import android.util.Log
+import com.google.gson.Gson
+import com.google.gson.GsonBuilder
+import com.google.gson.reflect.TypeToken
 
 object GameSession {
     var players: List<Player> = emptyList()
     var currentRound: Int = 1
     var currentPlayerIndex: Int = 0
-    fun initialize(playerList: List<Player>) {
+    var sessionConcluded: Boolean = false
+    fun initialize(playerList: List<Player>, context: Context) {
         players = playerList
         currentRound = 1
         currentPlayerIndex = 0
+        sessionConcluded = false
         initializeHouses()
+        saveGame(context)
+    }
+    fun initializeJson(context: Context) {
+        val sharedPreferences = context.getSharedPreferences("VI_Preferences", Context.MODE_PRIVATE)
+        val gson = Gson()
+        val playersJson = sharedPreferences.getString("players", null)
+        val currentRound = sharedPreferences.getInt("currentRound", 1)
+        val currentPlayerIndex = sharedPreferences.getInt("currentPlayerIndex", 0)
+        val sessionConcluded = sharedPreferences.getBoolean("sessionConcluded", false)
+
+        if (playersJson != null) {
+            val playerType = object : TypeToken<List<Player>>() {}.type
+            val players: List<Player> = gson.fromJson(playersJson, playerType)
+
+            GameSession.players = players
+            GameSession.currentRound = currentRound
+            GameSession.currentPlayerIndex = currentPlayerIndex
+            GameSession.sessionConcluded = sessionConcluded
+        }
     }
 
-    private fun initializeHouses() {
+    fun initializeHouses() {
         for (player in players) {
             player.houses.forEach { it.hasBeenVisited = false } //change this to true for testing randomization
             val randomHouseIndex = (0 until 17).random()
@@ -21,7 +47,7 @@ object GameSession {
         }
     }
 
-    fun startNextTurn() {
+    fun startNextTurn(context: Context) {
         currentPlayerIndex = getNextTurnIndex()
         if (currentPlayerIndex == 0)
             currentRound++
@@ -30,6 +56,7 @@ object GameSession {
             if (currentPlayerIndex == 0)
                 currentRound++
         }
+        saveGame(context)
     }
     fun reset() {
         if (players.isNotEmpty()) {
@@ -61,7 +88,26 @@ object GameSession {
     fun allPlayersEscaped(): Boolean {
         return players.filter {it.isViral != 1}.all { it.escaped }
     }
-    fun endGame() {
+    fun endGame(context: Context) {
+        sessionConcluded = true
+        val sharedPreferences = context.getSharedPreferences("VI_Preferences", Context.MODE_PRIVATE)
+        val editor = sharedPreferences.edit()
+        editor.putBoolean("sessionConcluded", sessionConcluded)
+        editor.apply()
+    }
+    private fun saveGame(context: Context) {
+        val gson = Gson()
+        val playersJson = gson.toJson(players)
+        val sharedPreferences = context.getSharedPreferences("VI_Preferences", Context.MODE_PRIVATE)
+        val editor = sharedPreferences.edit()
+
+        //Log.d("PlayersJsonLog", playersJson)
+
+        editor.putString("players", playersJson)
+        editor.putInt("currentRound", currentRound)
+        editor.putInt("currentPlayerIndex", currentPlayerIndex)
+        editor.putBoolean("sessionConcluded", sessionConcluded)
+        editor.apply()
     }
 }
 
