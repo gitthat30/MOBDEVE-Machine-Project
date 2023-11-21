@@ -47,11 +47,14 @@ class MainGame : ComponentActivity() {
         enterButton = findViewById(R.id.btnEnterHouse)
         endTurnButton = findViewById(R.id.btnEndTurn)
 
+
         val ivCurrentPlayer = findViewById<ImageView>(R.id.iv_currentPlayer)
         val ivNextPlayer1 = findViewById<ImageView>(R.id.iv_nextPlayer1)
         val ivNextPlayer2 = findViewById<ImageView>(R.id.iv_nextPlayer2)
         val ivNextPlayer3 = findViewById<ImageView>(R.id.iv_nextPlayer3)
         val ivNextPlayer4 = findViewById<ImageView>(R.id.iv_nextPlayer4)
+        val tvRoundNumber = findViewById<TextView>(R.id.tv_roundNumber)
+
 
         val textViewIds = arrayOf(
             R.id.tv_currentPlayer,
@@ -71,6 +74,8 @@ class MainGame : ComponentActivity() {
             val parentLayout = textView.parent as? LinearLayout
             parentLayout?.visibility = View.GONE
         }
+
+        tvRoundNumber.text = "Round ${GameSession.currentRound}"
 
         intializeListeners()
 
@@ -105,7 +110,6 @@ class MainGame : ComponentActivity() {
             dialog.setContentView(R.layout.random_event)
             dialog.setCanceledOnTouchOutside(true)
             dialog.show()
-
             var randomEventName: TextView = dialog.findViewById(R.id.randomEvent_name)
             var randomEventDescription: TextView = dialog.findViewById(R.id.randomEvent_description)
 

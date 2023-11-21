@@ -2,7 +2,7 @@ package com.mobdeve.machineproject.Model
 
 object GameSession {
     var players: List<Player> = emptyList()
-    private var currentRound: Int = 1
+    var currentRound: Int = 1
     var currentPlayerIndex: Int = 0
     fun initialize(playerList: List<Player>) {
         players = playerList
