@@ -16,6 +16,9 @@
             android:name=".SelectPlayer"
             android:exported="false" />
         <activity
+            android:name=".FinalResultsActivity"
+            android:exported="false" />
+        <activity
             android:name=".PlayerStatistics"
             android:exported="false" />
         <activity

@@ -25,6 +25,11 @@ object GameSession {
         currentPlayerIndex = getNextTurnIndex()
         if (currentPlayerIndex == 0)
             currentRound++
+        while (players[currentPlayerIndex].escaped) { //added to skip escaped players
+            currentPlayerIndex = getNextTurnIndex()
+            if (currentPlayerIndex == 0)
+                currentRound++
+        }
     }
     fun reset() {
         if (players.isNotEmpty()) {
@@ -48,6 +53,15 @@ object GameSession {
 
     fun getNextPlayer(): Player {
         return players[getNextTurnIndex()]
+    }
+
+    fun escapeCurrentPlayer() {
+        players[currentPlayerIndex].escaped = true
+    }
+    fun allPlayersEscaped(): Boolean {
+        return players.filter {it.isViral != 1}.all { it.escaped }
+    }
+    fun endGame() {
     }
 }
 

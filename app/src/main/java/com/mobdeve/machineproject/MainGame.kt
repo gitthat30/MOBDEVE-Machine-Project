@@ -1,5 +1,6 @@
 package com.mobdeve.machineproject
 
+import android.app.AlertDialog
 import android.app.Dialog
 import android.content.Intent
 import android.os.Bundle
@@ -56,7 +57,6 @@ class MainGame : ComponentActivity() {
         val ivNextPlayer4 = findViewById<ImageView>(R.id.iv_nextPlayer4)
         val tvRoundNumber = findViewById<TextView>(R.id.tv_roundNumber)
 
-
         val textViewIds = arrayOf(
             R.id.tv_currentPlayer,
             R.id.tv_nextPlayer1,
@@ -69,6 +69,9 @@ class MainGame : ComponentActivity() {
             val textView = findViewById<TextView>(textViewIds[i])
             val playerIndex = (GameSession.currentPlayerIndex + i) % GameSession.players.size
             textView.text = GameSession.players[playerIndex].name
+
+            val parentLayout = textView.parent as? LinearLayout
+            parentLayout?.visibility = if (GameSession.players[playerIndex].escaped) View.GONE else View.VISIBLE
         }
         for (i in GameSession.players.size until textViewIds.size) {
             val textView = findViewById<TextView>(textViewIds[i])
@@ -146,14 +149,40 @@ class MainGame : ComponentActivity() {
         }
 
         escapeButton.setOnClickListener {
-            escapeButton.isClickable = false
-            val dialog = Dialog(this)
-            dialog.setContentView(R.layout.player_escape)
-            dialog.setCanceledOnTouchOutside(true)
-            dialog.show()
-            escapeButton.postDelayed({
-                escapeButton.isClickable = true
-            }, 1000)
+            val confirmDialog = AlertDialog.Builder(this)
+                .setTitle("Confirm Escape")
+                .setMessage("Are you sure you want to escape?")
+                .setPositiveButton("Yes") { _, _ ->
+                    escapeButton.isClickable = false
+                    GameSession.escapeCurrentPlayer()
+
+                    if (GameSession.allPlayersEscaped()) {
+                        val intent = Intent(this, FinalResultsActivity::class.java)
+                        startActivity(intent)
+                        finish()
+                    } else {
+                        val dialog = Dialog(this)
+                        dialog.setContentView(R.layout.player_escape)
+                        dialog.setCanceledOnTouchOutside(true)
+                        val escapedName = dialog.findViewById<TextView>(R.id.playerEscaped_name)
+                        escapedName.text = GameSession.players[GameSession.currentPlayerIndex].name
+                        dialog.show()
+                        escapeButton.postDelayed({
+                            escapeButton.isClickable = true
+                        }, 1000)
+
+                        dialog.setOnDismissListener {
+                            GameSession.startNextTurn()
+                            finish()
+                            startActivity(Intent(this, javaClass))
+                        }
+                    }
+                }
+                .setNegativeButton("No") { _, _ ->
+                    // do nothing
+                }
+                .create()
+            confirmDialog.show()
         }
 
         skipTurnButton.setOnClickListener {
