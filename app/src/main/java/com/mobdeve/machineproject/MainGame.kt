@@ -56,6 +56,8 @@ class MainGame : ComponentActivity() {
         val ivNextPlayer3 = findViewById<ImageView>(R.id.iv_nextPlayer3)
         val ivNextPlayer4 = findViewById<ImageView>(R.id.iv_nextPlayer4)
         val tvRoundNumber = findViewById<TextView>(R.id.tv_roundNumber)
+        val btnEnterHouse = findViewById<Button>(R.id.btnEnterHouse)
+        val btnEscape = findViewById<Button>(R.id.btnEscape)
 
         val textViewIds = arrayOf(
             R.id.tv_currentPlayer,
@@ -80,6 +82,10 @@ class MainGame : ComponentActivity() {
         }
 
         tvRoundNumber.text = "Round ${GameSession.currentRound}"
+        if(GameSession.getCurrentPlayer().isViral == 1){
+            btnEnterHouse.visibility = View.INVISIBLE
+            btnEscape.text = "END GAME"
+        }
 
         intializeListeners()
     }
@@ -149,7 +155,8 @@ class MainGame : ComponentActivity() {
         }
 
         escapeButton.setOnClickListener {
-            val confirmDialog = AlertDialog.Builder(this)
+            if(GameSession.getCurrentPlayer().isViral != 1) {
+                val confirmDialog = AlertDialog.Builder(this)
                 .setTitle("Confirm Escape")
                 .setMessage("Are you sure you want to escape?")
                 .setPositiveButton("Yes") { _, _ ->
@@ -164,8 +171,10 @@ class MainGame : ComponentActivity() {
                         val dialog = Dialog(this)
                         dialog.setContentView(R.layout.player_escape)
                         dialog.setCanceledOnTouchOutside(true)
-                        val escapedName = dialog.findViewById<TextView>(R.id.playerEscaped_name)
-                        escapedName.text = GameSession.players[GameSession.currentPlayerIndex].name
+                        val escapedName =
+                            dialog.findViewById<TextView>(R.id.playerEscaped_name)
+                        escapedName.text =
+                            GameSession.players[GameSession.currentPlayerIndex].name
                         dialog.show()
                         escapeButton.postDelayed({
                             escapeButton.isClickable = true
@@ -182,7 +191,23 @@ class MainGame : ComponentActivity() {
                     // do nothing
                 }
                 .create()
-            confirmDialog.show()
+                confirmDialog.show()
+            }
+            else{
+                val confirmDialog = AlertDialog.Builder(this)
+                .setTitle("Confirm End Game")
+                .setMessage("Are you sure you want to end the game?")
+                .setPositiveButton("Yes") { _, _ ->
+                    val intent = Intent(this, FinalResultsActivity::class.java)
+                    startActivity(intent)
+                    finish()
+                }
+                .setNegativeButton("No") { _, _ ->
+                    // do nothing
+                }
+                .create()
+                confirmDialog.show()
+            }
         }
 
         skipTurnButton.setOnClickListener {

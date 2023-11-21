@@ -292,7 +292,7 @@
             android:layout_width="wrap_content"
             android:layout_height="40dp"
             android:layout_weight="1"
-            android:background="@drawable/escape_layout"
+            android:background="@drawable/cure_layout"
             android:fontFamily="@font/rowdies"
             android:text="SKIP TURN"
             android:textColor="#FFFFFF"
