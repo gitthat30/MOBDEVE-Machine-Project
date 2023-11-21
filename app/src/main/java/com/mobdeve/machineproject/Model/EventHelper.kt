@@ -12,6 +12,7 @@ class EventHelper() {
     }
 
     init {
+        // Adding random events
         randomEvents.add(Event(
             "Nothing Happens",
             "All is well! Nothing happened thankfully... Carry on.",
@@ -38,17 +39,48 @@ class EventHelper() {
             .2
         ))
 
-        survivorEvents.add(
-            Event(
-                "Default Survivor Event",
-                "This is the default survivor event description. To be added in a bit.",
-                1.0
-            ))
+        // Adding survivor events
+        survivorEvents.add(Event(
+            "Nothing Happens",
+            "All is well! Nothing happened thankfully... Carry on.",
+            0.4
+        ))
+
+        survivorEvents.add(Event(
+            "Panic Attack",
+            "Need to move! The player moves 5 steps this round.",
+            0.2
+        ))
+
+        survivorEvents.add(Event(
+            "Lucky Day",
+            "Things are looking up! Shuffle the discard pile and draw one card. If the discard pile is empty, do not draw.",
+            0.2
+        ))
+
+        survivorEvents.add(Event(
+            "Muscle Cramps",
+            "Your muscles cramp and can't move very far. Lose one dice roll in the next round.",
+            0.2
+        ))
+
+        // Adding viral events
+        viralEvents.add(Event(
+            "Nothing Happens",
+            "All is well! Nothing happened thankfully... Carry on.",
+            0.4
+        ))
 
         viralEvents.add(Event(
-            "Default Viral Event",
-            "This is the default viral event description. To be added in a bit.",
-            1.0
+            "Random Distraction",
+            "Need to move! The player moves 5 steps this round..",
+            0.4
+        ))
+
+        viralEvents.add(Event(
+            "Rat Snack",
+            "Yummy! The player obtains a rat nearby as an item. This can be used to add an additional roll (maximum of 2 at a time).",
+            0.2
         ))
     }
 
