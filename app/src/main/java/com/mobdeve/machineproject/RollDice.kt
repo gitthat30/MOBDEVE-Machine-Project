@@ -14,18 +14,7 @@ import android.widget.Button
 import android.widget.ImageButton
 import android.widget.ImageView
 import android.widget.LinearLayout
-import android.widget.TextView
 import androidx.activity.ComponentActivity
-import androidx.activity.compose.setContent
-import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.material3.MaterialTheme
-import androidx.compose.material3.Surface
-import androidx.compose.material3.Text
-import androidx.compose.runtime.Composable
-import androidx.compose.ui.Modifier
-import androidx.compose.ui.tooling.preview.Preview
-import com.mobdeve.machineproject.ui.ui.theme.MachineProjectTheme
-import pl.droidsonroids.gif.GifImageView
 
 class RollDice : ComponentActivity(), GestureDetector.OnGestureListener, GestureDetector.OnDoubleTapListener  {
     private lateinit var column1: LinearLayout
@@ -199,7 +188,7 @@ class RollDice : ComponentActivity(), GestureDetector.OnGestureListener, Gesture
         selectedDice.postDelayed({
             selectedDiceAnim.stop()
             selectedDice.setImageResource(diceImages[(0..5).random()])
-        }, getTotalAnimationDuration(selectedDiceAnim))
+        }, (450..600).random().toLong())
 
         return true
     }
@@ -230,7 +219,7 @@ class RollDice : ComponentActivity(), GestureDetector.OnGestureListener, Gesture
             dice2.setImageResource(diceImages[(0..5).random()])
             dice3.setImageResource(diceImages[(0..5).random()])
             dice4.setImageResource(diceImages[(0..5).random()])
-        }, getTotalAnimationDuration(diceAnim1))
+        }, (450..600).random().toLong())
     }
 
     private fun createDiceAnimation(): AnimationDrawable {
@@ -245,7 +234,7 @@ class RollDice : ComponentActivity(), GestureDetector.OnGestureListener, Gesture
         )
 
         randomDrawables.forEach {
-            diceShuffle.addFrame(this.resources.getDrawable(it, null), 100)
+            diceShuffle.addFrame(this.resources.getDrawable(it, null), (75..100).random())
         }
 
         return diceShuffle

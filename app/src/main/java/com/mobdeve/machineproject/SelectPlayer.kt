@@ -100,6 +100,9 @@ class SelectPlayer : AppCompatActivity() {
                 if(players.any{it.name == playerToAdd.name}) {
                     SelectToastManager.sendMsg("Player name already taken")
                 }
+                else if(playerToAdd.name.length > 10) {
+                    SelectToastManager.sendMsg("Please limit player name to 10 characters")
+                }
                 else {
                     val key = playerDatabase.insertPlayer(playerToAdd)
                     playerToAdd.playerID = key
