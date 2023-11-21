@@ -16,6 +16,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.mobdeve.machineproject.InitializePlayerRecycler.InitializePlayerAdapter
 import com.mobdeve.machineproject.InitializePlayerRecycler.SwipeCallback
+import com.mobdeve.machineproject.Model.GameSession
 import com.mobdeve.machineproject.Model.Player
 import com.mobdeve.machineproject.SQL.DBHandler
 import com.mobdeve.machineproject.SQL.PlayerDatabase
@@ -139,6 +140,8 @@ class InitializePlayers : ComponentActivity() {
             else {
                 startButton.isClickable = false
                 playerList.add(viral_Player)
+                GameSession.reset()
+                GameSession.initialize(playerList)
                 val intent = Intent(this, MainGame::class.java)
                 startActivity(intent)
                 finish()

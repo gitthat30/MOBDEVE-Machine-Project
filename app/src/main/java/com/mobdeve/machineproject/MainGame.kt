@@ -3,12 +3,15 @@ package com.mobdeve.machineproject
 import android.app.Dialog
 import android.content.Intent
 import android.os.Bundle
+import android.view.View
 import android.widget.Button
 import android.widget.ImageView
+import android.widget.LinearLayout
 import android.widget.TextView
 import androidx.activity.ComponentActivity
 import androidx.recyclerview.widget.RecyclerView
 import com.mobdeve.machineproject.Model.EventHelper
+import com.mobdeve.machineproject.Model.GameSession
 import com.mobdeve.machineproject.PlayerTurnRecycler.PlayerTurnAdapter
 import com.mobdeve.machineproject.SQL.DBHandler
 import com.mobdeve.machineproject.SQL.PlayerDatabase
@@ -19,6 +22,7 @@ class MainGame : ComponentActivity() {
     private lateinit var rollDiceButton: Button
     private lateinit var escapeButton: Button
     private lateinit var enterButton: Button
+    private lateinit var endTurnButton: Button
 
     private lateinit var currentTurnImg: ImageView
     private lateinit var currentTurnName: TextView
@@ -41,9 +45,32 @@ class MainGame : ComponentActivity() {
         rollDiceButton = findViewById(R.id.btnRollDice)
         escapeButton  = findViewById(R.id.btnEscape)
         enterButton = findViewById(R.id.btnEnterHouse)
+        endTurnButton = findViewById(R.id.btnEndTurn)
 
-        currentTurnImg = findViewById(R.id.currentTurn_img)
-        currentTurnName = findViewById(R.id.currentTurn_name)
+        val ivCurrentPlayer = findViewById<ImageView>(R.id.iv_currentPlayer)
+        val ivNextPlayer1 = findViewById<ImageView>(R.id.iv_nextPlayer1)
+        val ivNextPlayer2 = findViewById<ImageView>(R.id.iv_nextPlayer2)
+        val ivNextPlayer3 = findViewById<ImageView>(R.id.iv_nextPlayer3)
+        val ivNextPlayer4 = findViewById<ImageView>(R.id.iv_nextPlayer4)
+
+        val textViewIds = arrayOf(
+            R.id.tv_currentPlayer,
+            R.id.tv_nextPlayer1,
+            R.id.tv_nextPlayer2,
+            R.id.tv_nextPlayer3,
+            R.id.tv_nextPlayer4
+        )
+
+        for (i in 0 until GameSession.players.size) {
+            val textView = findViewById<TextView>(textViewIds[i])
+            val playerIndex = (GameSession.currentPlayerIndex + i) % GameSession.players.size
+            textView.text = GameSession.players[playerIndex].name
+        }
+        for (i in GameSession.players.size until textViewIds.size) {
+            val textView = findViewById<TextView>(textViewIds[i])
+            val parentLayout = textView.parent as? LinearLayout
+            parentLayout?.visibility = View.GONE
+        }
 
         intializeListeners()
 
@@ -72,8 +99,6 @@ class MainGame : ComponentActivity() {
             }, 1000)
         }
 
-
-
         randomEventButton.setOnClickListener {
             randomEventButton.isClickable = false
             val dialog = Dialog(this)
@@ -92,6 +117,22 @@ class MainGame : ComponentActivity() {
             randomEventButton.postDelayed({
                 randomEventButton.isClickable = true
             }, 1000)
+        }
+
+        endTurnButton.setOnClickListener {
+            escapeButton.isClickable = false
+            escapeButton.postDelayed({
+                escapeButton.isClickable = true
+            }, 1000)
+            val dialog = Dialog(this)
+            dialog.setContentView(R.layout.player_escape)
+            dialog.setCanceledOnTouchOutside(true)
+            dialog.show()
+            dialog.setOnDismissListener {
+                GameSession.startNextTurn()
+                finish()
+                startActivity(Intent(this, javaClass))
+            }
         }
 
         escapeButton.setOnClickListener {
