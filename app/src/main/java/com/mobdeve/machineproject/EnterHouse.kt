@@ -116,7 +116,7 @@ class EnterHouse : AppCompatActivity() {
             val hasKeyForOtherPlayer = players
                 .filter { it != currentPlayer } // Exclude the current player
                 .any { player ->
-                    player.houses[selectedHouseIndex].hasKey
+                    player.houses[selectedHouseIndex].hasKey && !player.houses[selectedHouseIndex].hasBeenVisited
                 }
 
             val message = if (selectedHouse.hasKey) {
