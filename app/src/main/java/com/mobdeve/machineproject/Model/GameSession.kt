@@ -47,6 +47,10 @@ object GameSession {
         return nextIndex
     }
 
+    fun getCurrentPlayer(): Player {
+        return players[currentPlayerIndex]
+    }
+
     fun getNextPlayer(): Player {
         return players[getNextTurnIndex()]
     }

@@ -23,6 +23,7 @@ class MainGame : ComponentActivity() {
     private lateinit var escapeButton: Button
     private lateinit var enterButton: Button
     private lateinit var endTurnButton: Button
+    private lateinit var skipTurnButton: Button
 
     private lateinit var currentTurnImg: ImageView
     private lateinit var currentTurnName: TextView
@@ -46,7 +47,7 @@ class MainGame : ComponentActivity() {
         escapeButton  = findViewById(R.id.btnEscape)
         enterButton = findViewById(R.id.btnEnterHouse)
         endTurnButton = findViewById(R.id.btnEndTurn)
-
+        skipTurnButton = findViewById(R.id.btnSkipTurn)
 
         val ivCurrentPlayer = findViewById<ImageView>(R.id.iv_currentPlayer)
         val ivNextPlayer1 = findViewById<ImageView>(R.id.iv_nextPlayer1)
@@ -78,13 +79,6 @@ class MainGame : ComponentActivity() {
         tvRoundNumber.text = "Round ${GameSession.currentRound}"
 
         intializeListeners()
-
-//        playerIndices = hashMapOf<String, Long>()
-//        val currentPlayerIndices = intent.getLongArrayExtra("PLAYER_INDICES")!!
-//
-//        for(index in currentPlayerIndices) {
-//            playerIndices.putAll(playerDatabase.getPlayer(index))
-//        }
     }
 
     fun intializeListeners() {
@@ -114,7 +108,8 @@ class MainGame : ComponentActivity() {
             val randomEventName: TextView = dialog.findViewById(R.id.randomEvent_name)
             val randomEventDescription: TextView = dialog.findViewById(R.id.randomEvent_description)
 
-            val randomEvent = EventHelper.getRandomEvent()
+            val eventHelper = EventHelper()
+            val randomEvent = eventHelper.getRandomEvent(EventHelper.EventType.Random)
 
             randomEventName.text = randomEvent.eventName
             randomEventDescription.text = randomEvent.eventDescription
@@ -157,6 +152,33 @@ class MainGame : ComponentActivity() {
             dialog.setCanceledOnTouchOutside(true)
             dialog.show()
             escapeButton.postDelayed({
+                escapeButton.isClickable = true
+            }, 1000)
+        }
+
+        skipTurnButton.setOnClickListener {
+            escapeButton.isClickable = false
+            val dialog = Dialog(this)
+            dialog.setContentView(R.layout.random_event)
+            dialog.setCanceledOnTouchOutside(true)
+            dialog.show()
+
+            val randomEventName: TextView = dialog.findViewById(R.id.randomEvent_name)
+            val randomEventDescription: TextView = dialog.findViewById(R.id.randomEvent_description)
+
+            val eventHelper = EventHelper()
+            var eventType = EventHelper.EventType.Survivor
+
+            // Can remove first condition once players isn't always empty
+            if(GameSession.players.isNotEmpty() && GameSession.getCurrentPlayer().isViral == 1) {
+                eventType = EventHelper.EventType.Viral
+            }
+            val randomEvent = eventHelper.getRandomEvent(eventType)
+
+            randomEventName.text = randomEvent.eventName
+            randomEventDescription.text = randomEvent.eventDescription
+
+            skipTurnButton.postDelayed({
                 escapeButton.isClickable = true
             }, 1000)
         }

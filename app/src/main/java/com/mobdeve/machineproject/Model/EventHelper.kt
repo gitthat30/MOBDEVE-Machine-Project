@@ -2,57 +2,74 @@ package com.mobdeve.machineproject.Model
 
 import kotlin.random.Random
 
-class EventHelper {
-    companion object {
-        private lateinit var events: ArrayList<Event>
+class EventHelper() {
+    private var randomEvents: ArrayList<Event> = ArrayList()
+    private var survivorEvents: ArrayList<Event> = ArrayList()
+    private var viralEvents: ArrayList<Event> = ArrayList()
 
-        fun initEvents() {
-            val events: ArrayList<Event> = ArrayList()
+    enum class EventType {
+        Random, Survivor, Viral
+    }
 
-            events.add(Event(
-                "Nothing Happens",
-                "All is well! Nothing happened thankfully... Carry on.",
-                0.1
-            ))
-            events.add(Event(
-                "Fallen Boulder",
-                "A boulder has fallen behind you! A boulder piece is placed behind the player.",
-                0.25
-            ))
-            events.add(Event(
-                "Fallen Tree",
-                "A tree has fallen in front of you! A tree piece is placed in front of the player.",
-                0.25
-            ))
-            events.add(Event(
-                "Rainy Day",
-                "Things just aren't going your way huh? -1 dice roll to all player (this lasts until the end of your next turn).",
-                0.2
-            ))
-            events.add(Event(
-                "Earthquake",
-                "Did you feel a tremor? It's an earthquake! We need to evacuate! All players inside houses are forced to exit.",
-                .2
+    init {
+        randomEvents.add(Event(
+            "Nothing Happens",
+            "All is well! Nothing happened thankfully... Carry on.",
+            0.1
+        ))
+        randomEvents.add(Event(
+            "Fallen Boulder",
+            "A boulder has fallen behind you! A boulder piece is placed behind the player.",
+            0.25
+        ))
+        randomEvents.add(Event(
+            "Fallen Tree",
+            "A tree has fallen in front of you! A tree piece is placed in front of the player.",
+            0.25
+        ))
+        randomEvents.add(Event(
+            "Rainy Day",
+            "Things just aren't going your way huh? -1 dice roll to all player (this lasts until the end of your next turn).",
+            0.2
+        ))
+        randomEvents.add(Event(
+            "Earthquake",
+            "Did you feel a tremor? It's an earthquake! We need to evacuate! All players inside houses are forced to exit.",
+            .2
+        ))
+
+        survivorEvents.add(
+            Event(
+                "Default Survivor Event",
+                "This is the default survivor event description. To be added in a bit.",
+                1.0
             ))
 
-            this.events = events
+        viralEvents.add(Event(
+            "Default Viral Event",
+            "This is the default viral event description. To be added in a bit.",
+            1.0
+        ))
+    }
+
+    fun getRandomEvent(type: EventType): Event {
+        val events = when(type) {
+            EventType.Random -> randomEvents
+            EventType.Survivor -> survivorEvents
+            EventType.Viral -> viralEvents
         }
 
-        fun getRandomEvent(): Event {
-            initEvents()
-            val totalProbability = events.sumOf { it.eventChance }
-            var randomValue = Random.nextDouble(0.0, totalProbability)
+        val totalProbability = events.sumOf { it.eventChance }
+        var randomValue = Random.nextDouble(0.0, totalProbability)
 
-            for(event in events) {
-                if(randomValue < event.eventChance) {
-                    return event
-                }
-                else {
-                    randomValue -= event.eventChance
-                }
+        for(event in events) {
+            if(randomValue < event.eventChance) {
+                return event
             }
-            return events.last()
+            else {
+                randomValue -= event.eventChance
+            }
         }
-
+        return events.last()
     }
 }
