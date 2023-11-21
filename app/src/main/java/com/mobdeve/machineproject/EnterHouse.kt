@@ -7,17 +7,46 @@ import android.os.Bundle
 import android.util.Log
 import android.widget.Button
 import android.widget.ImageButton
+import androidx.appcompat.app.AlertDialog
+import androidx.core.content.ContextCompat
+import com.mobdeve.machineproject.Model.GameSession
+import com.mobdeve.machineproject.Model.Player
 
 class EnterHouse : AppCompatActivity() {
 
 
-
+    private lateinit var currentPlayer: Player
+    private var selectedHouseIndex: Int = -1
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.house_selection)
 
-        val confirmButton: Button = findViewById(R.id.btn_house_confirm)
+        val playerIndex = GameSession.currentPlayerIndex
+        currentPlayer = GameSession.players[playerIndex]
+        initializeHouseButtons()
 
+
+    }
+
+    fun unselectOthers(selected: Int, icons: Array<Int>, houseButtons: Array<ImageButton>, ) {
+        for ((index, button) in houseButtons.withIndex()) {
+            if(index != selected) {
+                val house = currentPlayer.houses[index]
+                if (!house.hasBeenVisited) {
+                    button.setImageResource(icons[index])
+                } else {
+                    if (house.hasKey) {
+                        button.setImageDrawable(ContextCompat.getDrawable(this, R.drawable.key))
+                    } else {
+                        button.setImageDrawable(ContextCompat.getDrawable(this, R.drawable.red_x))
+                    }
+                }
+            }
+        }
+    }
+
+    private fun initializeHouseButtons() {
+        val confirmButton: Button = findViewById(R.id.btn_house_confirm)
         //Button Array
         val houseButtons = arrayOf(
             findViewById<ImageButton>(R.id.btn_house_1),
@@ -79,16 +108,47 @@ class EnterHouse : AppCompatActivity() {
             R.drawable.house17_selected
         )
 
-
-
         confirmButton.isEnabled = false
-
         confirmButton.setOnClickListener {
-            finish()
+            val selectedHouse = currentPlayer.houses[selectedHouseIndex]
+
+            val message = if (selectedHouse.hasKey) {
+                "You found a key!"
+            } else {
+                "You found an item!"
+            }
+            val dialog = AlertDialog.Builder(this)
+                .setMessage(message)
+                .setPositiveButton("OK") { _, _ ->
+                    // Set hasBeenVisited to true for the selected house
+                    selectedHouse.hasBeenVisited = true
+                    finish()
+                }
+                .setCancelable(false)
+                .create()
+
+            dialog.show()
         }
 
         for ((index, button) in houseButtons.withIndex()) {
+
+            val house = currentPlayer.houses[index]
+            if (!house.hasBeenVisited) {
+                (button as ImageButton).setImageResource(houseButtonNormal[index])
+                button.isEnabled = true
+            } else {
+                if (house.hasKey) {
+                    button.setImageDrawable(ContextCompat.getDrawable(this, R.drawable.key))
+                } else {
+                    button.setImageDrawable(ContextCompat.getDrawable(this, R.drawable.red_x))
+                }
+                button.isEnabled = false
+            }
+
             (button).setOnClickListener {
+                selectedHouseIndex = houseButtons.indexOf(button)
+                Log.d("SelectedHouseIndex", "Index: $selectedHouseIndex")
+
                 (button as ImageButton).setImageResource(houseButtonSelected[index])
 
                 unselectOthers(index, houseButtonNormal, houseButtons)
@@ -98,15 +158,5 @@ class EnterHouse : AppCompatActivity() {
                 confirmButton.setTextColor(Color.parseColor("#8B2E8F"))
             }
         }
-
     }
-
-    fun unselectOthers(selected: Int, icons: Array<Int>, houseButtons: Array<ImageButton>, ) {
-        for ((index, button) in houseButtons.withIndex()) {
-            if(index != selected) {
-                button.setImageResource(icons[index])
-            }
-        }
-    }
-
 }
