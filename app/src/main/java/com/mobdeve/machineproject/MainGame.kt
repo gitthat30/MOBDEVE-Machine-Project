@@ -129,29 +129,38 @@ class MainGame : ComponentActivity() {
         }
 
         endTurnButton.setOnClickListener {
-            escapeButton.isClickable = false
-            escapeButton.postDelayed({
-                escapeButton.isClickable = true
-            }, 1000)
-            val dialog = Dialog(this)
-            dialog.setContentView(R.layout.end_turn)
-            dialog.setCanceledOnTouchOutside(true)
-            dialog.show()
+            val confirmDialog = AlertDialog.Builder(this)
+            .setTitle("Confirm End Turn")
+            .setMessage("Are you sure you want to end your turn?")
+            .setPositiveButton("Yes") { _, _ ->
+                escapeButton.isClickable = false
+                escapeButton.postDelayed({
+                    escapeButton.isClickable = true
+                }, 1000)
+                val dialog = Dialog(this)
+                dialog.setContentView(R.layout.end_turn)
+                dialog.setCanceledOnTouchOutside(true)
+                dialog.show()
 
-            val turnEndName: TextView = dialog.findViewById(R.id.turnEnd_name)
-            val turnEndImg: ImageView = dialog.findViewById(R.id.turnEnd_img)
+                val turnEndName: TextView = dialog.findViewById(R.id.turnEnd_name)
+                val turnEndImg: ImageView = dialog.findViewById(R.id.turnEnd_img)
 
-            // Temporary condition since players is always empty for now when continuing game
-            if(GameSession.players.isNotEmpty()) {
-                turnEndName.text = GameSession.getNextPlayer().name
-                turnEndImg.setImageResource(GameSession.getNextPlayer().playerImg)
+                // Temporary condition since players is always empty for now when continuing game
+                if(GameSession.players.isNotEmpty()) {
+                    turnEndName.text = GameSession.getNextPlayer().name
+                    turnEndImg.setImageResource(GameSession.getNextPlayer().playerImg)
+                }
+                dialog.setOnDismissListener {
+                    GameSession.startNextTurn()
+                    finish()
+                    startActivity(Intent(this, javaClass))
+                }
             }
-
-            dialog.setOnDismissListener {
-                GameSession.startNextTurn()
-                finish()
-                startActivity(Intent(this, javaClass))
+            .setNegativeButton("No") { _, _ ->
+                // do nothing
             }
+            .create()
+            confirmDialog.show()
         }
 
         escapeButton.setOnClickListener {
