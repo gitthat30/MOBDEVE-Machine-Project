@@ -10,6 +10,7 @@ import android.widget.ImageButton
 import androidx.appcompat.app.AlertDialog
 import androidx.core.content.ContextCompat
 import com.mobdeve.machineproject.Model.GameSession
+import com.mobdeve.machineproject.Model.GameSession.players
 import com.mobdeve.machineproject.Model.Player
 
 class EnterHouse : AppCompatActivity() {
@@ -112,13 +113,31 @@ class EnterHouse : AppCompatActivity() {
         confirmButton.setOnClickListener {
             val selectedHouse = currentPlayer.houses[selectedHouseIndex]
 
+            val hasKeyForOtherPlayer = players
+                .filter { it != currentPlayer } // Exclude the current player
+                .any { player ->
+                    player.houses[selectedHouseIndex].hasKey && !player.houses[selectedHouseIndex].hasBeenVisited
+                }
+
             val message = if (selectedHouse.hasKey) {
                 "You found a key!"
             } else {
                 "You found an item!"
             }
+
+            val additionalMessage = if (hasKeyForOtherPlayer) {
+                if (selectedHouse.hasKey) {
+                    "\n\nIt seems there's another key but it's out of your reach..."
+                }
+                else{
+                    "\n\nIt seems there's a key here but it's out of your reach..."
+                }
+            } else {
+                ""
+            }
+
             val dialog = AlertDialog.Builder(this)
-                .setMessage(message)
+                .setMessage("$message$additionalMessage")
                 .setPositiveButton("OK") { _, _ ->
                     // Set hasBeenVisited to true for the selected house
                     selectedHouse.hasBeenVisited = true
