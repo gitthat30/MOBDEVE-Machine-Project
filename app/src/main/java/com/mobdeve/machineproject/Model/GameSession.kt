@@ -15,10 +15,13 @@ object GameSession {
         for (player in players) {
             player.houses.forEach { it.hasBeenVisited = false }
             val randomHouseIndex = (0 until 17).random()
-            player.houses[randomHouseIndex].hasKey = true
+            //player.houses[randomHouseIndex].hasKey = true
             //player.houses[16].hasBeenVisited = true //for testing
             //player.houses[16].hasKey = true //for testing
         }
+        //players[0].houses[1].hasKey = true //for testing
+        //players[1].houses[1].hasKey = true //for testing
+        //players[2].houses[2].hasKey = true //for testing
     }
 
     fun startNextTurn() {
