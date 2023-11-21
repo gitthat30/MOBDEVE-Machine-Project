@@ -1,17 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="@color/background">
+    android:layout_height="match_parent">
 
     <LinearLayout
         android:id="@+id/linearLayout11"
         android:layout_width="330dp"
-        android:layout_height="271dp"
+        android:layout_height="wrap_content"
         android:background="@drawable/round_layout"
         android:orientation="vertical"
+        android:paddingTop="25dp"
+        android:paddingBottom="25dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.493"
@@ -19,19 +19,31 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.332">
 
+        <TextView
+            android:id="@+id/turnEnd_static"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:fontFamily="@font/rowdies"
+            android:gravity="center"
+            android:text="NEXT TURN"
+            android:textColor="#000000"
+            android:textSize="22sp"
+            android:textStyle="bold" />
+
         <ImageView
-            android:id="@+id/playerEscaped_img"
+            android:id="@+id/turnEnd_img"
             android:layout_width="128dp"
             android:layout_height="128dp"
             android:layout_gravity="center"
             android:layout_marginTop="25dp"
+            android:layout_marginBottom="10dp"
             android:src="@drawable/player2" />
 
         <TextView
-            android:id="@+id/playerEscaped_name"
+            android:id="@+id/turnEnd_name"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
             android:fontFamily="@font/rowdies"
             android:gravity="center"
             android:text="playerName"
@@ -39,18 +51,5 @@
             android:textSize="20sp"
             android:textStyle="bold" />
 
-        <TextView
-            android:id="@+id/escaped_static"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:fontFamily="@font/rowdies"
-            android:gravity="center"
-            android:text="escaped"
-            android:textColor="#000000"
-            android:textSize="16sp"
-            android:textStyle="bold" />
-
     </LinearLayout>
-
 </androidx.constraintlayout.widget.ConstraintLayout>

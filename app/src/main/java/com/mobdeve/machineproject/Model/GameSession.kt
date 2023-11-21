@@ -10,11 +10,14 @@ object GameSession {
         currentPlayerIndex = 0
     }
     fun startNextTurn() {
-        currentPlayerIndex++
-        if (currentPlayerIndex >= players.size) {
-            currentPlayerIndex = 0
+//        currentPlayerIndex++
+//        if (currentPlayerIndex >= players.size) {
+//            currentPlayerIndex = 0
+//            currentRound++
+//        }
+        currentPlayerIndex = getNextTurnIndex()
+        if (currentPlayerIndex == 0)
             currentRound++
-        }
     }
     fun reset() {
         if (players.isNotEmpty()) {
@@ -22,5 +25,17 @@ object GameSession {
             currentRound = 1
             currentPlayerIndex = 0
         }
+    }
+
+    fun getNextTurnIndex(): Int {
+        var nextIndex: Int = currentPlayerIndex + 1
+        if (nextIndex >= players.size)
+            nextIndex = 0
+
+        return nextIndex
+    }
+
+    fun getNextPlayer(): Player {
+        return players[getNextTurnIndex()]
     }
 }

@@ -106,8 +106,8 @@ class MainGame : ComponentActivity() {
             dialog.setCanceledOnTouchOutside(true)
             dialog.show()
 
-            var randomEventName: TextView = dialog.findViewById(R.id.randomEvent_name)
-            var randomEventDescription: TextView = dialog.findViewById(R.id.randomEvent_description)
+            val randomEventName: TextView = dialog.findViewById(R.id.randomEvent_name)
+            val randomEventDescription: TextView = dialog.findViewById(R.id.randomEvent_description)
 
             val randomEvent = EventHelper.getRandomEvent()
 
@@ -125,9 +125,19 @@ class MainGame : ComponentActivity() {
                 escapeButton.isClickable = true
             }, 1000)
             val dialog = Dialog(this)
-            dialog.setContentView(R.layout.player_escape)
+            dialog.setContentView(R.layout.end_turn)
             dialog.setCanceledOnTouchOutside(true)
             dialog.show()
+
+            val turnEndName: TextView = dialog.findViewById(R.id.turnEnd_name)
+            val turnEndImg: ImageView = dialog.findViewById(R.id.turnEnd_img)
+
+            // Temporary condition since players is always empty for now when continuing game
+            if(GameSession.players.isNotEmpty()) {
+                turnEndName.text = GameSession.getNextPlayer().name
+                turnEndImg.setImageResource(GameSession.getNextPlayer().playerImg)
+            }
+
             dialog.setOnDismissListener {
                 GameSession.startNextTurn()
                 finish()
