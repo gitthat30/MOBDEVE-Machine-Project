@@ -158,6 +158,9 @@ class MainGame : ComponentActivity() {
 
         skipTurnButton.setOnClickListener {
             escapeButton.isClickable = false
+            skipTurnButton.postDelayed({
+                escapeButton.isClickable = true
+            }, 1000)
             val dialog = Dialog(this)
             dialog.setContentView(R.layout.random_event)
             dialog.setCanceledOnTouchOutside(true)
@@ -178,9 +181,9 @@ class MainGame : ComponentActivity() {
             randomEventName.text = randomEvent.eventName
             randomEventDescription.text = randomEvent.eventDescription
 
-            skipTurnButton.postDelayed({
-                escapeButton.isClickable = true
-            }, 1000)
+            dialog.setOnDismissListener {
+                endTurnButton.performClick()
+            }
         }
     }
 }

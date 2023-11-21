@@ -22,11 +22,6 @@ object GameSession {
     }
 
     fun startNextTurn() {
-//        currentPlayerIndex++
-//        if (currentPlayerIndex >= players.size) {
-//            currentPlayerIndex = 0
-//            currentRound++
-//        }
         currentPlayerIndex = getNextTurnIndex()
         if (currentPlayerIndex == 0)
             currentRound++
