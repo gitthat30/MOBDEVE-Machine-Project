@@ -84,7 +84,7 @@ class InitializePlayers : ComponentActivity() {
                 }
             }
 
-            if(playerList.size == 5) {
+            if(playerList.size == 4) {
                 initialize_add_player_btn.isClickable = false
             }
         }
@@ -130,14 +130,22 @@ class InitializePlayers : ComponentActivity() {
 
     fun initListeners() {
         startButton.setOnClickListener {
-            startButton.isClickable = false
-            playerList.add(viral_Player)
-            val intent = Intent(this, MainGame::class.java)
-            startActivity(intent)
-            finish()
-            startButton.postDelayed({
-                startButton.isClickable = true
-            }, 1000)
+            if(playerList.size < 2) {
+                InitializeToastManager.sendMsg("Please add at least 2 players")
+            }
+            else if (viral_Player.playerID == -1.toLong()) {
+                InitializeToastManager.sendMsg("Please add the Viral Player")
+            }
+            else {
+                startButton.isClickable = false
+                playerList.add(viral_Player)
+                val intent = Intent(this, MainGame::class.java)
+                startActivity(intent)
+                finish()
+                startButton.postDelayed({
+                    startButton.isClickable = true
+                }, 1000)
+            }
         }
 
         val selectIntent = Intent(this, SelectPlayer::class.java)
