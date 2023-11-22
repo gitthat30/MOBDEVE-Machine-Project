@@ -2,6 +2,7 @@ package com.mobdeve.machineproject
 
 import android.graphics.drawable.AnimationDrawable
 import android.media.Image
+import android.media.MediaPlayer
 import android.opengl.Visibility
 import android.os.Bundle
 import android.os.Handler
@@ -42,6 +43,8 @@ class RollDice : ComponentActivity(), GestureDetector.OnGestureListener, Gesture
 
     private lateinit var gestureDetect: GestureDetectorCompat
     private val handler = Handler()
+    private var diceSFX1: MediaPlayer? = null
+    private var diceSFX2: MediaPlayer? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -51,10 +54,16 @@ class RollDice : ComponentActivity(), GestureDetector.OnGestureListener, Gesture
         initListeners()
         initDiceValues()
         initDoubleTapListeners()
+        initMediaPlayers()
 
         updateClickable()
         updateDiceImages()
         updateDiceCount()
+    }
+
+    fun initMediaPlayers() {
+        diceSFX1 = MediaPlayer.create(this, R.raw.dicesfx1)
+        diceSFX2 = MediaPlayer.create(this, R.raw.dicesfx2)
     }
 
     fun initViews() {
@@ -182,8 +191,9 @@ class RollDice : ComponentActivity(), GestureDetector.OnGestureListener, Gesture
 
         selectedDiceAnim = selectedDice.drawable as AnimationDrawable
 
-
+        diceSFX1!!.start()
         selectedDiceAnim.start()
+
 
         selectedDice.postDelayed({
             selectedDiceAnim.stop()
@@ -203,6 +213,8 @@ class RollDice : ComponentActivity(), GestureDetector.OnGestureListener, Gesture
         dice2.setImageDrawable(diceAnim2)
         dice3.setImageDrawable(diceAnim3)
         dice4.setImageDrawable(diceAnim4)
+
+        diceSFX2?.start()
 
         diceAnim1.start()
         diceAnim2.start()

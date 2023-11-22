@@ -10,6 +10,8 @@ import com.mobdeve.machineproject.Model.Player
 import com.mobdeve.machineproject.R
 
 class SelectPlayerAdapter(private val clicked: HashMap<String, Any>, private val players: ArrayList<Player>) : RecyclerView.Adapter<PlayerViewHolder>() {
+
+
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): PlayerViewHolder {
         val inflater = LayoutInflater.from(parent.context)
         val view = inflater.inflate(R.layout.select_player_item, parent, false)
