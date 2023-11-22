@@ -35,7 +35,6 @@ class InitializePlayers : ComponentActivity() {
     //Dummmy Player
     private var viral_Player: Player = Player(-1, "default", 0, 0, 0, 0, 0)
 
-
     private lateinit var viral_LL: LinearLayout
     private lateinit var initialize_add_player_btn: Button
     private lateinit var startButton: Button
@@ -46,7 +45,9 @@ class InitializePlayers : ComponentActivity() {
     private lateinit var InitializeToastManager: ToastManager
     private lateinit var itemTouchHelper: ItemTouchHelper
 
+
     private val playerList: ArrayList<Player> = ArrayList()
+    private val avatarIDs: ArrayList<Int> = ArrayList()
 
     private val getPlayerIDActivityLauncher = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result: ActivityResult ->
         if (result.resultCode == RESULT_OK) {
@@ -85,9 +86,7 @@ class InitializePlayers : ComponentActivity() {
                 }
             }
 
-            if(playerList.size == 4) {
-                initialize_add_player_btn.isClickable = false
-            }
+
         }
         else if (result.resultCode == RESULT_CANCELED) {
             Log.d("Testing Result", "Nothing")
@@ -117,7 +116,7 @@ class InitializePlayers : ComponentActivity() {
     fun initRecycler() {
         //Recycler View
         initializeRecycler = findViewById(R.id.initialize_recycler)
-        initializeRecyclerAdapter = InitializePlayerAdapter(playerList)
+        initializeRecyclerAdapter = InitializePlayerAdapter(playerList, avatarIDs)
         initializeRecycler.adapter = initializeRecyclerAdapter
         this.initializeRecycler.layoutManager = LinearLayoutManager(this)
     }
@@ -159,8 +158,14 @@ class InitializePlayers : ComponentActivity() {
         }
 
         initialize_add_player_btn.setOnClickListener {
-            selectIntent.putExtra(CLICKED_KEY, PLAYER_CLICKED)
-            getPlayerIDActivityLauncher.launch(selectIntent)
+            if(playerList.size == 4) {
+                InitializeToastManager.sendMsg("Cannot add more than 4 players")
+            }
+            else {
+                selectIntent.putExtra(CLICKED_KEY, PLAYER_CLICKED)
+                getPlayerIDActivityLauncher.launch(selectIntent)
+            }
+
         }
     }
 }

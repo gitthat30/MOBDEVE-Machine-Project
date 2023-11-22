@@ -15,9 +15,11 @@ class TitleScreen : ComponentActivity() {
         override fun onCreate(savedInstanceState: Bundle?) {
             super.onCreate(savedInstanceState)
             setContentView(R.layout.title_screen)
+
             val newGameButton = findViewById<Button>(R.id.btnNewGame)
             val continueButton = findViewById<Button>(R.id.btnContinue)
             val playerStatsButton = findViewById<Button>(R.id.btnPlayerStats)
+
             val tsButtons = listOf(newGameButton, continueButton, playerStatsButton)
             val sharedPreferences = getSharedPreferences("VI_Preferences", Context.MODE_PRIVATE)
             val playerJsonString = sharedPreferences.getString("players", null)
