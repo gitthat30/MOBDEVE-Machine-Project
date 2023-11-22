@@ -23,7 +23,6 @@ class TitleScreen : ComponentActivity() {
             val playerJsonString = sharedPreferences.getString("players", null)
 
             if (playerJsonString != null) {
-                Log.d("TEST", "onCreate: IS null")
                 GameSession.initializeJson(this)
 
                 if (GameSession.sessionConcluded || GameSession.players.isEmpty()) {
