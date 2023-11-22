@@ -44,6 +44,7 @@ class TitleScreen : ComponentActivity() {
                         .setTitle("Confirm New Game")
                         .setMessage("Starting a new game will delete the ongoing game session, are you sure you want to continue?")
                         .setPositiveButton("Yes") { _, _ ->
+                            GameSession.reset()
                             startActivity(intent)
                         }
                         .setNegativeButton("No") { _, _ ->

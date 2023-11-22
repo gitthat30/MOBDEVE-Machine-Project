@@ -63,6 +63,7 @@ object GameSession {
             players = emptyList()
             currentRound = 1
             currentPlayerIndex = 0
+            sessionConcluded = false
         }
     }
 
