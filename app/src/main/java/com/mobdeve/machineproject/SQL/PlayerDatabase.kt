@@ -21,8 +21,10 @@ class PlayerDatabase(context: Context) {
         val content = ContentValues()
         content.put(DBHandler.PLAYER_NAME, player.name)
         content.put(DBHandler.PLAYER_IMG, player.playerImg)
-        content.put(DBHandler.NUM_WINS, player.numWins)
-        content.put(DBHandler.NUM_PLAYED, player.numPlayed)
+        content.put(DBHandler.SURVIVOR_WINS, player.numSurvivorWins)
+        content.put(DBHandler.SURVIVOR_GAMES_PLAYED, player.numSurvivorPlayed)
+        content.put(DBHandler.VIRAL_INFECTIONS, player.numViralInfections)
+        content.put(DBHandler.VIRAL_GAMES_PLAYED, player.numViralPlayed)
 
         val key = db.insert(DBHandler.TABLE_NAME, null, content)
         Log.v("TEST", "Inserted Player with ID: $key")
@@ -50,8 +52,10 @@ class PlayerDatabase(context: Context) {
                 c.getLong(c.getColumnIndexOrThrow(DBHandler._ID)),
                 c.getString(c.getColumnIndexOrThrow(DBHandler.PLAYER_NAME)),
                 c.getInt(c.getColumnIndexOrThrow(DBHandler.PLAYER_IMG)),
-                c.getInt(c.getColumnIndexOrThrow(DBHandler.NUM_WINS)),
-                c.getInt(c.getColumnIndexOrThrow(DBHandler.NUM_PLAYED))))
+                c.getInt(c.getColumnIndexOrThrow(DBHandler.SURVIVOR_WINS)),
+                c.getInt(c.getColumnIndexOrThrow(DBHandler.SURVIVOR_GAMES_PLAYED)),
+                c.getInt(c.getColumnIndexOrThrow(DBHandler.VIRAL_INFECTIONS)),
+                c.getInt(c.getColumnIndexOrThrow(DBHandler.VIRAL_GAMES_PLAYED))))
         }
 
         c.close()
@@ -71,8 +75,10 @@ class PlayerDatabase(context: Context) {
             c.getLong(c.getColumnIndexOrThrow(DBHandler._ID)),
             c.getString(c.getColumnIndexOrThrow(DBHandler.PLAYER_NAME)),
             c.getInt(c.getColumnIndexOrThrow(DBHandler.PLAYER_IMG)),
-            c.getInt(c.getColumnIndexOrThrow(DBHandler.NUM_WINS)),
-            c.getInt(c.getColumnIndexOrThrow(DBHandler.NUM_PLAYED)))
+            c.getInt(c.getColumnIndexOrThrow(DBHandler.SURVIVOR_WINS)),
+            c.getInt(c.getColumnIndexOrThrow(DBHandler.SURVIVOR_GAMES_PLAYED)),
+            c.getInt(c.getColumnIndexOrThrow(DBHandler.VIRAL_INFECTIONS)),
+            c.getInt(c.getColumnIndexOrThrow(DBHandler.VIRAL_GAMES_PLAYED)))
 
 
 

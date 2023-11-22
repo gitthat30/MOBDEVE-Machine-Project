@@ -95,7 +95,7 @@ class SelectPlayer : AppCompatActivity() {
         builder.setView(addPlayerDialog)
             .setTitle("Add Player")
             .setPositiveButton("Add") { dialog, _ ->
-                val playerToAdd = Player(-1, editPlayerName.getText().toString(), AvatarID, 0, 0)
+                val playerToAdd = Player(-1, editPlayerName.getText().toString(), AvatarID, 0, 0, 0, 0)
 
                 if(players.any{it.name == playerToAdd.name}) {
                     SelectToastManager.sendMsg("Player name already taken")

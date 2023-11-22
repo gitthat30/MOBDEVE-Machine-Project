@@ -33,7 +33,7 @@ class InitializePlayers : ComponentActivity() {
 
 
     //Dummmy Player
-    private var viral_Player: Player = Player(-1, "default", 0, 0, 0)
+    private var viral_Player: Player = Player(-1, "default", 0, 0, 0, 0, 0)
 
 
     private lateinit var viral_LL: LinearLayout
