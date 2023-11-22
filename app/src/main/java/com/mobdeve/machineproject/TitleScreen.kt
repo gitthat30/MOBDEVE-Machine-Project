@@ -24,68 +24,69 @@ class TitleScreen : ComponentActivity() {
 
             if (playerJsonString != null) {
                 GameSession.initializeJson(this)
-
-                if (GameSession.sessionConcluded || GameSession.players.isEmpty()) {
-                    continueButton.isEnabled = false
-                    continueButton.alpha = 0.5f
-                } else {
-                    continueButton.isEnabled = true
-                    continueButton.alpha = 1.0f
-                }
-
-                newGameButton.setOnClickListener {
-                    val intent = Intent(this, InitializePlayers::class.java)
-                    for (button in tsButtons) {
-                        button.isClickable = false
-                    }
-                    if (GameSession.players.isNotEmpty() && !GameSession.sessionConcluded) {
-                        val confirmDialog = AlertDialog.Builder(this)
-                            .setTitle("Confirm New Game")
-                            .setMessage("Starting a new game will delete the ongoing game session, are you sure you want to continue?")
-                            .setPositiveButton("Yes") { _, _ ->
-                                startActivity(intent)
-                            }
-                            .setNegativeButton("No") { _, _ ->
-                                // do nothing
-                            }
-                            .create()
-                        confirmDialog.show()
-                    } else {
-                        startActivity(intent)
-                    }
-                    newGameButton.postDelayed({
-                        for (button in tsButtons) {
-                            button.isClickable = true
-                        }
-                    }, 1000)
-                }
-
-                continueButton.setOnClickListener {
-                    for (button in tsButtons) {
-                        button.isClickable = false
-                    }
-                    val intent = Intent(this, MainGame::class.java)
-                    startActivity(intent)
-                    continueButton.postDelayed({
-                        for (button in tsButtons) {
-                            button.isClickable = true
-                        }
-                    }, 1000)
-                }
-
-                playerStatsButton.setOnClickListener {
-                    val intent = Intent(this, PlayerStatistics::class.java)
-                    startActivity(intent)
-                    for (button in tsButtons) {
-                        button.isClickable = false
-                    }
-                    playerStatsButton.postDelayed({
-                        for (button in tsButtons) {
-                            button.isClickable = true
-                        }
-                    }, 1000)
-                }
             }
+            
+            if (GameSession.sessionConcluded || GameSession.players.isEmpty()) {
+                continueButton.isEnabled = false
+                continueButton.alpha = 0.5f
+            } else {
+                continueButton.isEnabled = true
+                continueButton.alpha = 1.0f
+            }
+
+            newGameButton.setOnClickListener {
+                val intent = Intent(this, InitializePlayers::class.java)
+                for (button in tsButtons) {
+                    button.isClickable = false
+                }
+                if (GameSession.players.isNotEmpty() && !GameSession.sessionConcluded) {
+                    val confirmDialog = AlertDialog.Builder(this)
+                        .setTitle("Confirm New Game")
+                        .setMessage("Starting a new game will delete the ongoing game session, are you sure you want to continue?")
+                        .setPositiveButton("Yes") { _, _ ->
+                            startActivity(intent)
+                        }
+                        .setNegativeButton("No") { _, _ ->
+                            // do nothing
+                        }
+                        .create()
+                    confirmDialog.show()
+                } else {
+                    startActivity(intent)
+                }
+                newGameButton.postDelayed({
+                    for (button in tsButtons) {
+                        button.isClickable = true
+                    }
+                }, 1000)
+            }
+
+            continueButton.setOnClickListener {
+                for (button in tsButtons) {
+                    button.isClickable = false
+                }
+                val intent = Intent(this, MainGame::class.java)
+                startActivity(intent)
+                continueButton.postDelayed({
+                    for (button in tsButtons) {
+                        button.isClickable = true
+                    }
+                }, 1000)
+            }
+
+            playerStatsButton.setOnClickListener {
+                val intent = Intent(this, PlayerStatistics::class.java)
+                startActivity(intent)
+                for (button in tsButtons) {
+                    button.isClickable = false
+                }
+                playerStatsButton.postDelayed({
+                    for (button in tsButtons) {
+                        button.isClickable = true
+                    }
+                }, 1000)
+            }
+
         }
         override fun onResume() {
             super.onResume()
