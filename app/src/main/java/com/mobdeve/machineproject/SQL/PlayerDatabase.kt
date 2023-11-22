@@ -80,9 +80,35 @@ class PlayerDatabase(context: Context) {
             c.getInt(c.getColumnIndexOrThrow(DBHandler.VIRAL_INFECTIONS)),
             c.getInt(c.getColumnIndexOrThrow(DBHandler.VIRAL_GAMES_PLAYED)))
 
-
-
         return returnPlayer
+    }
+
+    fun updateSurvivorGamesWon(id: Long) {
+        val db = dbHandler.writableDatabase
+        val update = "UPDATE ${DBHandler.TABLE_NAME} SET ${DBHandler.SURVIVOR_WINS} = ${DBHandler.SURVIVOR_WINS} + 1 WHERE ${DBHandler._ID} = $id"
+        db.execSQL(update)
+        db.close()
+    }
+
+    fun updateSurvivorGamesPlayed(id: Long) {
+        val db = dbHandler.writableDatabase
+        val update = "UPDATE ${DBHandler.TABLE_NAME} SET ${DBHandler.SURVIVOR_GAMES_PLAYED} = ${DBHandler.SURVIVOR_GAMES_PLAYED} + 1 WHERE ${DBHandler._ID} = $id"
+        db.execSQL(update)
+        db.close()
+    }
+
+    fun updateViralGamesPlayed(id: Long) {
+        val db = dbHandler.writableDatabase
+        val update = "UPDATE ${DBHandler.TABLE_NAME} SET ${DBHandler.VIRAL_GAMES_PLAYED} = ${DBHandler.VIRAL_GAMES_PLAYED} + 1 WHERE ${DBHandler._ID} = $id"
+        db.execSQL(update)
+        db.close()
+    }
+
+    fun updatePlayerInfections(id: Long, infections: Int) {
+        val db = dbHandler.writableDatabase
+        val update = "UPDATE ${DBHandler.TABLE_NAME} SET ${DBHandler.VIRAL_INFECTIONS} = ${DBHandler.VIRAL_INFECTIONS} + $infections WHERE ${DBHandler._ID} = $id"
+        db.execSQL(update)
+        db.close()
     }
 
     fun deletePlayer(player: Player) {

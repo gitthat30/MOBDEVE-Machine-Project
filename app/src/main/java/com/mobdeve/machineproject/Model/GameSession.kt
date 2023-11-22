@@ -84,6 +84,10 @@ object GameSession {
         return players[getNextTurnIndex()]
     }
 
+    fun getViral(): Player {
+        return players.filter { it.isViral == 1 }[0]
+    }
+
     fun escapeCurrentPlayer() {
         players[currentPlayerIndex].escaped = true
     }
@@ -110,6 +114,14 @@ object GameSession {
         editor.putInt("currentPlayerIndex", currentPlayerIndex)
         editor.putBoolean("sessionConcluded", sessionConcluded)
         editor.apply()
+    }
+
+    fun getEscapees(): List<Player> {
+        return players.filter { it.escaped }
+    }
+
+    fun getDiedToInfection(): List<Player> {
+        return players.filter { !it.escaped }
     }
 }
 
