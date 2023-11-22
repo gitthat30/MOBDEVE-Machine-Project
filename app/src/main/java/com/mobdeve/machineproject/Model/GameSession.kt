@@ -58,13 +58,14 @@ object GameSession {
         }
         saveGame(context)
     }
-    fun reset() {
+    fun reset(context: Context) {
         if (players.isNotEmpty()) {
             players = emptyList()
             currentRound = 1
             currentPlayerIndex = 0
             sessionConcluded = false
         }
+        saveGame(context)
     }
 
     fun getNextTurnIndex(): Int {

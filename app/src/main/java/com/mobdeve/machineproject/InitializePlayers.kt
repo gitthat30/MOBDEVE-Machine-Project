@@ -140,7 +140,7 @@ class InitializePlayers : ComponentActivity() {
             else {
                 startButton.isClickable = false
                 playerList.add(viral_Player)
-                GameSession.reset()
+                GameSession.reset(this)
                 GameSession.initialize(playerList, this)
                 val intent = Intent(this, MainGame::class.java)
                 startActivity(intent)
