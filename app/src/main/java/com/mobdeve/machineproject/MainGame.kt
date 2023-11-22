@@ -10,10 +10,8 @@ import android.widget.ImageView
 import android.widget.LinearLayout
 import android.widget.TextView
 import androidx.activity.ComponentActivity
-import androidx.recyclerview.widget.RecyclerView
 import com.mobdeve.machineproject.Model.EventHelper
 import com.mobdeve.machineproject.Model.GameSession
-import com.mobdeve.machineproject.PlayerTurnRecycler.PlayerTurnAdapter
 import com.mobdeve.machineproject.SQL.DBHandler
 import com.mobdeve.machineproject.SQL.PlayerDatabase
 
@@ -28,10 +26,6 @@ class MainGame : ComponentActivity() {
 
     private lateinit var currentTurnImg: ImageView
     private lateinit var currentTurnName: TextView
-
-    private lateinit var playerTurnAdapter: PlayerTurnAdapter
-    private lateinit var playerTurnRecycler: RecyclerView
-    private lateinit var players: ArrayList<HashMap<String, Any>>
 
     private lateinit var playerDatabase: PlayerDatabase
     private lateinit var dbHandler: DBHandler

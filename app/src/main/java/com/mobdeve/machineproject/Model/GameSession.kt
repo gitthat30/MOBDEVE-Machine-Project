@@ -121,7 +121,7 @@ object GameSession {
     }
 
     fun getDiedToInfection(): List<Player> {
-        return players.filter { !it.escaped }
+        return players.filter { !it.escaped && it.isViral != 1 }
     }
 }
 

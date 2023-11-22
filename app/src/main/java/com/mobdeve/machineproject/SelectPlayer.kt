@@ -77,10 +77,14 @@ class SelectPlayer : AppCompatActivity() {
                 val selected = parent?.getItemAtPosition(position).toString()
 
                 when(selected) {
-                    "Avatar 1" -> AvatarID = R.drawable.player1
-                    "Avatar 2" -> AvatarID = R.drawable.player2
-                    "Avatar 3" -> AvatarID = R.drawable.player3
-                    "Avatar 4" -> AvatarID = R.drawable.player4
+                    "Avatar 1" -> AvatarID = R.drawable.survivor1
+                    "Avatar 2" -> AvatarID = R.drawable.survivor2
+                    "Avatar 3" -> AvatarID = R.drawable.survivor2
+                    "Avatar 4" -> AvatarID = R.drawable.survivor4
+                    "Avatar 5" -> AvatarID = R.drawable.survivor5
+                    "Avatar 6" -> AvatarID = R.drawable.survivor6
+                    "Avatar 7" -> AvatarID = R.drawable.survivor7
+                    "Avatar 8" -> AvatarID = R.drawable.survivor8
                 }
 
                 avatarImg.setImageResource(AvatarID)
