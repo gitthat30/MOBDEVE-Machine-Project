@@ -44,11 +44,6 @@ class MainGame : ComponentActivity() {
         endTurnButton = findViewById(R.id.btnEndTurn)
         skipTurnButton = findViewById(R.id.btnSkipTurn)
 
-        val ivCurrentPlayer = findViewById<ImageView>(R.id.iv_currentPlayer)
-        val ivNextPlayer1 = findViewById<ImageView>(R.id.iv_nextPlayer1)
-        val ivNextPlayer2 = findViewById<ImageView>(R.id.iv_nextPlayer2)
-        val ivNextPlayer3 = findViewById<ImageView>(R.id.iv_nextPlayer3)
-        val ivNextPlayer4 = findViewById<ImageView>(R.id.iv_nextPlayer4)
         val tvRoundNumber = findViewById<TextView>(R.id.tv_roundNumber)
         val btnEnterHouse = findViewById<Button>(R.id.btnEnterHouse)
         val btnEscape = findViewById<Button>(R.id.btnEscape)
@@ -61,10 +56,26 @@ class MainGame : ComponentActivity() {
             R.id.tv_nextPlayer4
         )
 
+        val imageViewIds = arrayOf(
+            R.id.iv_currentPlayer,
+            R.id.iv_nextPlayer1,
+            R.id.iv_nextPlayer2,
+            R.id.iv_nextPlayer3,
+            R.id.iv_nextPlayer4
+        )
+
         for (i in 0 until GameSession.players.size) {
             val textView = findViewById<TextView>(textViewIds[i])
+            val imageView = findViewById<ImageView>(imageViewIds[i])
+
             val playerIndex = (GameSession.currentPlayerIndex + i) % GameSession.players.size
             textView.text = GameSession.players[playerIndex].name
+            if(GameSession.players[playerIndex].isViral==1){
+                imageView.setImageResource(R.drawable.viral2)
+            }
+            else{
+                imageView.setImageResource(GameSession.players[playerIndex].playerImg)
+            }
 
             val parentLayout = textView.parent as? LinearLayout
             parentLayout?.visibility = if (GameSession.players[playerIndex].escaped) View.GONE else View.VISIBLE
@@ -143,6 +154,12 @@ class MainGame : ComponentActivity() {
                 if(GameSession.players.isNotEmpty()) {
                     turnEndName.text = GameSession.getNextPlayer().name
                     turnEndImg.setImageResource(GameSession.getNextPlayer().playerImg)
+                    if(GameSession.getNextPlayer().isViral==1){
+                        turnEndImg.setImageResource(R.drawable.viral2)
+                    }
+                    else{
+                        turnEndImg.setImageResource(GameSession.getNextPlayer().playerImg)
+                    }
                 }
                 dialog.setOnDismissListener {
                     GameSession.startNextTurn(this)
@@ -175,11 +192,13 @@ class MainGame : ComponentActivity() {
                         val dialog = Dialog(this)
                         dialog.setContentView(R.layout.player_escape)
                         dialog.setCanceledOnTouchOutside(true)
-                        val escapedName =
-                            dialog.findViewById<TextView>(R.id.playerEscaped_name)
-                        escapedName.text =
-                            GameSession.players[GameSession.currentPlayerIndex].name
                         dialog.show()
+
+                        val escapedName = dialog.findViewById<TextView>(R.id.playerEscaped_name)
+                        val escapedImg = dialog.findViewById<ImageView>(R.id.playerEscaped_img)
+                        escapedName.text = GameSession.getCurrentPlayer().name
+                        escapedImg.setImageResource(GameSession.getCurrentPlayer().playerImg)
+
                         escapeButton.postDelayed({
                             escapeButton.isClickable = true
                         }, 1000)
