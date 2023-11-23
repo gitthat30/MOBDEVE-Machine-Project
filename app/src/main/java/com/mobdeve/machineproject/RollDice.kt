@@ -113,7 +113,8 @@ class RollDice : ComponentActivity(), GestureDetector.OnGestureListener, Gesture
         rain.setOnClickListener {
             val builder = AlertDialog.Builder(this)
             builder.setTitle("Rain Event")
-            builder.setMessage("All dice roll results are halved. ${GameSession.rainValue} turn/s remaining.")
+            val turns = if (GameSession.rainValue <= 1) "turn" else "turns"
+            builder.setMessage("All dice roll results are halved. ${GameSession.rainValue} $turns remaining.")
             builder.create().show()
         }
         cramp.setOnClickListener {

@@ -3,7 +3,10 @@ package com.mobdeve.machineproject
 import android.app.AlertDialog
 import android.app.Dialog
 import android.content.Intent
+import android.media.MediaPlayer
 import android.os.Bundle
+import android.speech.tts.TextToSpeech
+import android.util.Log
 import android.view.View
 import android.widget.Button
 import android.widget.ImageView
@@ -14,9 +17,9 @@ import com.mobdeve.machineproject.Model.EventHelper
 import com.mobdeve.machineproject.Model.GameSession
 import com.mobdeve.machineproject.SQL.DBHandler
 import com.mobdeve.machineproject.SQL.PlayerDatabase
+import java.util.Locale
 
-class MainGame : ComponentActivity() {
-    var diceRolled: Boolean = false
+class MainGame : ComponentActivity(){
     private lateinit var randomEventButton: Button
     private lateinit var rollDiceButton: Button
     private lateinit var escapeButton: Button
@@ -24,11 +27,10 @@ class MainGame : ComponentActivity() {
     private lateinit var endTurnButton: Button
     private lateinit var skipTurnButton: Button
 
-    private lateinit var currentTurnImg: ImageView
-    private lateinit var currentTurnName: TextView
-
     private lateinit var playerDatabase: PlayerDatabase
     private lateinit var dbHandler: DBHandler
+
+    private lateinit var textToSpeech: TextToSpeech
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -90,6 +92,41 @@ class MainGame : ComponentActivity() {
         if(GameSession.getCurrentPlayer().isViral == 1){
             btnEnterHouse.visibility = View.INVISIBLE
             btnEscape.text = "END GAME"
+        }
+
+        //Round Reminders
+        if (GameSession.currentRound % 3 == 0 && GameSession.getCurrentPlayer().isViral == 1) {
+            val dialog = AlertDialog.Builder(this)
+            .setTitle("Viral Skill Reminder")
+            .setMessage("You obtained one skill point.")
+            .create()
+            dialog.show()
+        }
+
+        val firstNonEscapedPlayer = GameSession.players.indexOfFirst { !it.escaped }
+        if (GameSession.currentRound == 2 * GameSession.players.size && GameSession.currentPlayerIndex == firstNonEscapedPlayer) {
+            var mediaPlayer = MediaPlayer.create(this, R.raw.siren)
+            mediaPlayer.isLooping = true
+            mediaPlayer.start()
+
+            val builder = StringBuilder()
+            for (player in GameSession.players) {
+                if (player.isViral == 1) {
+                    continue
+                }
+                builder.append("${player.name} - House ${GameSession.getKeyLocation(player) + 1}\n")
+            }
+
+            val message = builder.toString()
+            val dialog = AlertDialog.Builder(this)
+            .setTitle("Key location Announcement")
+            .setMessage(message)
+            .create()
+            dialog.show()
+            dialog.setOnDismissListener {
+                mediaPlayer.pause()
+                mediaPlayer.release()
+            }
         }
 
         intializeListeners()

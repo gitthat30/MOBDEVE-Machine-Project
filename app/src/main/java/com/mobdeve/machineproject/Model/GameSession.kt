@@ -50,6 +50,9 @@ object GameSession {
             }
         }
     }
+    fun getKeyLocation(player: Player): Int{
+        return player.houses.indexOfFirst{it.hasKey}
+    }
 
     fun startNextTurn(context: Context) {
         currentPlayerIndex = getNextTurnIndex()
