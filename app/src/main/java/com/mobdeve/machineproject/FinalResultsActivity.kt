@@ -53,7 +53,7 @@ class FinalResultsActivity : ComponentActivity() {
         setPlayerBubbles(escapees, escapeesIds)
         setPlayerBubbles(died, diedIds)
 
-        viralImg.setImageResource(GameSession.getViral().playerImg)
+        viralImg.setImageResource(R.drawable.viral2)
         viralName.text = GameSession.getViral().name
         gameInfections.text = "${died.size}"
         totalInfections.text = "${GameSession.getViral().numViralInfections + died.size}"
