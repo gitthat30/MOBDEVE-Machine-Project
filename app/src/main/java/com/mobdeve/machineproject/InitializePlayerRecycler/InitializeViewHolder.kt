@@ -10,9 +10,11 @@ import com.mobdeve.machineproject.R
 class InitializeViewHolder(itemView: View): RecyclerView.ViewHolder(itemView) {
     private val playername: TextView = itemView.findViewById(R.id.initialize_survivor_name)
     private val player_avatar: ImageView = itemView.findViewById(R.id.initialize_survivor_img)
+    var player_ID: Long = -1
 
-    fun bind(player: Player, avatar: Int) {
+    fun bind(player: Player, avatar: Int, ID: Long) {
         this.playername.text = player.name
+        this.player_ID = ID
 
         //Set image resource to survivorN based on avatar
         when(avatar) {

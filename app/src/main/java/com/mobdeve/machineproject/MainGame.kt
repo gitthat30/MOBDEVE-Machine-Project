@@ -235,33 +235,13 @@ class MainGame : ComponentActivity() {
         }
 
         skipTurnButton.setOnClickListener {
-            escapeButton.isClickable = false
+            skipTurnButton.isClickable = false
             skipTurnButton.postDelayed({
-                escapeButton.isClickable = true
+                skipTurnButton.isClickable = true
             }, 1000)
-            val dialog = Dialog(this)
-            dialog.setContentView(R.layout.random_event)
-            dialog.setCanceledOnTouchOutside(true)
-            dialog.show()
 
-            val randomEventName: TextView = dialog.findViewById(R.id.randomEvent_name)
-            val randomEventDescription: TextView = dialog.findViewById(R.id.randomEvent_description)
+            endTurnButton.performClick()
 
-            val eventHelper = EventHelper()
-            var eventType = EventHelper.EventType.Survivor
-
-            // Can remove first condition once players isn't always empty
-            if(GameSession.players.isNotEmpty() && GameSession.getCurrentPlayer().isViral == 1) {
-                eventType = EventHelper.EventType.Viral
-            }
-            val randomEvent = eventHelper.getRandomEvent(eventType)
-
-            randomEventName.text = randomEvent.eventName
-            randomEventDescription.text = randomEvent.eventDescription
-
-            dialog.setOnDismissListener {
-                endTurnButton.performClick()
-            }
         }
     }
 }

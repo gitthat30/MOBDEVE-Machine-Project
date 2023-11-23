@@ -79,7 +79,7 @@ class SelectPlayer : AppCompatActivity() {
                 when(selected) {
                     "Avatar 1" -> AvatarID = R.drawable.survivor1
                     "Avatar 2" -> AvatarID = R.drawable.survivor2
-                    "Avatar 3" -> AvatarID = R.drawable.survivor2
+                    "Avatar 3" -> AvatarID = R.drawable.survivor3
                     "Avatar 4" -> AvatarID = R.drawable.survivor4
                     "Avatar 5" -> AvatarID = R.drawable.survivor5
                     "Avatar 6" -> AvatarID = R.drawable.survivor6

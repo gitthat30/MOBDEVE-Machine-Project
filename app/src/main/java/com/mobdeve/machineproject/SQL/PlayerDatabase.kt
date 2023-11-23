@@ -83,6 +83,13 @@ class PlayerDatabase(context: Context) {
         return returnPlayer
     }
 
+    fun updatePlayerAvatar(id: Long, img: Int) {
+        val db = dbHandler.writableDatabase
+        val update = "UPDATE ${DBHandler.TABLE_NAME} SET ${DBHandler.PLAYER_IMG} = $img WHERE ${DBHandler._ID} = $id"
+        db.execSQL(update)
+        db.close()
+    }
+
     fun updateSurvivorGamesWon(id: Long) {
         val db = dbHandler.writableDatabase
         val update = "UPDATE ${DBHandler.TABLE_NAME} SET ${DBHandler.SURVIVOR_WINS} = ${DBHandler.SURVIVOR_WINS} + 1 WHERE ${DBHandler._ID} = $id"

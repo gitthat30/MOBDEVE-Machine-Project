@@ -6,6 +6,8 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.mobdeve.machineproject.Model.Player
 import com.mobdeve.machineproject.R
+import com.mobdeve.machineproject.SQL.DBHandler
+import com.mobdeve.machineproject.SQL.PlayerDatabase
 import com.mobdeve.machineproject.SelectPlayerRecycler.PlayerViewHolder
 
 class InitializePlayerAdapter(private val players: ArrayList<Player>, private val avatarIDs: ArrayList<Int>) : RecyclerView.Adapter<InitializeViewHolder>() {
@@ -19,11 +21,13 @@ class InitializePlayerAdapter(private val players: ArrayList<Player>, private va
         R.drawable.survivor7,
         R.drawable.survivor8
     )
+    private lateinit var playerDatabase: PlayerDatabase
+    private var cleared = false
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): InitializeViewHolder {
         val inflater = LayoutInflater.from(parent.context)
         val view = inflater.inflate(R.layout.initialize_players_item, parent, false)
-
+        playerDatabase = PlayerDatabase(parent.context)
         return InitializeViewHolder(view)
     }
 
@@ -33,25 +37,45 @@ class InitializePlayerAdapter(private val players: ArrayList<Player>, private va
 
     override fun onBindViewHolder(holder: InitializeViewHolder, position: Int) {
         val player = players[position]
-        holder.bind(player, position + 1)
+        //log position
+
+        if(position == 0)
+            avatarIDs.clear()
+
+        if(!avatarIDs.contains(player.playerImg)) {
+            holder.bind(player, allAvatarIDs.indexOf(player.playerImg) + 1, player.playerID)
+        }
+        else {
+            var finished = false
+            allAvatarIDs.forEach {
+                if(!finished) {
+                    if(!avatarIDs.contains(it)) {
+                        player.playerImg = it
+                        holder.bind(player, allAvatarIDs.indexOf(it) + 1, player.playerID)
+                        finished = true
+                    }
+                }
+            }
+        }
+
+        playerDatabase.updatePlayerAvatar(holder.player_ID, player.playerImg)
 
         if(!avatarIDs.contains(holder.getAvatar())) {
             avatarIDs.add(holder.getAvatar())
         }
 
-        Log.d("start", "${avatarIDs}")
         holder.setOnClickListener {
-            Log.d("TAG", "${avatarIDs}")
             var finished = false
             var start = allAvatarIDs.indexOf(holder.getAvatar())
             allAvatarIDs.drop(start).forEach {
                 if(!finished) {
                     if(!avatarIDs.contains(it)) {
-                        Log.d("TAG", "$avatarIDs $finished")
                         avatarIDs.remove(holder.getAvatar())
                         avatarIDs.add(it)
                         holder.setImage(it)
+                        player.playerImg = it
                         finished = true
+                        playerDatabase.updatePlayerAvatar(holder.player_ID, it)
                     }
                 }
             }
@@ -59,11 +83,12 @@ class InitializePlayerAdapter(private val players: ArrayList<Player>, private va
                 allAvatarIDs.forEach {
                     if(!finished) {
                         if(!avatarIDs.contains(it)) {
-                            Log.d("TAG", "$avatarIDs $finished")
                             avatarIDs.remove(holder.getAvatar())
                             avatarIDs.add(it)
                             holder.setImage(it)
+                            player.playerImg = it
                             finished = true
+                            playerDatabase.updatePlayerAvatar(holder.player_ID, it)
                         }
                     }
                 }
@@ -72,6 +97,7 @@ class InitializePlayerAdapter(private val players: ArrayList<Player>, private va
     }
 
     fun removePlayer(position: Int) {
+        this.avatarIDs.remove(playerDatabase.getPlayer(players[position].playerID).playerImg)
         this.players.removeAt(position)
         notifyDataSetChanged()
     }
