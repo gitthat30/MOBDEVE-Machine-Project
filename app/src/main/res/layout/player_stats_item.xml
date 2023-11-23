@@ -17,7 +17,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@drawable/round_layout"
-            android:orientation="horizontal"
+            android:orientation="vertical"
             android:outlineProvider="none"
             android:padding="20dp"
             app:layout_constraintStart_toStartOf="parent"
@@ -27,19 +27,125 @@
                 android:id="@+id/playerStat_img"
                 android:layout_width="64dp"
                 android:layout_height="64dp"
-                android:layout_marginRight="10dp"
+                android:layout_gravity="center|center_vertical"
                 android:src="@drawable/player2" />
 
             <TextView
                 android:id="@+id/playerStat_name"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center_vertical"
-                android:layout_marginRight="10dp"
+                android:layout_gravity="center|center_vertical"
                 android:layout_weight="0"
                 android:text="PlayerName"
                 android:textColor="@color/background"
                 android:textStyle="bold" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal">
+
+                <LinearLayout
+                    android:id="@+id/survivorStat_bubble_info"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginTop="10dp"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/survivorWins_static"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="0"
+                        android:gravity="center"
+                        android:text="Survivor Wins"
+                        android:textColor="@color/background"
+                        android:textSize="11sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/survivorWins_numbers"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="5dp"
+                        android:layout_weight="0"
+                        android:gravity="center"
+                        android:text="0"
+                        android:textColor="#000000"
+                        android:textSize="11sp" />
+
+                    <TextView
+                        android:id="@+id/survivorGames_static"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="0"
+                        android:gravity="center"
+                        android:text="Survivor Games Played"
+                        android:textColor="@color/background"
+                        android:textSize="11sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/survivorGames_numbers"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="0"
+                        android:gravity="center"
+                        android:text="0"
+                        android:textColor="#000000"
+                        android:textSize="11sp" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/viralStat_bubble_info"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginTop="10dp"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/viralInfections_static"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:text="Viral Infections"
+                        android:textColor="@color/background"
+                        android:textSize="11sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/viralInfection_numbers"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="5dp"
+                        android:gravity="center"
+                        android:text="0"
+                        android:textColor="#000000"
+                        android:textSize="11sp" />
+
+                    <TextView
+                        android:id="@+id/viralGames_static"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:text="Viral Games Played"
+                        android:textColor="@color/background"
+                        android:textSize="11sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/viralGames_numbers"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:text="0"
+                        android:textColor="#000000"
+                        android:textSize="11sp" />
+                </LinearLayout>
+
+            </LinearLayout>
 
         </LinearLayout>
 
@@ -58,53 +164,5 @@
             app:layout_constraintTop_toTopOf="@+id/playerStat_bubble"
             tools:ignore="TouchTargetSizeCheck" />
 
-        <LinearLayout
-            android:id="@+id/playerStat_bubble_info"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="22dp"
-            android:layout_marginEnd="50dp"
-            android:orientation="vertical"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/playerStat_bubble"
-            app:layout_constraintTop_toTopOf="@+id/playerStat_bubble">
-
-            <TextView
-                android:id="@+id/timesPlayed_static"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:gravity="center"
-                android:text="Times Played"
-                android:textColor="@color/background"
-                android:textSize="10sp"
-                android:textStyle="bold" />
-
-            <TextView
-                android:id="@+id/playerStat_timesPlayed"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="5dp"
-                android:gravity="center"
-                android:text="0"
-                android:textSize="10sp" />
-
-            <TextView
-                android:id="@+id/timesWon_static"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:gravity="center"
-                android:text="Times Won"
-                android:textColor="@color/background"
-                android:textSize="10sp"
-                android:textStyle="bold" />
-
-            <TextView
-                android:id="@+id/playerStat_timesWon"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:gravity="center"
-                android:text="0"
-                android:textSize="10sp" />
-        </LinearLayout>
     </androidx.constraintlayout.widget.ConstraintLayout>
 </LinearLayout>
