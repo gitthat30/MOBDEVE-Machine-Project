@@ -10,11 +10,13 @@ object GameSession {
     var currentRound: Int = 1
     var currentPlayerIndex: Int = 0
     var sessionConcluded: Boolean = false
+    var rainValue: Int = 0
     fun initialize(playerList: List<Player>, context: Context) {
         players = playerList
         currentRound = 1
         currentPlayerIndex = 0
         sessionConcluded = false
+        rainValue = 0
         initializeHouses()
         saveGame(context)
     }
@@ -25,6 +27,7 @@ object GameSession {
         val currentRound = sharedPreferences.getInt("currentRound", 1)
         val currentPlayerIndex = sharedPreferences.getInt("currentPlayerIndex", 0)
         val sessionConcluded = sharedPreferences.getBoolean("sessionConcluded", false)
+        val rainValue = sharedPreferences.getInt("rainValue", 0)
 
         if (playersJson != null) {
             val playerType = object : TypeToken<List<Player>>() {}.type
@@ -34,6 +37,7 @@ object GameSession {
             GameSession.currentRound = currentRound
             GameSession.currentPlayerIndex = currentPlayerIndex
             GameSession.sessionConcluded = sessionConcluded
+            GameSession.rainValue = rainValue
         }
     }
 
@@ -56,6 +60,9 @@ object GameSession {
             if (currentPlayerIndex == 0)
                 currentRound++
         }
+        if(rainValue>0){
+            rainValue--
+        }
         saveGame(context)
     }
     fun reset(context: Context) {
@@ -64,6 +71,7 @@ object GameSession {
             currentRound = 1
             currentPlayerIndex = 0
             sessionConcluded = false
+            rainValue = 0
         }
         saveGame(context)
     }
@@ -81,7 +89,16 @@ object GameSession {
     }
 
     fun getNextPlayer(): Player {
-        return players[getNextTurnIndex()]
+        var index = getNextTurnIndex()
+        var nextPlayer = players[index]
+        while (nextPlayer.escaped) { //added to skip escaped players
+            index++
+            if (index >= players.size){
+                index = 0
+            }
+            nextPlayer = players[index]
+        }
+        return nextPlayer
     }
 
     fun getViral(): Player {
@@ -113,6 +130,7 @@ object GameSession {
         editor.putInt("currentRound", currentRound)
         editor.putInt("currentPlayerIndex", currentPlayerIndex)
         editor.putBoolean("sessionConcluded", sessionConcluded)
+        editor.putInt("rainValue", rainValue)
         editor.apply()
     }
 

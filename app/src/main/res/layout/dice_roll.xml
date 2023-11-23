@@ -9,67 +9,50 @@
     android:padding="10dp">
 
 
-    <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/back_to_turn_layout"
-        android:layout_width="225dp"
-        android:layout_height="48dp"
-        android:layout_marginBottom="152dp"
-        android:background="@drawable/end_layout"
-        android:fontFamily="@font/rowdies"
-        android:paddingLeft="10dp"
-        android:text="BACK TO GAME"
-        android:textColor="@color/purple"
-        android:textSize="18sp"
-        android:visibility="visible"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
-
     <LinearLayout
-        android:id="@+id/linearLayout2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="61dp"
+        android:layout_marginTop="40dp"
+        android:layout_marginBottom="30dp"
         android:orientation="horizontal"
-        app:layout_constraintBottom_toTopOf="@+id/back_to_turn_layout"
+        app:layout_constraintBottom_toTopOf="@+id/linearLayout3"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="1.0">
+        app:layout_constraintTop_toTopOf="parent">
 
-        <ImageButton
-            android:id="@+id/minus_btn"
-            android:layout_width="64dp"
-            android:layout_height="64dp"
-            android:layout_marginRight="10dp"
-            android:layout_weight="0"
-            android:background="#00FFFFFF"
-            android:scaleType="fitXY"
-            android:src="@drawable/minus" />
+        <ImageView
+            android:id="@+id/iv_cramp"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="15dp"
+            android:layout_weight="1"
+            android:src="@drawable/cramp"
+            android:visibility="gone" />
 
-        <ImageButton
-            android:id="@+id/plus_btn"
-            android:layout_width="64dp"
-            android:layout_height="64dp"
-            android:layout_marginLeft="10dp"
-            android:layout_weight="0"
-            android:background="#00FFFFFF"
-            android:scaleType="fitXY"
-            android:src="@drawable/add" />
-
+        <ImageView
+            android:id="@+id/iv_rain"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="15dp"
+            android:layout_weight="1"
+            android:src="@drawable/rain"
+            android:visibility="gone" />
     </LinearLayout>
 
     <LinearLayout
+        android:id="@+id/linearLayout3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="75dp"
         android:gravity="center"
         android:orientation="vertical"
         app:layout_constraintBottom_toTopOf="@+id/linearLayout2"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.496"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.68">
+        app:layout_constraintStart_toStartOf="parent">
 
         <LinearLayout
             android:id="@+id/dice_column1"
@@ -112,10 +95,43 @@
         </LinearLayout>
     </LinearLayout>
 
+    <LinearLayout
+        android:id="@+id/linearLayout2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="60dp"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toTopOf="@+id/dice_roll_instructions"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <ImageButton
+            android:id="@+id/minus_btn"
+            android:layout_width="64dp"
+            android:layout_height="64dp"
+            android:layout_marginRight="10dp"
+            android:layout_weight="0"
+            android:background="#00FFFFFF"
+            android:scaleType="fitXY"
+            android:src="@drawable/minus" />
+
+        <ImageButton
+            android:id="@+id/plus_btn"
+            android:layout_width="64dp"
+            android:layout_height="64dp"
+            android:layout_marginLeft="10dp"
+            android:layout_weight="0"
+            android:background="#00FFFFFF"
+            android:scaleType="fitXY"
+            android:src="@drawable/add" />
+
+    </LinearLayout>
+
     <TextView
         android:id="@+id/dice_roll_instructions"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="50dp"
         android:fontFamily="@font/inter_thin"
         android:gravity="center_horizontal"
         android:text="Double tap a dice to roll, or long press center or any of the dice to roll all."
@@ -124,6 +140,5 @@
         android:textStyle="italic"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/back_to_turn_layout" />
+        app:layout_constraintStart_toStartOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>

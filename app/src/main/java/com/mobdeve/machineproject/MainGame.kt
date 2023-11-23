@@ -138,10 +138,13 @@ class MainGame : ComponentActivity() {
             .setTitle("Confirm End Turn")
             .setMessage("Are you sure you want to end your turn?")
             .setPositiveButton("Yes") { _, _ ->
+                GameSession.getCurrentPlayer().muscleCramps = false
+
                 escapeButton.isClickable = false
                 escapeButton.postDelayed({
                     escapeButton.isClickable = true
                 }, 1000)
+
                 val dialog = Dialog(this)
                 dialog.setContentView(R.layout.end_turn)
                 dialog.setCanceledOnTouchOutside(true)
@@ -181,6 +184,10 @@ class MainGame : ComponentActivity() {
                 .setMessage("Are you sure you want to escape?")
                 .setPositiveButton("Yes") { _, _ ->
                     escapeButton.isClickable = false
+                    escapeButton.postDelayed({
+                        escapeButton.isClickable = true
+                    }, 1000)
+
                     GameSession.escapeCurrentPlayer()
 
                     if (GameSession.allPlayersEscaped()) {
@@ -198,10 +205,6 @@ class MainGame : ComponentActivity() {
                         val escapedImg = dialog.findViewById<ImageView>(R.id.playerEscaped_img)
                         escapedName.text = GameSession.getCurrentPlayer().name
                         escapedImg.setImageResource(GameSession.getCurrentPlayer().playerImg)
-
-                        escapeButton.postDelayed({
-                            escapeButton.isClickable = true
-                        }, 1000)
 
                         dialog.setOnDismissListener {
                             GameSession.startNextTurn(this)
@@ -244,6 +247,7 @@ class MainGame : ComponentActivity() {
             .setTitle("Confirm Skip Turn")
             .setMessage("Are you sure you want to skip your turn?")
             .setPositiveButton("Yes") { _, _ ->
+                GameSession.getCurrentPlayer().muscleCramps = false
                 val dialog = Dialog(this)
                 dialog.setContentView(R.layout.random_event)
                 dialog.setCanceledOnTouchOutside(true)

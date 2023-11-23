@@ -11,6 +11,7 @@ class Player {
     var isViral: Int = -1
     var houses: MutableList<House> = MutableList(17) { House() }
     var escaped: Boolean = false
+    var muscleCramps: Boolean = false
 
     constructor(playerID: Long, name: String, playerImg: Int, numSurvivorWins: Int, numSurvivorPlayed: Int, numViralInfections: Int, numViralPlayed: Int) {
         this.playerID = playerID

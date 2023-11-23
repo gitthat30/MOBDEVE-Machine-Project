@@ -96,6 +96,12 @@ class EventHelper() {
 
         for(event in events) {
             if(randomValue < event.eventChance) {
+                if (event.eventName == "Rainy Day") {
+                    GameSession.rainValue = GameSession.players.count{!it.escaped} //total rain turns is remaining player count
+                }
+                else if (event.eventName == "Muscle Cramps") {
+                    GameSession.getCurrentPlayer().muscleCramps = true
+                }
                 return event
             }
             else {
