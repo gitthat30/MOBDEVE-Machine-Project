@@ -24,6 +24,9 @@ class FinalResultsActivity : ComponentActivity() {
     private lateinit var gameInfections: TextView
     private lateinit var totalInfections: TextView
 
+    private lateinit var escapeesNone: TextView
+    private lateinit var diedNone: TextView
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.results_layout)
@@ -53,18 +56,30 @@ class FinalResultsActivity : ComponentActivity() {
         setPlayerBubbles(escapees, escapeesIds)
         setPlayerBubbles(died, diedIds)
 
+        if(escapees.isEmpty()) {
+            escapeesNone = findViewById(R.id.escapees_none)
+            escapeesNone.visibility = View.VISIBLE
+        }
+
+        if(died.isEmpty()) {
+            diedNone = findViewById(R.id.died_none)
+            diedNone.visibility = View.VISIBLE
+        }
+
         viralImg.setImageResource(R.drawable.viral2)
         viralName.text = GameSession.getViral().name
         gameInfections.text = "${died.size}"
         totalInfections.text = "${GameSession.getViral().numViralInfections + died.size}"
 
-        // TODO update when survivor/viral wins bc im not sure when that happens
         for(player in GameSession.players) {
             if(player.isViral == 1) {
                 playerDatabase.updateViralGamesPlayed(player.playerID)
+                playerDatabase.updatePlayerInfections(player.playerID, died.size)
             }
             else {
                 playerDatabase.updateSurvivorGamesPlayed(player.playerID)
+                if(player.escaped)
+                    playerDatabase.updateSurvivorGamesWon(player.playerID)
             }
         }
 

@@ -60,6 +60,17 @@
         app:layout_constraintTop_toBottomOf="@+id/escapees">
 
 
+        <TextView
+            android:id="@+id/escapees_none"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center|center_horizontal|center_vertical"
+            android:layout_weight="1"
+            android:fontFamily="@font/rowdies"
+            android:gravity="center|center_horizontal|center_vertical"
+            android:text="None"
+            android:visibility="gone" />
+
         <LinearLayout
             android:id="@+id/players_escaped_1"
             android:layout_width="wrap_content"
@@ -204,6 +215,17 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/died">
 
+
+        <TextView
+            android:id="@+id/died_none"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center|center_horizontal|center_vertical"
+            android:layout_weight="1"
+            android:fontFamily="@font/rowdies"
+            android:gravity="center|center_horizontal|center_vertical"
+            android:text="None"
+            android:visibility="gone" />
 
         <LinearLayout
             android:id="@+id/players_died_1"
@@ -439,7 +461,7 @@
         android:background="@drawable/end_layout"
         android:fontFamily="@font/rowdies"
         android:text="BACK TO MAIN MENU"
-        android:textColor="#FFFFFF"
+        android:textColor="@color/purple"
         android:textSize="16sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
