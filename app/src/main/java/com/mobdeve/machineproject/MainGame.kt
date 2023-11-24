@@ -3,7 +3,10 @@ package com.mobdeve.machineproject
 import android.app.AlertDialog
 import android.app.Dialog
 import android.content.Intent
+import android.media.MediaPlayer
 import android.os.Bundle
+import android.speech.tts.TextToSpeech
+import android.util.Log
 import android.view.View
 import android.widget.Button
 import android.widget.ImageView
@@ -14,9 +17,9 @@ import com.mobdeve.machineproject.Model.EventHelper
 import com.mobdeve.machineproject.Model.GameSession
 import com.mobdeve.machineproject.SQL.DBHandler
 import com.mobdeve.machineproject.SQL.PlayerDatabase
+import java.util.Locale
 
-class MainGame : ComponentActivity() {
-    var diceRolled: Boolean = false
+class MainGame : ComponentActivity(){
     private lateinit var randomEventButton: Button
     private lateinit var rollDiceButton: Button
     private lateinit var escapeButton: Button
@@ -24,11 +27,10 @@ class MainGame : ComponentActivity() {
     private lateinit var endTurnButton: Button
     private lateinit var skipTurnButton: Button
 
-    private lateinit var currentTurnImg: ImageView
-    private lateinit var currentTurnName: TextView
-
     private lateinit var playerDatabase: PlayerDatabase
     private lateinit var dbHandler: DBHandler
+
+    private lateinit var textToSpeech: TextToSpeech
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -92,6 +94,41 @@ class MainGame : ComponentActivity() {
             btnEscape.text = "END GAME"
         }
 
+        //Round Reminders
+        if (GameSession.currentRound % 3 == 0 && GameSession.getCurrentPlayer().isViral == 1) {
+            val dialog = AlertDialog.Builder(this)
+            .setTitle("Viral Skill Reminder")
+            .setMessage("You obtained one skill point.")
+            .create()
+            dialog.show()
+        }
+
+        val firstNonEscapedPlayer = GameSession.players.indexOfFirst { !it.escaped }
+        if (GameSession.currentRound == 2 * GameSession.players.size && GameSession.currentPlayerIndex == firstNonEscapedPlayer) {
+            var mediaPlayer = MediaPlayer.create(this, R.raw.siren)
+            mediaPlayer.isLooping = true
+            mediaPlayer.start()
+
+            val builder = StringBuilder()
+            for (player in GameSession.players) {
+                if (player.isViral == 1) {
+                    continue
+                }
+                builder.append("${player.name} - House ${GameSession.getKeyLocation(player) + 1}\n")
+            }
+
+            val message = builder.toString()
+            val dialog = AlertDialog.Builder(this)
+            .setTitle("Key location Announcement")
+            .setMessage(message)
+            .create()
+            dialog.show()
+            dialog.setOnDismissListener {
+                mediaPlayer.pause()
+                mediaPlayer.release()
+            }
+        }
+
         intializeListeners()
     }
 
@@ -138,10 +175,13 @@ class MainGame : ComponentActivity() {
             .setTitle("Confirm End Turn")
             .setMessage("Are you sure you want to end your turn?")
             .setPositiveButton("Yes") { _, _ ->
+                GameSession.getCurrentPlayer().muscleCramps = false
+
                 escapeButton.isClickable = false
                 escapeButton.postDelayed({
                     escapeButton.isClickable = true
                 }, 1000)
+
                 val dialog = Dialog(this)
                 dialog.setContentView(R.layout.end_turn)
                 dialog.setCanceledOnTouchOutside(true)
@@ -181,6 +221,10 @@ class MainGame : ComponentActivity() {
                 .setMessage("Are you sure you want to escape?")
                 .setPositiveButton("Yes") { _, _ ->
                     escapeButton.isClickable = false
+                    escapeButton.postDelayed({
+                        escapeButton.isClickable = true
+                    }, 1000)
+
                     GameSession.escapeCurrentPlayer()
 
                     if (GameSession.allPlayersEscaped()) {
@@ -198,10 +242,6 @@ class MainGame : ComponentActivity() {
                         val escapedImg = dialog.findViewById<ImageView>(R.id.playerEscaped_img)
                         escapedName.text = GameSession.getCurrentPlayer().name
                         escapedImg.setImageResource(GameSession.getCurrentPlayer().playerImg)
-
-                        escapeButton.postDelayed({
-                            escapeButton.isClickable = true
-                        }, 1000)
 
                         dialog.setOnDismissListener {
                             GameSession.startNextTurn(this)
@@ -240,8 +280,58 @@ class MainGame : ComponentActivity() {
                 skipTurnButton.isClickable = true
             }, 1000)
 
-            endTurnButton.performClick()
+            val confirmDialog = AlertDialog.Builder(this)
+            .setTitle("Confirm Skip Turn")
+            .setMessage("Are you sure you want to skip your turn?")
+            .setPositiveButton("Yes") { _, _ ->
+                GameSession.getCurrentPlayer().muscleCramps = false
+                val dialog = Dialog(this)
+                dialog.setContentView(R.layout.random_event)
+                dialog.setCanceledOnTouchOutside(true)
+                dialog.show()
+                val randomEventName: TextView = dialog.findViewById(R.id.randomEvent_name)
+                val randomEventDescription: TextView = dialog.findViewById(R.id.randomEvent_description)
+                val eventHelper = EventHelper()
+                var eventType = EventHelper.EventType.Survivor
+                // Can remove first condition once players isn't always empty
+                if(GameSession.players.isNotEmpty() && GameSession.getCurrentPlayer().isViral == 1) {
+                    eventType = EventHelper.EventType.Viral
+                }
+                val randomEvent = eventHelper.getRandomEvent(eventType)
+                randomEventName.text = randomEvent.eventName
+                randomEventDescription.text = randomEvent.eventDescription
+                dialog.setOnDismissListener {
+                    val dialog = Dialog(this)
+                    dialog.setContentView(R.layout.end_turn)
+                    dialog.setCanceledOnTouchOutside(true)
+                    dialog.show()
 
+                    val turnEndName: TextView = dialog.findViewById(R.id.turnEnd_name)
+                    val turnEndImg: ImageView = dialog.findViewById(R.id.turnEnd_img)
+
+                    // Temporary condition since players is always empty for now when continuing game
+                    if(GameSession.players.isNotEmpty()) {
+                        turnEndName.text = GameSession.getNextPlayer().name
+                        turnEndImg.setImageResource(GameSession.getNextPlayer().playerImg)
+                        if(GameSession.getNextPlayer().isViral==1){
+                            turnEndImg.setImageResource(R.drawable.viral2)
+                        }
+                        else{
+                            turnEndImg.setImageResource(GameSession.getNextPlayer().playerImg)
+                        }
+                    }
+                    dialog.setOnDismissListener {
+                        GameSession.startNextTurn(this)
+                        finish()
+                        startActivity(Intent(this, javaClass))
+                    }
+                }
+            }
+            .setNegativeButton("No") { _, _ ->
+                // do nothing
+            }
+            .create()
+            confirmDialog.show()
         }
     }
 }

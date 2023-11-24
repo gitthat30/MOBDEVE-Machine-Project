@@ -30,7 +30,7 @@ class EventHelper() {
         ))
         randomEvents.add(Event(
             "Rainy Day",
-            "Things just aren't going your way huh? -1 dice roll to all player (this lasts until the end of your next turn).",
+            "Sounds like a storm is brewing. Halving dice roll results of all players for a few turns.",
             0.2
         ))
         randomEvents.add(Event(
@@ -96,6 +96,12 @@ class EventHelper() {
 
         for(event in events) {
             if(randomValue < event.eventChance) {
+                if (event.eventName == "Rainy Day") {
+                    GameSession.rainValue = GameSession.players.count{!it.escaped} //total rain turns is remaining player count
+                }
+                else if (event.eventName == "Muscle Cramps") {
+                    GameSession.getCurrentPlayer().muscleCramps = true
+                }
                 return event
             }
             else {
