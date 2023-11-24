@@ -13,6 +13,9 @@
         android:theme="@style/Theme.MachineProject"
         tools:targetApi="31">
         <activity
+            android:name=".ViralSkillsActivity"
+            android:exported="false" />
+        <activity
             android:name=".SelectPlayer"
             android:exported="false" />
         <activity
@@ -25,13 +28,12 @@
             android:name=".EnterHouse"
             android:exported="false"
             android:label="@string/title_activity_enter_house"
-            android:theme="@style/Theme.MachineProject"/>
+            android:theme="@style/Theme.MachineProject" />
         <activity
             android:name=".RollDice"
             android:exported="true"
             android:label="@string/title_activity_roll_dice"
-            android:theme="@style/Theme.MachineProject">
-        </activity>
+            android:theme="@style/Theme.MachineProject"></activity>
         <activity
             android:name=".MainGame"
             android:exported="false" />
@@ -43,9 +45,9 @@
             android:exported="true"
             android:label="@string/app_name"
             android:theme="@style/Theme.MachineProject">
-
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>

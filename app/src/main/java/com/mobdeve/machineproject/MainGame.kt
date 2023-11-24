@@ -6,7 +6,6 @@ import android.content.Intent
 import android.media.MediaPlayer
 import android.os.Bundle
 import android.speech.tts.TextToSpeech
-import android.util.Log
 import android.view.View
 import android.widget.Button
 import android.widget.ImageView
@@ -17,7 +16,6 @@ import com.mobdeve.machineproject.Model.EventHelper
 import com.mobdeve.machineproject.Model.GameSession
 import com.mobdeve.machineproject.SQL.DBHandler
 import com.mobdeve.machineproject.SQL.PlayerDatabase
-import java.util.Locale
 
 class MainGame : ComponentActivity(){
     private lateinit var randomEventButton: Button
@@ -89,13 +87,16 @@ class MainGame : ComponentActivity(){
         }
 
         tvRoundNumber.text = "Round ${GameSession.currentRound}"
+
+        //Viral turn layout changes
         if(GameSession.getCurrentPlayer().isViral == 1){
-            btnEnterHouse.visibility = View.INVISIBLE
+            btnEnterHouse.text = "Viral Skills"
             btnEscape.text = "END GAME"
         }
 
         //Round Reminders
         if (GameSession.currentRound % 3 == 0 && GameSession.getCurrentPlayer().isViral == 1) {
+            GameSession.getCurrentPlayer().viralSkills.skillPoints++
             val dialog = AlertDialog.Builder(this)
             .setTitle("Viral Skill Reminder")
             .setMessage("You obtained one skill point.")
@@ -142,11 +143,17 @@ class MainGame : ComponentActivity(){
         }
 
         enterButton.setOnClickListener {
-            val intent = Intent(this, EnterHouse::class.java)
-            startActivity(intent)
             enterButton.postDelayed({
                 rollDiceButton.isClickable = true
             }, 1000)
+            if(GameSession.getCurrentPlayer().isViral == 1){
+                val intent = Intent(this, ViralSkillsActivity::class.java)
+                startActivity(intent)
+            }
+            else{
+                val intent = Intent(this, EnterHouse::class.java)
+                startActivity(intent)
+            }
         }
 
         randomEventButton.setOnClickListener {

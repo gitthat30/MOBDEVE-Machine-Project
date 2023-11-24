@@ -25,8 +25,6 @@ class EnterHouse : AppCompatActivity() {
         val playerIndex = GameSession.currentPlayerIndex
         currentPlayer = GameSession.players[playerIndex]
         initializeHouseButtons()
-
-
     }
 
     fun unselectOthers(selected: Int, icons: Array<Int>, houseButtons: Array<ImageButton>, ) {
