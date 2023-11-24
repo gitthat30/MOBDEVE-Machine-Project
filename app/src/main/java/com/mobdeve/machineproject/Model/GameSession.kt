@@ -110,6 +110,7 @@ object GameSession {
 
     fun escapeCurrentPlayer() {
         players[currentPlayerIndex].escaped = true
+        getViral().viralSkills.skillPoints++
     }
     fun allPlayersEscaped(): Boolean {
         return players.filter {it.isViral != 1}.all { it.escaped }
