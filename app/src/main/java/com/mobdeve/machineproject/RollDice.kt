@@ -1,6 +1,5 @@
 package com.mobdeve.machineproject
 
-import android.app.AlertDialog
 import android.graphics.drawable.AnimationDrawable
 import android.media.Image
 import android.media.MediaPlayer
@@ -17,7 +16,6 @@ import android.widget.ImageButton
 import android.widget.ImageView
 import android.widget.LinearLayout
 import androidx.activity.ComponentActivity
-import com.mobdeve.machineproject.Model.GameSession
 
 class RollDice : ComponentActivity(), GestureDetector.OnGestureListener, GestureDetector.OnDoubleTapListener  {
     private lateinit var column1: LinearLayout
@@ -28,13 +26,11 @@ class RollDice : ComponentActivity(), GestureDetector.OnGestureListener, Gesture
     private lateinit var dice3: ImageView
     private lateinit var dice4: ImageView
 
-    private lateinit var rain: ImageView
-    private lateinit var cramp: ImageView
-
+    private lateinit var backButton: Button
     private lateinit var minusButton: ImageButton
     private lateinit var plusButton: ImageButton
 
-    private var diceNum: Int = 1
+    private var diceNum: Int = 2
     private var diceValues: Array<Int> = arrayOf(0, 0, 0, 0)
     private var diceImages: Array<Int> = arrayOf(
         R.drawable.xml_dice1,
@@ -79,21 +75,7 @@ class RollDice : ComponentActivity(), GestureDetector.OnGestureListener, Gesture
         dice3 = column2.findViewById(R.id.dice3_img)
         dice4 = column2.findViewById(R.id.dice4_img)
 
-        rain = findViewById(R.id.iv_rain)
-        cramp = findViewById(R.id.iv_cramp)
-        if(GameSession.rainValue > 0){
-            rain.visibility = View.VISIBLE
-        }
-        else{
-            rain.visibility = View.GONE
-        }
-        if(GameSession.getCurrentPlayer().muscleCramps){
-            cramp.visibility = View.VISIBLE
-        }
-        else{
-            cramp.visibility = View.GONE
-        }
-
+        backButton = findViewById(R.id.back_to_turn_layout)
         minusButton = findViewById(R.id.minus_btn)
         plusButton = findViewById(R.id.plus_btn)
     }
@@ -109,19 +91,6 @@ class RollDice : ComponentActivity(), GestureDetector.OnGestureListener, Gesture
             diceNum++
             updateClickable()
             updateDiceCount()
-        }
-        rain.setOnClickListener {
-            val builder = AlertDialog.Builder(this)
-            builder.setTitle("Rain Event")
-            val turns = if (GameSession.rainValue <= 1) "turn" else "turns"
-            builder.setMessage("All dice roll results are halved. ${GameSession.rainValue} $turns remaining.")
-            builder.create().show()
-        }
-        cramp.setOnClickListener {
-            val builder = AlertDialog.Builder(this)
-            builder.setTitle("Muscle Cramp Event")
-            builder.setMessage("You get one less dice roll this turn.")
-            builder.create().show()
         }
     }
 
@@ -297,10 +266,10 @@ class RollDice : ComponentActivity(), GestureDetector.OnGestureListener, Gesture
 
     fun initDiceValues() {
         diceValues = arrayOf(
-            2,
-            2,
-            2,
-            2
+            (1..6).random(),
+            (1..6).random(),
+            (1..6).random(),
+            (1..6).random()
         )
     }
 
