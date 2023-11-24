@@ -266,10 +266,10 @@ class RollDice : ComponentActivity(), GestureDetector.OnGestureListener, Gesture
 
     fun initDiceValues() {
         diceValues = arrayOf(
-            (1..6).random(),
-            (1..6).random(),
-            (1..6).random(),
-            (1..6).random()
+            2,
+            2,
+            2,
+            2
         )
     }
 
