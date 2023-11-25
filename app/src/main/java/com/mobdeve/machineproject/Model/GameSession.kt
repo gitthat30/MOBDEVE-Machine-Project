@@ -43,7 +43,7 @@ object GameSession {
 
     fun initializeHouses() {
         for (player in players) {
-            player.houses.forEach { it.hasBeenVisited = false } //change this to true for testing randomization
+            player.houses.forEach { it.hasBeenVisited = false; it.hasKey = false} //change this to true for testing randomization
             val randomHouseIndex = (0 until 17).random()
             if(player.isViral != 1){
                 player.houses[randomHouseIndex].hasKey = true
